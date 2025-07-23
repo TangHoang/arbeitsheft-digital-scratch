@@ -5,7 +5,7 @@
             In der Programmierung wirst du andauernd auf Situationen stoßen, in denen der weitere Ablauf des Programms von einer Bedingung abhängt. 
             Man benötigt dafür Code der eine Fallunterscheidung erlaubt.
         </p>
-        <p><strong>Aufgabe 1</strong></p>
+            <p class="aufgaben-titel"><strong>Aufgabe 1</strong></p>
         <p>a) Starte das folgende Programm probiere es aus. <br>
             b) Beschreibe, wo Fallunterscheidungen auftreten.
         </p>
@@ -54,7 +54,7 @@
         font-size: 1.125rem;
         line-height: 1.8;
         color: #333;
-        max-width: 1000px;
+        max-width: 2000px;
         margin: 0 auto;
     }
 
@@ -94,6 +94,11 @@
         color: #666;
         margin: 1.5rem 0;
         font-style: italic;
+    }
+
+    .aufgaben-titel {
+        border-bottom: 1px solid #ddd;
+        font-size: 1.8rem;
     }
 
 </style>
