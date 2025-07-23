@@ -1,7 +1,7 @@
 <script setup>
-import Sidebar from './components/SideBar.vue'
+import SideBarLeft from './components/SideBarLeft.vue'
 import MainContent from './components/MainContent.vue'
-import Tipps from "./components/Tipps.vue"
+import SideBarRight from "./components/SideBarRight.vue"
 import NavBar from './components/NavBar.vue'
 </script>
 
@@ -11,9 +11,9 @@ import NavBar from './components/NavBar.vue'
         <NavBar />
     </div>
     <div class="content-wrapper">
-      <Sidebar />
+      <SideBarLeft />
       <MainContent />
-      <Tipps />
+      <SideBarRight />
     </div>
   </div>
 </template>

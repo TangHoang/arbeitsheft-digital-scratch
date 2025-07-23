@@ -5,8 +5,8 @@
                 <h2>Kapitelübersicht</h2>
                 <ul>
                     <li 
-                        v-for="kapitel in kapitel_liste" :key="kapitel.id">
-                            <a href="#" @click.prevent="kapitelWechseln(kapitel.titel)">{{ kapitel.titel }}</a>
+                        v-for="chapter in chapter_list" :key="chapter.id">
+                            <a href="#" @click.prevent="changeChapter(chapter.title)">{{ chapter.title }}</a>
                     </li>
                 </ul>
             </div>
@@ -15,20 +15,20 @@
 </template>
 
 <script setup>
-    const kapitel_liste = [
-        {id: 0, titel: "Einführung"},
-        {id: 1, titel: "Scratch"},
-        {id: 2, titel: "Kontrollstrukturen"},
-        {id: 3, titel: "Projekt: Flappy Bird"},
+    const chapter_list = [
+        {id: 0, title: "Einführung"},
+        {id: 1, title: "Scratch"},
+        {id: 2, title: "Kontrollstrukturen"},
+        {id: 3, title: "Projekt: Flappy Bird"},
     ]
-    function kapitelWechseln(titel) {
+    function changeChapter(titel) {
         alert(`Kapitel ${titel} wurde angeklickt!`)
     }
 </script>
 
 <style scoped>
     .sidebar {
-        width: 20vw;
+        width: 15vw;
         background-color: #fff;
         padding: 1.5rem;
         height: 100vh;
@@ -68,9 +68,6 @@
     .sidebar-content {
         position: fixed;
         top: 20%;
-        left: 50;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        left: 20;
     }
 </style>

@@ -1,14 +1,14 @@
 <template>
-    <aside class="tipps-box">
+    <aside class="hints-container">
         <div><h3>Hinweise</h3></div>
-        <HinweisBox :titel="'Code starten'" :hinweis="hinweisRaketeStart"/>
-        <HinweisBox :titel="'y-Variable'" :hinweis="hinweisRaketeVariable"/>
+        <hint :title="'Code starten'" :hint="hinweisRaketeStart"/>
+        <hint :title="'y-Variable'" :hint="hinweisRaketeVariable"/>
     </aside>        
         
 </template>
 
 <script setup>
-    import HinweisBox from './HinweisBox.vue';
+    import hint from './hint.vue';
 
     const hinweisRaketeStart = "Vergiss nicht, auf die grüne Flagge zu klicken."
     const hinweisRaketeVariable = "Die y-Variable kennst du bereits aus Koordinatensystemen im Mathematikunterricht"
@@ -16,7 +16,7 @@
 </script>
 
 <style scoped>
-    .tipps-box {
+    .hints-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -28,7 +28,7 @@
         text-align: left;
     }
 
-    .tipps-box h3 {
+    .hints-container h3 {
         margin-top: 0;
         font-size: 1.2rem;
         margin-bottom: 1rem;

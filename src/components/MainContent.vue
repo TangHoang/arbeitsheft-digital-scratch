@@ -5,11 +5,11 @@
             In der Programmierung wirst du andauernd auf Situationen stoßen, in denen der weitere Ablauf des Programms von einer Bedingung abhängt. 
             Man benötigt dafür Code der eine Fallunterscheidung erlaubt.
         </p>
-            <p class="aufgaben-titel"><strong>Aufgabe 1</strong></p>
+            <p class="exercise-title"><strong>Aufgabe 1</strong></p>
         <p>a) Starte das folgende Programm probiere es aus. <br>
             b) Beschreibe, wo Fallunterscheidungen auftreten.
         </p>
-        <ProjektButton url="https://scratch.mit.edu/projects/1200064022/" />
+        <ProjectLinkButton url="https://scratch.mit.edu/projects/1200064022/" />
 
         <div class="scratch-code-container">
             <iframe 
@@ -22,15 +22,15 @@
             </iframe>
             <img src="../assets/raumschiff_code.png" height="402">
         </div>
-        <SchuelerEingabe />
+        <StudentAnswer />
    
     </div>
 
 </template>
 
 <script setup>
-    import SchuelerEingabe from './SchuelerEingabe.vue'
-    import ProjektButton from './ProjektButton.vue';
+    import StudentAnswer from './StudentAnswer.vue'
+    import ProjectLinkButton from './ProjectLinkButton.vue';
 </script>
 
 <style scoped>
@@ -89,14 +89,6 @@
         list-style: disc;
         margin-left: 1.5rem;
         margin-bottom: 1.5rem;
-    }
-
-    .medium-style blockquote {
-        border-left: 4px solid #ccc;
-        padding-left: 1rem;
-        color: #666;
-        margin: 1.5rem 0;
-        font-style: italic;
     }
 
     .aufgaben-titel {

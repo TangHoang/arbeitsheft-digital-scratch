@@ -1,20 +1,21 @@
 <template>
-    <div class="eingabe-box">
-        <label for="loesung">Deine Lösung für b): </label>
+    <div class="input-box">
+        <label for="answer">Deine Lösung für b): </label>
         <textarea 
-            id="loesung"
+            id="answer"
             placeholder="Trage hier deine Lösung ein."
-            v-model="eingabe"
+            v-model="input"
             >
         </textarea>
     </div>
 </template>
 
 <style scoped>
-    .eingabe-box {
+    .input-box {
         display: flex;
         flex-direction: column;
         justify-content: left;
+        padding: 0 100px;
     }
 
     textarea {
@@ -25,6 +26,7 @@
         font-size: 1rem;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
+
     }
 
     label {

@@ -1,12 +1,12 @@
 <template>
-    <div class="hinweis-box">
-        <button @click="sichtbar = !sichtbar" class="toggle-button">
-            {{ sichtbar ? "▼" : "▶" }} {{ titel }}
+    <div class="hint-box">
+        <button @click="visible = !visible" class="toggle-button">
+            {{ visible ? "▼" : "▶" }} {{ title }}
         </button>
     </div>
 
-    <div v-if="sichtbar" class="hinweis-inhalt">
-        {{ hinweis }}
+    <div v-if="visible" class="hint-content">
+        {{ hint }}
     </div>
 </template>
 
@@ -14,11 +14,11 @@
 import {ref} from "vue"
 
 const props = defineProps({
-    titel: String,
-    hinweis: String,
+    title: String,
+    hint: String,
 })
 
-const sichtbar = ref(false)
+const visible = ref(false)
 </script>
 
 <style scoped>
@@ -33,11 +33,7 @@ const sichtbar = ref(false)
         margin-bottom: 0.5rem;
     }
 
-    .hinweis-inhalt {
+    .hint-content {
         padding-bottom: 8px;
-    }
-
-    li {
-        margin-bottom: 0.3rem;
     }
 </style>
