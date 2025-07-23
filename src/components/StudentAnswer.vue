@@ -8,13 +8,24 @@
             >
         </textarea>
     </div>
+    <div class="hints-container">
+        <hint :title="'Hinweis'" :hint="'In welche Richtungen kann das Raumschiff fliegen?'"/>
+    </div>
 </template>
+
+<script setup>
+    import hint from './hint.vue';
+</script>
 
 <style scoped>
     .input-box {
         display: flex;
         flex-direction: column;
         justify-content: left;
+        padding: 0 100px;
+    }
+
+    .hints-container {
         padding: 0 100px;
     }
 
