@@ -9,6 +9,8 @@
         <p>a) Starte das folgende Programm probiere es aus. <br>
             b) Beschreibe, wo Fallunterscheidungen auftreten.
         </p>
+        <ProjektButton url="https://scratch.mit.edu/projects/1200064022/" />
+
         <div class="scratch-code-container">
             <iframe 
                 src="https://scratch.mit.edu/projects/1200064022/embed" 
@@ -28,6 +30,7 @@
 
 <script setup>
     import SchuelerEingabe from './SchuelerEingabe.vue'
+    import ProjektButton from './ProjektButton.vue';
 </script>
 
 <style scoped>
@@ -77,7 +80,7 @@
     }
 
     .medium-style iframe {
-        margin: 2rem 0;
+        margin: 0.5rem 0;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
@@ -99,6 +102,10 @@
     .aufgaben-titel {
         border-bottom: 1px solid #ddd;
         font-size: 1.8rem;
+    }
+
+    ProjektButton {
+        align-self: left;
     }
 
 </style>
