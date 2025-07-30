@@ -35,5 +35,7 @@ const visible = ref(false)
 
     .hint-content {
         padding-bottom: 8px;
+        padding-left: 18px;
+        font-size: 1rem;
     }
 </style>

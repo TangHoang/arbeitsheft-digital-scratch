@@ -1,16 +1,18 @@
 <template>
-    <div class="input-box">
-        <label for="answer">Deine Lösung für b): </label>
-        <textarea 
-            id="answer"
-            placeholder="Trage hier deine Lösung ein."
-            v-model="input"
-            >
-        </textarea>
+    <div class="answer-wrapper">
+        <div class="input-box">
+            <textarea 
+                id="answer"
+                placeholder="Trage hier deine Lösung für b) ein."
+                v-model="input"
+                >
+            </textarea>
+        </div>
+        <div class="hints-container">
+            <hint :title="'Hinweis'" :hint="'In welche Richtungen kann das Raumschiff fliegen?'"/>
+        </div>
     </div>
-    <div class="hints-container">
-        <hint :title="'Hinweis'" :hint="'In welche Richtungen kann das Raumschiff fliegen?'"/>
-    </div>
+    
 </template>
 
 <script setup>
@@ -18,15 +20,17 @@
 </script>
 
 <style scoped>
+    .answer-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1.5rem;
+        padding-bottom: 2rem;
+    }
+
     .input-box {
         display: flex;
         flex-direction: column;
         justify-content: left;
-        padding: 0 100px;
-    }
-
-    .hints-container {
-        padding: 0 100px;
     }
 
     textarea {
