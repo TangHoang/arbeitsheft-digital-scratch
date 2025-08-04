@@ -7,10 +7,13 @@
       :key="index"
       :title="ex.title"
       :description="ex.description"
-      :subTasks="ex.subTasks"
+      :subTasks_1="ex.subTasks_1"
+      :subTasks_2="ex.subTasks_2"
       :scratchUrl="ex.scratchUrl"
       :image="ex.image"
       :hints="ex.hints"
+      :answerFieldBool="ex.answerFieldBool"
+      :projectButtonLink="ex.projectButtonLink"
     />
   </div>
 </template>
@@ -37,13 +40,13 @@ const props = defineProps({
 }
 
 h1 {
-  padding: 0 1rem 0 1.5rem;
+  padding: 0 1.5rem 0 1.5rem;
   width: 80%;
   margin: 0;
 }
 
 p {
-  padding: 0 1rem 0 1.5rem;
+  padding: 0 1.5rem 0 1.5rem;
   width: 80%;
 }
 </style>

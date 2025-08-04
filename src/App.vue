@@ -9,20 +9,20 @@
       </div>
 
       <div class="main-content">
-        <iframe
-          src="https://tanghoang.github.io/whisker-edit/?lng=de"
-          allowtransparency="true"
-          width="1000"
-          height="800"
-          frameborder="0"
-          scrolling=""
-          allowfullscreen
-        ></iframe>
         <ChapterBlock 
           title="Kontrollstrukturen" 
           description="Am Ende dieses Arbeitsheftes wirst du dein eigenes Flappy Bird Spiel programmieren. Damit du das schaffst, lernst du jetzt ein Kontrollstrukturen kennen, die dir helfen werden effektiv zu programmieren." 
           :content=chapter_1
         />
+        <iframe
+          src="https://tanghoang.github.io/whisker-edit/?lng=de"
+          allowtransparency="true"
+          width="1000"
+          height="600"
+          frameborder="0"
+          scrolling="no"
+          allowfullscreen
+        ></iframe>
         <ChapterBlock 
           title="Projekt: Flappy Bird"
           description="Test Test Test"
@@ -43,9 +43,11 @@
     {
       title: "Aufgabe 1",
       description: "",
-      subTasks: [
-        'Starte das folgende Programm und führe es aus.',
-        'Beschreibe, wo Fallunterscheidungen auftreten',
+      subTasks_1: [
+        'a) Starte das folgende Programm und probiere es aus.',
+      ],
+      subTasks_2: [
+        "b) Beschreibe nun, wo in diesem Programm Fallunterscheidungen auftreten."
       ],
       scratchUrl: "https://scratch.mit.edu/projects/1200064022/embed",
       image: "raumschiff_code.png",
@@ -54,27 +56,33 @@
           title: "Hinweis-Titel",
           hint: "Hinweis-Content"
         }
-      ]
+      ],
+      answerFieldBool: true,
+      projectButtonLink: "",
+
     },
     {
       title: "Aufgabe 2",
-      description: "Verändere das Verhalten.",
-      subTasks: [
-        'Ändere die Startposition der Figur.',
-        'Teste, ob sich das Verhalten verändert.',
+      description: "Die Rakete kann bisher nur nach oben und nach unten fliegen...",
+      subTasks_1: [
+        'a) Öffne das Scratch Projekt, indem du unten auf den Button clickst.',
+        'b) Füge weitere Fallunterscheidungen hinzu, sodass die Rakete auch nach links und rechts fliegen kann.',
+        "c) Zusatz: Verhindere, dass die Rakete den Rand verlassen kann."
       ],
-      scratchUrl: "https://scratch.mit.edu/projects/1200064111/embed"
+      projectButtonLink: "https://scratch.mit.edu/projects/1200064022/editor",
     },
   ]    
   const chapter_2 = [
     {
       title: "Aufgabe 5",
       description: "hallo hallo",
-      subTasks: [
+      subTasks_1: [
         'Starte das folgende Programm und führe es aus.',
         'Beschreibe, wo Fallunterscheidungen auftreten',
       ],
-      scratchUrl: "https://scratch.mit.edu/projects/1200064022/embed" 
+      scratchUrl: "https://scratch.mit.edu/projects/1200064022/embed",
+      answerFieldBool: false,
+ 
     }
   ]  
 </script>
