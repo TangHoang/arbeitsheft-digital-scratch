@@ -17,7 +17,7 @@
         display: inline-block;
         width: auto;
         color: #111;
-        padding: 0.6rem 100px;
+        padding: 0.6rem;
         text-decoration: none;
         font-weight: 500;
         font-size: 1rem;

@@ -3,7 +3,7 @@
         <div class="input-box">
             <textarea 
                 id="answer"
-                placeholder="Trage hier deine Lösung für b) ein."
+                placeholder="Trage hier deine Lösung ein."
                 v-model="input"
                 >
             </textarea>
