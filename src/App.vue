@@ -9,6 +9,15 @@
       </div>
 
       <div class="main-content">
+        <iframe
+          src="https://tanghoang.github.io/whisker-edit/?lng=de"
+          allowtransparency="true"
+          width="1000"
+          height="800"
+          frameborder="0"
+          scrolling=""
+          allowfullscreen
+        ></iframe>
         <ChapterBlock 
           title="Kontrollstrukturen" 
           description="Am Ende dieses Arbeitsheftes wirst du dein eigenes Flappy Bird Spiel programmieren. Damit du das schaffst, lernst du jetzt ein Kontrollstrukturen kennen, die dir helfen werden effektiv zu programmieren." 
@@ -27,10 +36,7 @@
 
 <script setup>
   import SideBarLeft from './components/SideBarLeft.vue'
-  import MainContent from './components/MainContent.vue'
-  import SideBarRight from "./components/SideBarRight.vue"
   import NavBar from './components/NavBar.vue'
-  import ExerciseBlock from './components/ExerciseBlock.vue'
   import ChapterBlock from "./components/ChapterBlock.vue"
   
   const chapter_1 = [
