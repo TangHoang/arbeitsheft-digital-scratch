@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue"
+import { ref } from "vue"
 
 const props = defineProps({
     title: String,
@@ -26,31 +26,32 @@ const visible = ref(false)
 </script>
 
 <style scoped>
-    .toggle-button {
-        background: none;
-        border: none;
-        font-weight: bold;
-        font-size: 1rem;
-        color: #33691e;
-        cursor: pointer;
-        padding: 0;
-        margin-bottom: 0.5rem;
-    }
+.toggle-button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #33691e;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
 
-    .hint-content {
-        padding-bottom: 8px;
-        padding-left: 18px;
-        font-size: 1rem;
-    }
+.hint-content {
+    padding-bottom: 8px;
+    padding-left: 18px;
+    font-size: 1rem;
+}
 
-    .image-hint {
-        width: auto;
-        height: auto;
-        padding: 5px 5px;
-    }
-    .image-hint img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
+.image-hint {
+    width: auto;
+    height: auto;
+    padding: 5px 5px;
+}
+
+.image-hint img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 </style>

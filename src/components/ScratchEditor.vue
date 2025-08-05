@@ -1,28 +1,24 @@
 <template>
-  <div>
-    <button @click="isOpen = true" class="open-btn">
-      Editor öffnen
-    </button>
-
-    <div :class="['overlay', { 'active': isOpen }]" @click.self="isOpen = false">
-         <button @click="isOpen = false" class="floating-close-btn">
-            Minimieren
+    <div>
+        <button @click="isOpen = true" class="open-btn">
+            Editor öffnen
         </button>
 
-        <div class="panel">
-            
-            <iframe 
-                src="https://scratch.fim.uni-passau.de/scratch/" 
-                class="iframe"
-                allowfullscreen
-            ></iframe>
+        <div :class="['overlay', { 'active': isOpen }]" @click.self="isOpen = false">
+            <button @click="isOpen = false" class="floating-close-btn">
+                Minimieren
+            </button>
 
-            <div class="hint-container">
-                <hint :title="'Hinweis'" :hint="'Test'" :imageLink="Raumschiffimage"/>
+            <div class="panel">
+
+                <iframe src="https://scratch.fim.uni-passau.de/scratch/" class="iframe" allowfullscreen></iframe>
+
+                <div class="hint-container">
+                    <hint :title="'Hinweis'" :hint="'Test'" :imageLink="Raumschiffimage" />
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -76,7 +72,7 @@ const isOpen = ref(false);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: row;
 }
