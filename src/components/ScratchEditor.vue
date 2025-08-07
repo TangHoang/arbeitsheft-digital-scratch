@@ -5,6 +5,7 @@
         </button>
 
         <div :class="['overlay', { 'active': isOpen }]" @click.self="isOpen = false">
+            <ProjectLinkButton :url="RaumschiffProjekt" class="project-link-btn" />
             <button @click="isOpen = false" class="floating-close-btn">
                 Minimieren
             </button>
@@ -25,7 +26,8 @@
 import { ref } from 'vue';
 import hint from './hint.vue';
 import Raumschiffimage from "../assets/raumschiff_code.png"
-
+import ProjectLinkButton from './ProjectLinkButton.vue'
+const RaumschiffProjekt = new URL("../assets/Raumschiff.sb3", import.meta.url).href;
 
 const isOpen = ref(false);
 </script>
@@ -37,6 +39,19 @@ const isOpen = ref(false);
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-link-btn {
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    padding: 10px 15px;
+    background-color: #3ce756;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    z-index: 1100;
     cursor: pointer;
 }
 
@@ -80,7 +95,7 @@ const isOpen = ref(false);
 .floating-close-btn {
     position: fixed;
     top: 20px;
-    right: 20px;
+    right: 50px;
     padding: 10px 15px;
     background-color: #e74c3c;
     color: white;

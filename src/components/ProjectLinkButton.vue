@@ -1,6 +1,6 @@
 <template>
     <a :href="url" target="_blank" rel="noopener noreferrer" class="project-button">
-        🔗 Zum Projekt
+        Datei ↓
     </a>
 </template>
 
@@ -21,11 +21,11 @@ const props = defineProps({
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
-    transition: font-weight 0.1s ease-in-out;
+    transition: color 0.1s ease-in-out;
     text-align: left;
 }
 
 .project-button:hover {
-    font-weight: bold;
+    color: rgb(17, 78, 170);
 }
 </style>
