@@ -1,5 +1,5 @@
 <template>
-    <a :href="url" target="_blank" rel="noopener noreferrer" class="project-button">
+    <a :href="url" download class="project-button">
         Datei ↓
     </a>
 </template>
