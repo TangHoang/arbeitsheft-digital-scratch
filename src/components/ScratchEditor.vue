@@ -25,7 +25,7 @@
 <script setup>
 import { ref } from 'vue';
 import hint from './hint.vue';
-import Raumschiffimage from "../assets/raumschiff_code.png"
+import Raumschiffimage from "../assets/raumschiff_code_if.png"
 import ProjectLinkButton from './ProjectLinkButton.vue'
 const RaumschiffProjekt = new URL("../assets/Raumschiff.sb3", import.meta.url).href;
 
@@ -96,7 +96,7 @@ const isOpen = ref(false);
     position: fixed;
     top: 20px;
     right: 50px;
-    padding: 10px 15px;
+    padding: 0.6rem;
     background-color: #e74c3c;
     color: white;
     border: none;
