@@ -21,6 +21,7 @@ import hint from './hint.vue';
     flex-direction: column;
     padding-right: 1.5rem;
     padding-bottom: 2rem;
+    max-width: 1000px;
 }
 
 .input-box {
