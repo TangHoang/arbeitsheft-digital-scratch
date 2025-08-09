@@ -1,24 +1,25 @@
 <template>
-    <aside>
-        <div class="sidebar">
-            <div class="sidebar-content">
-                <h2>Kapitelübersicht</h2>
-                <ul>
-                    <li v-for="chapter in chapter_list" :key="chapter.id">
-                        <a href="#" @click.prevent="changeChapter(chapter.title)">{{ chapter.title }}</a>
-                    </li>
-                </ul>
-            </div>
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <h2>Kapitelübersicht</h2>
+            <ul>
+                <li v-for="chapter in chapter_list" :key="chapter.id">
+                    <router-link :to="chapter.routeName" class="chapter-link">
+                        {{ chapter.title }}
+                    </router-link>
+                </li>
+            </ul>
         </div>
-    </aside>
+    </div>
 </template>
 
 <script setup>
 const chapter_list = [
-    { id: 0, title: "Einführung" },
-    { id: 1, title: "Scratch" },
-    { id: 2, title: "Kontrollstrukturen" },
-    { id: 3, title: "Projekt: Flappy Bird" },
+    { id: 0, title: "Einführung", routeName: "" },
+    { id: 1, title: "Scratch", routeName: "" },
+    { id: 2, title: "Kontrollstrukturen", routeName: "kontrollstrukturen" },
+    { id: 3, title: "Variablen", routeName: "variablen" },
+    { id: 4, title: "Projekt: Flappy Bird", routeName: "" },
 ]
 function changeChapter(titel) {
     alert(`Kapitel ${titel} wurde angeklickt!`)
@@ -28,7 +29,6 @@ function changeChapter(titel) {
 <style scoped>
 .sidebar {
     width: 15vw;
-    background-color: #fff;
     padding: 1.5rem;
     height: 100vh;
     box-sizing: border-box;
