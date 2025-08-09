@@ -7,7 +7,9 @@
 </template>
 
 <script setup>
-import ChapterShell from '../components/ChapterShell.vue';
+import ChapterShell from "@/components/ChapterShell.vue";
+import RaumfschiffVar from "@/assets/raumschiff_code_variable.png"
+
 const content = [
     {
         sectionTitle: "Ein Beispiel",
@@ -25,7 +27,18 @@ const content = [
                 type: "subTasks",
                 props: { items: ["a) Starte das folgende Programm und probiere es aus."] },
             },
-        ]
+            {
+                type: "scratchContent", props: { scratchUrl: "https://scratch.mit.edu/projects/1200064022/embed", imageUrl: RaumfschiffVar }
+            },
+            {
+                type: "subTasks",
+                props: { items: ["b) Beschreibe das Verhalten der Variablen vor und während der Schleife."] },
+            },
+            {
+                type: "answer",
+                props: {}
+            },
+        ],
     }
 ]
 </script>
