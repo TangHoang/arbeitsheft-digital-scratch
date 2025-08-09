@@ -31,7 +31,15 @@ body {
 	width: 100%;
 	overflow-x: hidden;
 	/* 🔒 kein horizontaler Scroll */
-	background-color: #fff;
+	background-color: hsla(39, 0%, 100%, 1);
+	background-image:
+		radial-gradient(at 40% 20%, hsla(34, 0%, 100%, 1) 0px, transparent 50%),
+		radial-gradient(at 80% 0%, hsla(38, 100%, 99%, 1) 0px, transparent 50%),
+		radial-gradient(at 0% 50%, hsla(49, 0%, 100%, 1) 0px, transparent 50%),
+		radial-gradient(at 85% 66%, hsla(22, 100%, 98%, 1) 0px, transparent 50%),
+		radial-gradient(at 0% 100%, hsla(21, 11%, 93%, 1) 0px, transparent 50%),
+		radial-gradient(at 80% 100%, hsla(33, 100%, 99%, 1) 0px, transparent 50%),
+		radial-gradient(at 0% 0%, hsla(42, 0%, 100%, 1) 0px, transparent 50%);
 }
 
 h1 {

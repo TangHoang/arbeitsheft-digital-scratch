@@ -21,7 +21,7 @@ const props = defineProps({
 
 <style scoped>
 .kapitel {
-    width: 100%;
+    width: 90%;
     margin-bottom: 3rem;
     padding: 0 1.5rem 0 1.5rem;
 }
@@ -33,5 +33,6 @@ h1 {
 
 p {
     width: 80%;
+    font-size: 1.2rem;
 }
 </style>
