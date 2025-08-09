@@ -9,7 +9,7 @@
         </template>
 
         <template #sidebar>
-            <HintList v-if="hints?.length" :items="hints" />
+            <Hint v-if="hints?.length" v-for="h in hints" :title="h.title" :hint="h.hint" />
         </template>
     </ExerciseShell>
 </template>
@@ -39,4 +39,8 @@ const registry = {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+p {
+    font-size: 1.1rem;
+}
+</style>

@@ -12,7 +12,7 @@
 <style scoped>
 .exercise-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 5fr 1fr;
     gap: 1.5rem;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -26,5 +26,7 @@
 
 .sidebar {
     min-width: 0;
+    height: 50%;
+    align-self: center;
 }
 </style>
