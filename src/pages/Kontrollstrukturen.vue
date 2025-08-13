@@ -1,7 +1,7 @@
 <script setup>
-import ChapterShell from '@/components/ChapterShell.vue'
-import RaumschiffIf from '@/assets/raumschiff_code_if.png'
-import RaumschiffWhile from '@/assets/raumschiff_code_while.png'
+import ChapterShell from "@/components/ChapterShell.vue"
+import RaumschiffIf from "@/assets/raumschiff_code_if.png"
+import RaumschiffWhile from "@/assets/raumschiff_code_while.png"
 
 const content = [
     {
@@ -20,13 +20,14 @@ const content = [
                 type: "subTasks",
                 props: { items: ["a) Starte das folgende Programm und probiere es aus."] },
             },
+
+            {
+                type: "scratchContent",
+                props: { scratchUrl: "https://scratch.mit.edu/projects/1200064022/embed", imageUrl: RaumschiffIf }
+            },
             {
                 type: "subTasks",
                 props: { items: ["b) Beschreibe nun, wo in diesem Programm Fallunterscheidungen auftreten."] },
-            },
-            {
-                type: 'scratchContent',
-                props: { scratchUrl: 'https://scratch.mit.edu/projects/1200064022/embed', imageUrl: RaumschiffIf }
             },
             {
                 type: "answer",
@@ -78,7 +79,7 @@ const content = [
                 props: { items: ["a) Starte das folgende Programm und probiere es aus."] },
             },
             {
-                type: 'scratchContent',
+                type: "scratchContent",
                 props: { scratchUrl: "https://scratch.mit.edu/projects/1204906705/embed", imageUrl: RaumschiffWhile }
             },
             {
@@ -115,6 +116,6 @@ const content = [
 
 <template>
     <ChapterShell title="Kontrollstrukturen"
-        description="Am Ende dieses Arbeitsheftes wirst du dein eigenes Flappy Bird Spiel programmieren. Damit du das schaffst, lernst du jetzt ein Kontrollstrukturen kennen, die dir helfen werden effektiv zu programmieren."
+        description="Am Ende dieses Arbeitsheftes wirst du dein eigenes Flappy Bird Spiel programmieren. Damit du das schaffst, lernst du jetzt Kontrollstrukturen kennen, die dir helfen werden effektiv zu programmieren."
         :content="content" />
 </template>

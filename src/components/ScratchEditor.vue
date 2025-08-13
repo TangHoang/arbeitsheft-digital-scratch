@@ -82,7 +82,7 @@ const isOpen = ref(false);
 
 .panel {
     background: white;
-    width: 95%;
+    width: 98%;
     height: 85%;
     border-radius: 10px;
     overflow: hidden;
