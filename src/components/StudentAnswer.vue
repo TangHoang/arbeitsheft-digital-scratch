@@ -5,14 +5,14 @@
             </textarea>
         </div>
         <div class="hints-container">
-            <hint :title="'Hinweis'" :hint="'In welche Richtungen kann das Raumschiff fliegen?'" />
+            <Hint :title="'TODO'" :hint="'TODO'" />
         </div>
     </div>
 
 </template>
 
 <script setup>
-import hint from './hint.vue';
+import Hint from './hint.vue';
 </script>
 
 <style scoped>
