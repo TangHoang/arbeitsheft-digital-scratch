@@ -3,6 +3,9 @@ import ChapterShell from "@/components/ChapterShell.vue"
 import RaumschiffIf from "@/assets/raumschiff_code_if.png"
 import RaumschiffWhile from "@/assets/raumschiff_code_while.png"
 
+const RaumschiffProjekt_Aufgabe2 = new URL("@/assets/Raumschiff_skelett_exercise2.sb3", import.meta.url).href;
+
+
 const content = [
     {
         sectionTitle: "Fallunterscheidungen",
@@ -57,7 +60,7 @@ const content = [
             },
             {
                 type: "editor",
-                props: {},
+                props: { projectUrl: RaumschiffProjekt_Aufgabe2 },
             },
         ],
     },

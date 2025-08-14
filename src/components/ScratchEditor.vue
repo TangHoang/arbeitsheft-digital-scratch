@@ -5,7 +5,7 @@
         </button>
 
         <div :class="['overlay', { 'active': isOpen }]" @click.self="isOpen = false">
-            <ProjectLinkButton :url="RaumschiffProjekt" class="project-link-btn" />
+            <ProjectLinkButton :url="projectUrl" class="project-link-btn" />
             <button @click="isOpen = false" class="floating-close-btn">
                 Minimieren
             </button>
@@ -27,9 +27,17 @@ import { ref } from 'vue';
 import hint from './hint.vue';
 import Raumschiffimage from "../assets/raumschiff_code_if.png"
 import ProjectLinkButton from './ProjectLinkButton.vue'
-const RaumschiffProjekt = new URL("../assets/Raumschiff.sb3", import.meta.url).href;
+
 
 const isOpen = ref(false);
+
+const props = defineProps({
+    projectUrl: {
+        type: String,
+        required: true
+    }
+})
+
 </script>
 
 <style scoped>
