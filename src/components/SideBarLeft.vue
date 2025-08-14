@@ -19,7 +19,7 @@ const chapter_list = [
     { id: 1, title: "Scratch", routeName: "" },
     { id: 2, title: "Kontrollstrukturen", routeName: "kontrollstrukturen" },
     { id: 3, title: "Variablen", routeName: "variablen" },
-    { id: 4, title: "Projekt: Flappy Bird", routeName: "" },
+    { id: 4, title: "Projekt: Flappy Bird", routeName: "flappy-bird" },
 ]
 function changeChapter(titel) {
     alert(`Kapitel ${titel} wurde angeklickt!`)
@@ -68,7 +68,7 @@ function changeChapter(titel) {
 
 .sidebar-content {
     position: fixed;
-    top: 20%;
+    top: 10%;
     left: 20;
 }
 </style>
