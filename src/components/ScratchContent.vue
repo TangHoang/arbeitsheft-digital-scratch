@@ -3,7 +3,7 @@
         <iframe v-if="scratchUrl" :src="scratchUrl" allowtransparency="true" width="485" height="402" frameborder="0"
             scrolling="no" allowfullscreen></iframe>
 
-        <img v-if="imageUrl" :src="imageUrl" alt="Scratch Bild" height="402" class="scratch-image" />
+        <img v-if="imageUrl" :src="imageUrl" height="402" alt="Scratch Bild" class="scratch-image" />
     </div>
 </template>
 
@@ -17,13 +17,15 @@ const props = defineProps({
 <style scoped>
 .scratch-content {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
-    align-items: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .scratch-image {
     border: 1px solid #ccc;
     border-radius: 4px;
+    max-width: 430px;
 }
 </style>
