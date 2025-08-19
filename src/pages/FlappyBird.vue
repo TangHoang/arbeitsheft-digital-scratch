@@ -34,7 +34,7 @@ const content = [
             },
             {
                 type: "editor",
-                props: { projectUrl: FlappyBirdSkelett, iframeUrl: "https://scratch.fim.uni-passau.de/scratch/" }
+                props: { projectUrl: FlappyBirdSkelett, iframeUrl: "https://scratch.fim.uni-passau.de/scratch/", floating: true }
             },
             {
                 type: "subTitle",
@@ -44,6 +44,14 @@ const content = [
                 type: "subTasks",
                 props: { items: ["a) Nenne deinen gewählten Sprite 'Bird'.", "b) Programmiere 'Bird' so, dass er springt, wenn du die Leertaste drückst und danach wieder fällt."] },
             },
+            {
+                type: "subTitle",
+                props: { subTitle: "Aufgabe 2" }
+            },
+            {
+                type: "subTasks",
+                props: { items: ["a) Öffne den folgenden Button, um das Tool zu öffnen, um deine bisherige Programmierung zu testen.", "b) Lade dein Projekt und die Testdatei hoch.", "c) Wechsele nun in den Tab 'Mein Projekt' und starte den Test, indem du auf das Dreieck clickst."] }
+            }
         ],
     }
 ]
