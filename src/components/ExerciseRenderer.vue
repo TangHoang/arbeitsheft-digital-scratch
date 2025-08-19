@@ -19,23 +19,26 @@ import ExerciseShell from './ExerciseShell.vue'
 import SubTaskList from './SubTaskList.vue'
 import ScratchContent from './ScratchContent.vue'
 import StudentAnswer from './StudentAnswer.vue'
-import ScratchEditor from './ScratchEditor.vue'
+import PopUp from './PopUp.vue'
 import Hint from './hint.vue'
+import SubTitle from './SubTitle.vue'
 
 const props = defineProps({
     sectionTitle: String,
     title: { type: String, required: true },
     description: String,
     hints: Array,                 // [{title, hint}, ...]
-    blocks: { type: Array, required: true } // Schema-Array (s.u.)
+    blocks: { type: Array, required: true }, // Schema-Array (s.u.)
+    subTitle: { type: String }
 })
 
 const registry = {
     subTasks: SubTaskList,
     scratchContent: ScratchContent,
     answer: StudentAnswer,
-    editor: ScratchEditor,
-    hint: Hint
+    editor: PopUp,
+    hint: Hint,
+    subTitle: SubTitle,
 }
 </script>
 

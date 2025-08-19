@@ -34,11 +34,15 @@ const content = [
             },
             {
                 type: "editor",
-                props: { projectUrl: FlappyBirdSkelett }
+                props: { projectUrl: FlappyBirdSkelett, iframeUrl: "https://scratch.fim.uni-passau.de/scratch/" }
+            },
+            {
+                type: "subTitle",
+                props: { subTitle: "Aufgabe 1" }
             },
             {
                 type: "subTasks",
-                props: { items: ["c) Deine erste große Aufgabe: Programmiere deinen Sprite so, dass er beim drücken einer Taste nach oben springt und kurz darauf wieder fällt."] },
+                props: { items: ["a) Nenne deinen gewählten Sprite 'Bird'.", "b) Programmiere 'Bird' so, dass er springt, wenn du die Leertaste drückst und danach wieder fällt."] },
             },
         ],
     }

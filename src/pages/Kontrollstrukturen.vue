@@ -60,7 +60,7 @@ const content = [
             },
             {
                 type: "editor",
-                props: { projectUrl: RaumschiffProjekt_Aufgabe2 },
+                props: { projectUrl: RaumschiffProjekt_Aufgabe2, iframeUrl: "https://scratch.fim.uni-passau.de/scratch/" },
             },
         ],
     },
@@ -108,9 +108,8 @@ const content = [
             },
             {
                 type: "editor",
-                props: {},
+                props: { projectUrl: RaumschiffProjekt_Aufgabe2, iframeUrl: "https://scratch.fim.uni-passau.de/scratch/" },
             },
-
         ],
     },
 ];
