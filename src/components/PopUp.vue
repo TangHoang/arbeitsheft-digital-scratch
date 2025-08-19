@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="isOpen = true" class="open-btn">
+        <button @click="isOpen = true" :class="['open-btn', { 'floating': floating }]">
             Editor öffnen
         </button>
 
@@ -39,7 +39,8 @@ const props = defineProps({
     iframeUrl: {
         type: String,
         required: true,
-    }
+    },
+    floating: Boolean,
 })
 
 </script>
@@ -52,6 +53,28 @@ const props = defineProps({
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.open-btn.floating {
+    position: fixed;
+    bottom: 400px;
+    left: 200px;
+    animation: pulseAnim 3s infinite ease-in-out;
+
+}
+
+@keyframes pulseAnim {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .project-link-btn {
