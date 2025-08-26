@@ -15,7 +15,7 @@
 
 <script setup>
 const chapter_list = [
-    { id: 0, title: "Einführung", routeName: "" },
+    { id: 0, title: "Einleitung", routeName: "einleitung" },
     { id: 1, title: "Scratch", routeName: "" },
     { id: 2, title: "Kontrollstrukturen", routeName: "kontrollstrukturen" },
     { id: 3, title: "Variablen", routeName: "variablen" },
