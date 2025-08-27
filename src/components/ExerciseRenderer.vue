@@ -7,21 +7,17 @@
 
             <component v-for="(block, i) in blocks" :key="i" :is="registry[block.type]" v-bind="block.props" />
         </template>
-
-        <template #sidebar>
-            <Hint v-if="hints?.length" v-for="h in hints" :title="h.title" :hint="h.hint" />
-        </template>
     </ExerciseShell>
 </template>
 
 <script setup>
 import ExerciseShell from './ExerciseShell.vue'
-import SubTaskList from './SubTaskList.vue'
+import SubTaskList from './SubtaskList.vue'
 import ScratchContent from './ScratchContent.vue'
 import StudentAnswer from './StudentAnswer.vue'
 import PopUp from './PopUp.vue'
-import Hint from './hint.vue'
 import SubTitle from './SubTitle.vue'
+import Hint from './Hint.vue'
 
 const props = defineProps({
     sectionTitle: String,
@@ -45,5 +41,6 @@ const registry = {
 <style scoped>
 p {
     font-size: 1.1rem;
+    padding-right: 200px;
 }
 </style>

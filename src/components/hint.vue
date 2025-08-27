@@ -1,57 +1,111 @@
 <template>
-    <div>
-        <div class="hint-box">
-            <button @click="visible = !visible" class="toggle-button">
-                {{ visible ? "▼" : "▶" }} {{ title }}
-            </button>
-        </div>
+    <div class="hintbox">
+        <h4 v-if="title" class="hintbox-title">{{ title }}</h4>
 
-        <div v-if="visible" class="hint-content">
-            <div>{{ hint }}</div>
-            <div class="image-hint" v-if="imageLink"><img :src=imageLink alt=""></div>
-        </div>
+        <ul class="hintlist">
+            <li v-for="(item, i) in items" :key="i" class="hint-item">
+                <button class="hintitem-toggle" @click="toggle(i)">
+                    {{ open[i] ? '▼' : '▶' }} {{ item.title }}
+                </button>
+
+                <div class="hintitem-content" :class="{ open: open[i] }"
+                    :style="{ '--dur': (item.duration || defaultDuration) + 'ms' }">
+                    <p class="hintitem-text">{{ item.text }}</p>
+                    <img v-if="item.image" :src="item.image" alt="" class="hintitem-image" />
+                </div>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref } from 'vue'
 
 const props = defineProps({
-    title: String,
-    hint: String,
-    imageLink: String,
+    title: { type: String, default: '' },
+    items: { type: Array, default: () => [] },
+    defaultDuration: { type: Number, default: 250 }
 })
 
-const visible = ref(false)
+const open = ref(props.items.map(it => !!it.defaultOpen))
+
+function toggle(i) {
+    open.value[i] = !open.value[i]
+}
 </script>
 
 <style scoped>
-.toggle-button {
-    background: none;
-    border: none;
-    font-weight: bold;
+.hintbox {
+    border: 1px solid #e6eef7;
+    border-radius: 10px;
+    background: #ffd1a0;
+    padding: .75rem .9rem;
+    max-width: 400px;
+}
+
+.hintbox-title {
+    margin: 0 0 .3rem;
     font-size: 1rem;
-    color: #33691e;
-    cursor: pointer;
+    font-weight: 700;
+    color: #8b631d;
+}
+
+.hintlist {
+    display: grid;
+    gap: .4rem;
+    list-style: none;
     padding: 0;
-    margin-bottom: 0.5rem;
+    margin: 0;
+
 }
 
-.hint-content {
-    padding-bottom: 8px;
-    padding-left: 18px;
-    font-size: 1rem;
+.hint-item {
+    background: #fff;
+    border: 1px solid #eef3ff;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.image-hint {
-    width: auto;
-    height: auto;
-    padding: 5px 5px;
+.hintitem-toggle {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    padding: .55rem .7rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #8b631d;
+    cursor: pointer;
 }
 
-.image-hint img {
+.hintitem-content {
+    font-size: 0.7rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 .9rem;
+    transition:
+        max-height var(--dur, 250ms) ease,
+        opacity calc(var(--dur, 250ms) * .9) ease;
+}
+
+.hintitem-content.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: .4rem .9rem .8rem;
+}
+
+.hintitem-text {
+    margin: 0 0 .4rem;
+    line-height: 1.5;
+    font-size: 0.8rem;
+}
+
+.hintitem-image {
     max-width: 100%;
     height: auto;
     display: block;
+    border: 1px solid #eee;
+    border-radius: 6px;
 }
 </style>

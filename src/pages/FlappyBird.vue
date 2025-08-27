@@ -46,12 +46,21 @@ const content = [
             },
             {
                 type: "subTitle",
-                props: { subTitle: "Aufgabe 2" }
+                props: { subTitle: "Aufgabe 2", items: [{ title: 'Start', text: 'Nutze die grüne Flagge.', defaultOpen: true, duration: 180 }, { title: 'Position', text: 'Setze eine klare Startposition.', duration: 300 }, { title: 'Bild', text: 'Vergleiche mit dem Beispielbild.', image: '', duration: 400 }] }
             },
             {
                 type: "subTasks",
                 props: { items: ["a) Öffne den folgenden Button, um das Tool zu öffnen, um deine bisherige Programmierung zu testen.", "b) Lade dein Projekt und die Testdatei hoch.", "c) Wechsele nun in den Tab 'Mein Projekt' und starte den Test, indem du auf das Dreieck clickst."] }
+            },
+            {
+                type: "editor",
+                props: { buttonTitle: "Test", iframeUrl: "https://tanghoang.github.io/whisker-edit/?lng=de" }
+            },
+            {
+                type: "subTasks",
+                props: { items: ["Du merkst wahrscheinlich, dass das Spiel nicht abgebrochen wird, obwohl"] }
             }
+
         ],
     }
 ]

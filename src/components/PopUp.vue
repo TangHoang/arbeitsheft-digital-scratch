@@ -1,7 +1,7 @@
 <template>
     <div>
         <button @click="isOpen = true" :class="['open-btn', { 'floating': floating }]">
-            Editor öffnen
+            {{ buttonTitle }}
         </button>
 
         <div :class="['overlay', { 'active': isOpen }]" @click.self="isOpen = false">
@@ -24,7 +24,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import hint from './hint.vue';
+import hint from './Hint.vue';
 import Raumschiffimage from "../assets/raumschiff_code_if.png"
 import ProjectLinkButton from './ProjectLinkButton.vue'
 
@@ -41,6 +41,11 @@ const props = defineProps({
         required: true,
     },
     floating: Boolean,
+    buttonTitle: {
+        default: "Editor öffnen",
+        type: String,
+    }
+
 })
 
 </script>
