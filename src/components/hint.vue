@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
     title: { type: String, default: '' },
@@ -27,7 +27,7 @@ const props = defineProps({
     defaultDuration: { type: Number, default: 250 }
 })
 
-const open = ref(props.items.map(it => !!it.defaultOpen))
+const open = ref(props.items.map(() => false))
 
 function toggle(i) {
     open.value[i] = !open.value[i]
@@ -67,6 +67,8 @@ function toggle(i) {
 }
 
 .hintitem-toggle {
+    position: relative;
+    z-index: 2;
     width: 100%;
     text-align: left;
     background: transparent;
@@ -79,6 +81,9 @@ function toggle(i) {
 }
 
 .hintitem-content {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
     font-size: 0.7rem;
     max-height: 0;
     opacity: 0;
