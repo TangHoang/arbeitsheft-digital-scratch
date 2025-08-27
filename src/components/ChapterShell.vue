@@ -34,5 +34,6 @@ h1 {
 p {
     width: 80%;
     font-size: 1.2rem;
+    font-weight: 500;
 }
 </style>

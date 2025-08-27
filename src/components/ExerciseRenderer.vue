@@ -42,5 +42,6 @@ const registry = {
 p {
     font-size: 1.1rem;
     padding-right: 200px;
+    font-weight: 500;
 }
 </style>
