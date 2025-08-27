@@ -19,7 +19,7 @@ const props = defineProps({
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    justify-content: space-around;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
