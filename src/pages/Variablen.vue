@@ -38,6 +38,13 @@ const content = [
                 type: "answer",
                 props: {}
             },
+            {
+                type: "subTasks",
+                props: { items: ["In der folgenden Aufgabe wollen wir dem Variablen benutzen, um spielerisch die Anzahl der besuchten Planeten der Rakete zu zählen. Betrachte dafür folgendes Beispiel:"] }
+            },
+            {
+                type: "scratchContent", props: { scratchUrl: "", imageUrl: "" }
+            },
         ],
     }
 ]
