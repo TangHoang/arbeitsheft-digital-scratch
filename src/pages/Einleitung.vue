@@ -1,7 +1,6 @@
 <template>
     <div class="einleitung">
-        <section class="welcome-box">
-            <h1>Willkommen!</h1>
+        <InfoCard :title="'Willkommen!'">
             <p>
                 In diesem Arbeitsheft programmierst du Schritt für Schritt ein eigenes
                 <strong>Flappy-Bird-Spiel</strong> in Scratch. Dabei lernst du Grundideen
@@ -9,8 +8,7 @@
                 Am Ende bewegst du Figuren über die Bühne, reagierst auf Tasten,
                 arbeitest mit Variablen, Ereignissen, Schleifen, Bedingungen und testest dein Spiel automatisch.
             </p>
-        </section>
-
+        </InfoCard>
 
         <h2 style="margin-top:2rem">Demo: Flappy Bird</h2>
         <div class="horizontal-container">
@@ -71,20 +69,13 @@
             </li>
         </ul>
 
-
-        <section class="scratch-box">
-            <h2>Was ist Scratch?</h2>
+        <InfoCard :title="'Scratch'">
             <p>
                 <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache. Du setzt Bausteine
                 wie Puzzleteile zusammen und erstellst so Animationen, Spiele und Geschichten
                 ohne komplizierten Code.
             </p>
-            <p>
-                <strong>Begriffe, die du hier brauchen wirst:</strong><br>
-                <em>Sprite</em> (Figur), <em>Bühne</em> (Hintergrund/Spielwelt), <em>Skript</em> (Abfolge von Blöcken),
-                <em>Ereignis</em> (z. B. „grüne Flagge wird angeklickt“).
-            </p>
-        </section>
+        </InfoCard>
 
 
         <h2>So arbeitest du mit diesem Heft</h2>
@@ -147,7 +138,10 @@
     </div>
 
 </template>
+<script setup>
+import InfoCard from '../components/InfoCard.vue';
 
+</script>
 <style>
 .einleitung {
     width: 65%;
@@ -184,7 +178,6 @@ p {
 .info-row {
     display: grid;
     grid-template-columns: 1fr 128px;
-    /* Text | Icon */
     align-items: center;
     gap: 8px;
     padding: 14px 16px;
@@ -214,13 +207,11 @@ p {
     border-radius: 20px;
     color: #3b2d0a;
     max-width: 800px;
-    /* Multi-Radial-Gradient mit Scratch-Orange + helleren Tönen */
     background:
         radial-gradient(circle at 20% 20%, #fff3e1 0, transparent 50%),
         radial-gradient(circle at 80% 30%, #ffe9d1 0, transparent 50%),
         radial-gradient(circle at 40% 80%, #fff6e8 0, transparent 50%),
         #fff1dc;
-    /* Basis-Hintergrund (fast Creme) */
 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
@@ -244,39 +235,6 @@ p {
     border-radius: 6px;
 }
 
-.welcome-box {
-    margin: 2rem auto;
-    padding: 3rem 2rem;
-    border-radius: 24px;
-    max-width: 900px;
-    text-align: left;
-    color: #3b2d0a;
-
-    background:
-        radial-gradient(circle at 15% 20%, #fff7ec 0, transparent 45%),
-        radial-gradient(circle at 85% 30%, #fff1df 0, transparent 50%),
-        radial-gradient(circle at 50% 80%, #ffeeda 0, transparent 40%),
-        #fffaf5;
-
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-}
-
-.welcome-box h1 {
-    margin-top: 0;
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: #b85d00;
-}
-
-.welcome-box p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 1000px;
-}
-
-.welcome-box strong {
-    color: #a05200;
-}
 
 
 
