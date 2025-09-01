@@ -38,7 +38,7 @@ const content = [
             },
             {
                 type: "subTitle",
-                props: { subTitle: "Aufgabe 1" }
+                props: { subTitle: "Aufgabe 1", items: [{ title: 'Block 1', text: 'Du brauchst eine Endlosschleife!', defaultOpen: true, duration: 180 }, { title: 'Block 2', text: 'Du brauchst eine Bedingung und einen "Fühler" für den Tastendruck der Leertaste', duration: 300 }, { title: 'Block 3', text: '...', duration: 400 }] }
             },
             {
                 type: "subTasks",
@@ -46,7 +46,7 @@ const content = [
             },
             {
                 type: "subTitle",
-                props: { subTitle: "Aufgabe 2", items: [{ title: 'Start', text: 'Nutze die grüne Flagge.', defaultOpen: true, duration: 180 }, { title: 'Position', text: 'Setze eine klare Startposition.', duration: 300 }, { title: 'Bild', text: 'Vergleiche mit dem Beispielbild.', image: '', duration: 400 }] }
+                props: { subTitle: "Aufgabe 2", }
             },
             {
                 type: "subTasks",
@@ -58,7 +58,26 @@ const content = [
             },
             {
                 type: "subTasks",
-                props: { items: ["Du merkst wahrscheinlich, dass das Spiel nicht abgebrochen wird, obwohl"] }
+                props: { items: ["Du merkst wahrscheinlich, dass das Spiel nicht abgebrochen wird, obwohl dein Bird die Röhren berührt..."] }
+            },
+            {
+                type: "subTitle",
+                props: { subTitle: "Aufgabe 3", }
+            },
+            {
+                type: "subTasks",
+                props: {
+                    items: ["a) Implementiere die Funktionalität, dass das Projekt abbricht, wenn dein Bird die Röhren berührt.",
+                        "b) Teste deinen Code."]
+                }
+            },
+            {
+                type: "editor",
+                props: { buttonTitle: "Test", iframeUrl: "https://tanghoang.github.io/whisker-edit/?lng=de" }
+            },
+            {
+                type: "subTasks",
+                props: { items: ["Wenn du es bis hierher geschafft hast, hast du folgende Meilensteine erreicht:", "1. Dein Bird kann springen.", "2. Das spiel stoppt, wenn dein Bird eine Röhre berührt."] }
             }
 
         ],
