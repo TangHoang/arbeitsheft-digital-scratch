@@ -21,7 +21,7 @@ const props = defineProps({
 
 .scratch-image {
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 18px;
     max-width: 430px;
 }
 </style>

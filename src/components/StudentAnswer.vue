@@ -44,6 +44,8 @@ textarea {
     font-family: inherit;
     font-size: 1rem;
     margin-bottom: 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 label {
