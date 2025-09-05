@@ -1,6 +1,6 @@
 <template>
     <div class="einleitung">
-        <InfoCard :title="'Willkommen!'">
+        <InfoCardOrange :title="'Willkommen!'">
             <p>
                 In diesem Arbeitsheft programmierst du Schritt für Schritt ein eigenes
                 <strong>Flappy-Bird-Spiel</strong> in Scratch. Dabei lernst du Grundideen
@@ -8,143 +8,119 @@
                 Am Ende bewegst du Figuren über die Bühne, reagierst auf Tasten,
                 arbeitest mit Variablen, Ereignissen, Schleifen, Bedingungen und testest dein Spiel automatisch.
             </p>
-        </InfoCard>
-
-        <h2 style="margin-top:2rem">Demo: Flappy Bird</h2>
-        <div class="horizontal-container">
-            <div>
-                <iframe src="https://scratch.mit.edu/projects/17828009/embed" allowtransparency="true" width="485"
-                    height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+        </InfoCardOrange>
+        <InfoCardWhite :title="'Demo: Flappy Bird'">
+            <div class="horizontal-container">
+                <div>
+                    <iframe src="https://scratch.mit.edu/projects/17828009/embed" allowtransparency="true" width="485"
+                        height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+                <div class="demo-tips">
+                    <p>
+                        <strong>Tipp:</strong> Drücke die <strong>grüne Flagge</strong>, dann spiele mit
+                        <strong>Leertaste</strong>.
+                    </p>
+                    <p>
+                        <strong>Hinweis:</strong> Das ist eine sehr ausgepfeilte Version von Flappy Bird.
+                        Dein Projekt muss nicht unglaublich perfekt sein. Hauptsache es funktioniert!
+                    </p>
+                </div>
             </div>
-            <div class="demo-tips">
-                <p>
-                    <strong>Tipp:</strong> Drücke die <strong>grüne Flagge</strong>, dann spiele mit
-                    <strong>Leertaste</strong>.
-                </p>
-                <p>
-                    <strong>Hinweis:</strong> Das ist eine sehr ausgepfeilte Version von Flappy Bird.
-                    Dein Projekt muss nicht unglaublich perfekt sein. Hauptsache es funktioniert erstmal!
-                </p>
-            </div>
-
-        </div>
-
-
-        <h2>Worum geht’s?</h2>
-
-        <ul class="info-list">
-            <li class="info-row">
-                <span class="info-text">
-                    <strong>Projekt:</strong> Ein spielbarer Flappy-Bird-Clone mit Punktestand und „Game Over“
-                </span>
-            </li>
-            <li class="info-row">
-                <span class="info-text">
-                    <strong>Themen:</strong> Ereignisse, Steuerung, Koordinaten, Bedingungen, Variablen, Kollision
-                </span>
-            </li>
-        </ul>
-
-
-        <h3>Deine Ziele:</h3>
-        <ul class="info-list">
-            <li class="info-row">
-                <span class="info-text">Ich kann ein Spiel mit Tasten steuern und Bewegungen umsetzen.</span>
-                <img class="info-icon" src="@/assets/cat_walking.gif" alt="Steuerung" loading="lazy" />
-            </li>
-
-            <li class="info-row">
-                <span class="info-text">Ich kann Kollisionen erkennen und darauf reagieren.</span>
-                <img class="info-icon" width="80px" src="@/assets/collision.gif" alt="Kollision" loading="lazy" />
-            </li>
-
-            <li class="info-row">
-                <span class="info-text">Ich kann einen Zähler (Score) anlegen und korrekt aktualisieren.</span>
-                <img class="info-icon" src="@/assets/score.gif" alt="Score" loading="lazy" />
-            </li>
-
-            <li class="info-row">
-                <span class="info-text">Ich kann mein Programm mit kleinen Tests überprüfen und Fehler beheben.</span>
-                <img class="info-icon" src="@/assets/test.webp" alt="Testen & Debuggen" loading="lazy" />
-            </li>
-        </ul>
-
-        <InfoCard :title="'Scratch'">
+        </InfoCardWhite>
+        <InfoCardOrange :title="'Scratch'">
             <p>
-                <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache. Du setzt Bausteine
+                <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache für Anfänger. Du setzt
+                Bausteine
                 wie Puzzleteile zusammen und erstellst so Animationen, Spiele und Geschichten
-                ohne komplizierten Code.
+                ohne komplizierten Code. Die Ausführung deines Codes, ist ganz einfach, wie du oben bei der Demo bereits
+                gesehen hast.
             </p>
-        </InfoCard>
-
-
-        <h2>So arbeitest du mit diesem Heft</h2>
-        <div>
+        </InfoCardOrange>
+        <InfoCardPurple :title="'Worum geht es?'">
+            <p> Am Ende dieses Arbeitsheftes hast du ein spielbares <strong>Flappy-Bird</strong> Spiel mit der
+                Programmiersprache
+                <strong>Scratch </strong>programmiert!
+            </p>
+            <br></br>
+            <p>Dafür programmieren wir <strong>Schritt für Schritt pro Kapitel</strong> alle notwendigen
+                Funktionalitäten: </p>
+            <br></br>
+            <ul class="info-list">
+                <li class="info-row">
+                    <span class="info-text"><strong>1. Springen: </strong>Mit Hilfe der Leertaste wird dein Vogel
+                        hochspringen und danach
+                        herunterfallen.</span>
+                    <img class="info-icon" src="@/assets/cat_walking.gif" alt="Steuerung" loading="lazy" />
+                </li>
+                <li class="info-row">
+                    <span class="info-text"><strong>2. Röhre: </strong>Du wirst Röhren generieren, die sich gleichmäßig
+                        bewegen und in ihrer Höhe
+                        verändern.</span>
+                    <img class="info-icon" src="@/assets/moving_rohr.gif" alt="Testen & Debuggen" loading="lazy" />
+                </li>
+                <li class="info-row">
+                    <span class="info-text"><strong>3. Kollision: </strong>Wenn dein Vogel die Röhre berührt, wird das
+                        Spiel
+                        abbrechen.</span>
+                    <img class="info-icon" width="80px" src="@/assets/collision.gif" alt="Kollision" loading="lazy" />
+                </li>
+                <li class="info-row">
+                    <span class="info-text"><strong>4. Punktestand: </strong>Jedes Mal, wenn dein Vogel eine Röhre
+                        passiert,
+                        wird deine Punktzahl
+                        erhöht.</span>
+                    <img class="info-icon" src="@/assets/score.gif" alt="Score" loading="lazy" />
+                </li>
+            </ul>
+        </InfoCardPurple>
+        <InfoCardWhite :title="'Aufgabenstruktur'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
-                        Jedes Kapitel startet mit einem Mini-Einstieg (1–3 Minuten), damit du sofort loslegen kannst.
-                    </span>
-                    <img class="info-icon" src="@/assets/Scratchlogo.png" alt="Logo" loading="lazy" />
-                </li>
-
-                <li class="info-row">
-                    <span class="info-text">
-                        Danach folgen Bausteine in kleinen Schritten, jeweils mit Beispiel, Aufgabe und kurzem
-                        Selbstcheck.
-                    </span>
-                    <img class="info-icon" src="@/assets/raumschiff_code_while.png" alt="Code-Beispiel"
-                        loading="lazy" />
-                </li>
-
-                <li class="info-row">
-                    <span class="info-text">
-                        Am Ende steht ein Meilenstein, der dein Spiel sichtbar weiterbringt.
+                        <strong>1. Vermuten und Überprüfen: </strong> Am Anfang jedes Kapitels siehst du ein Bild von
+                        Code.
+                        Über dessen Funktion stellst du zuerst eine Vermutung auf.
                     </span>
                     <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
                 </li>
-            </ul>
-        </div>
 
-
-
-        <h2>Was brauchst du?</h2>
-        <div>
-            <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
-                        Ein Gerät mit aktuellem Browser und Internetzugang
+                        <strong>2. Analysieren: </strong>Daraufhin wirst du den Code beschreiben und erklären.
                     </span>
-                    <img class="info-icon" src="@/assets/computer.webp" alt="Computer" loading="lazy" />
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
                 </li>
 
                 <li class="info-row">
                     <span class="info-text">
-                        Kopfhörer (für Sounds)
-                    </span>
-                    <img class="info-icon" src="@/assets/Kopfhoerer.svg" alt="Kopfhörer" loading="lazy" />
+                        <strong>3. Verändern: </strong>Nachdem du den Code nachvollzogen hast, bist du an der Reihe
+                        einige Änderungen daran vorzunehmen. </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
                 </li>
-
                 <li class="info-row">
                     <span class="info-text">
-                        Einen Ordner, in dem du deine Dateien speicherst, die im Laufe des Arbeitshefts runtergeladen
-                        werden
-                    </span>
-                    <img class="info-icon" src="@/assets/Scratchlogo.png" alt="Logo" loading="lazy" />
+                        <strong>4. Coden: </strong>Schließlich bist du selbst mit deiner Kreativität an der Reihe, um
+                        eigene Funktionalitäten zu implementieren. </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
                 </li>
             </ul>
-        </div>
+        </InfoCardWhite>
+        <InfoCardWhite :title="'Es geht los!'">
+            <p> </p>
+        </InfoCardWhite>
 
     </div>
 
 </template>
 <script setup>
-import InfoCard from '../components/InfoCard.vue';
+import InfoCardOrange from '../components/InfoCardOrange.vue';
+import InfoCardWhite from '../components/InfoCardWhite.vue';
+import InfoCardPurple from '../components/InfoCardPurple.vue';
 
 </script>
 <style>
 .einleitung {
-    width: 65%;
+    width: 70%;
 }
 
 p {
@@ -156,16 +132,6 @@ p {
     flex-flow: row;
     justify-content: space-around;
 }
-
-.vertical-container li {
-    line-height: 1rem;
-}
-
-.demo-tips {
-    padding-left: 30px;
-    font-size: 1rem;
-}
-
 
 .info-list {
     list-style: none;
@@ -200,43 +166,6 @@ p {
     justify-self: end;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .1));
 }
-
-.scratch-box {
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 20px;
-    color: #3b2d0a;
-    max-width: 800px;
-    background:
-        radial-gradient(circle at 20% 20%, #fff3e1 0, transparent 50%),
-        radial-gradient(circle at 80% 30%, #ffe9d1 0, transparent 50%),
-        radial-gradient(circle at 40% 80%, #fff6e8 0, transparent 50%),
-        #fff1dc;
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-}
-
-.scratch-box h2 {
-    margin-top: 0;
-    color: #8b4500;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.scratch-box strong {
-    color: #7a3b00;
-}
-
-.scratch-box em {
-    font-style: normal;
-    color: #a55000;
-    background: rgba(255, 255, 255, 0.5);
-    padding: 2px 6px;
-    border-radius: 6px;
-}
-
-
-
 
 @media (max-width: 640px) {
     .info-row {
