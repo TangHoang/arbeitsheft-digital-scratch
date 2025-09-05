@@ -17,6 +17,8 @@
 const chapter_list = [
     { id: 0, title: "Einleitung", routeName: "einleitung" },
     { id: 1, title: "Springen", routeName: "Springen" },
+    { id: 2, title: "Röhre", routeName: "Roehre" },
+
 ]
 function changeChapter(titel) {
     alert(`Kapitel ${titel} wurde angeklickt!`)
