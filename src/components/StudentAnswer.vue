@@ -1,18 +1,24 @@
 <template>
     <div class="answer-wrapper">
         <div class="input-box">
-            <textarea id="answer" placeholder="Trage hier deine Lösung ein." v-model="input">
+            <textarea id="answer" placeholder="Trage hier deine Lösung ein." v-model="input" :style="{ height, width }">
             </textarea>
         </div>
+        <!-- 
         <div class="hints-container">
             <Hint :title="'TODO'" :hint="'TODO'" />
         </div>
+        -->
     </div>
 
 </template>
 
 <script setup>
-import Hint from './hint.vue';
+import Hint from './Hint.vue';
+const props = defineProps({
+    height: { type: String, default: '150px' },
+    width: { type: String, default: '100%' }
+})
 </script>
 
 <style scoped>
@@ -22,6 +28,7 @@ import Hint from './hint.vue';
     padding-right: 1.5rem;
     padding-bottom: 2rem;
     max-width: 1000px;
+    min-width: 60%;
 }
 
 .input-box {
@@ -36,9 +43,7 @@ textarea {
     padding: 0.5rem;
     font-family: inherit;
     font-size: 1rem;
-    margin-top: 0.5rem;
     margin-bottom: 1rem;
-
 }
 
 label {
