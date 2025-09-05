@@ -16,10 +16,7 @@
 <script setup>
 const chapter_list = [
     { id: 0, title: "Einleitung", routeName: "einleitung" },
-    { id: 1, title: "Scratch", routeName: "" },
-    { id: 2, title: "Kontrollstrukturen", routeName: "kontrollstrukturen" },
-    { id: 3, title: "Variablen", routeName: "variablen" },
-    { id: 4, title: "Projekt: Flappy Bird", routeName: "flappy-bird" },
+    { id: 1, title: "Springen", routeName: "Springen" },
 ]
 function changeChapter(titel) {
     alert(`Kapitel ${titel} wurde angeklickt!`)
