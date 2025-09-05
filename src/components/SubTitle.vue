@@ -1,6 +1,8 @@
 <template>
     <div class="title-hint-container">
-        <h3> {{ subTitle }}</h3>
+        <div class="title-container">
+            <h3> {{ subTitle }}</h3>
+        </div>
         <div class="hint-container" v-if="items.length > 0">
             <Hint :title="'Hinweis'" :items=items />
         </div>
@@ -24,12 +26,21 @@ const props = defineProps({
     display: flex;
     flex-flow: row;
     position: relative;
+    margin-top: 40px;
+}
+
+.title-container {
+    color: #b65e00
 }
 
 .hint-container {
     position: absolute;
-    top: 30px;
-    right: -0px;
+    top: 20px;
+    right: -40px;
     width: 300px;
+}
+
+h3 {
+    margin: 0px 0px;
 }
 </style>

@@ -10,20 +10,19 @@ const { items } = defineProps({ items: Array })
 
 <style scoped>
 ul {
+    margin: 0;
     max-width: 70%;
     list-style: none;
     padding-left: 0.2rem;
     align-items: center;
-    padding: 14px 16px;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-    background: #fff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
+    padding: 0px 16px 14px;
 
 }
 
 li {
-    margin-top: 5px;
-    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #3b2d0a;
+    margin-top: 9px;
 }
 </style>
