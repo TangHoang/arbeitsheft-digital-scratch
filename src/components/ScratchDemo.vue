@@ -1,16 +1,13 @@
 <template>
     <div class="scratch-content">
-        <iframe v-if="scratchUrl" :src="scratchUrl" allowtransparency="true" width="485" height="402" frameborder="0"
-            scrolling="no" allowfullscreen></iframe>
-
-        <img v-if="imageUrl" :src="imageUrl" height="402" alt="Scratch Bild" class="scratch-image" />
+        <iframe :src="scratchUrl" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no"
+            allowfullscreen></iframe>
     </div>
 </template>
 
 <script setup>
 const props = defineProps({
-    scratchUrl: { type: String, default: '' },
-    imageUrl: { type: String, default: '' }
+    scratchUrl: { type: String, default: '' }
 })
 </script>
 
