@@ -44,6 +44,9 @@
                 <SubtaskList :items="content.make.aufgabe_a" />
                 <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
                     :floating="false" :buttonTitle="'Editor Öffnen'" />
+                <p class="disclaimer"><strong>Wichtig!</strong> Speichere deinen aktuellen Stand auf deinem PC. Im
+                    nächsten Kapitel werden
+                    wir damit weiter arbeiten!</p>
             </template>
         </Make>
 
@@ -55,10 +58,10 @@ import InfoCardOrange from "../components/InfoCardOrange.vue"
 import sprung_img from "@/assets/sprung_assets/sprung.png"
 import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"
 
-import PredictAndRun from "../components/PredictAndRun.vue"
-import Investigate from "../components/Investigate.vue"
-import Modify from "../components/Modify.vue"
-import Make from "../components/Make.vue"
+import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
+import Investigate from "../components/Primm_components/Investigate.vue"
+import Modify from "../components/Primm_components/Modify.vue"
+import Make from "../components/Primm_components/Make.vue"
 
 import SubtaskList from "../components/SubtaskList.vue"
 import ScratchImage from "../components/ScratchImage.vue"
@@ -102,5 +105,9 @@ const content = {
     flex-flow: row;
     justify-content: left;
     padding-bottom: 1rem;
+}
+
+.disclaimer {
+    padding-top: 1rem;
 }
 </style>
