@@ -1,5 +1,5 @@
 <template>
-    <div class="primm-label">Coden</div>
+    <div class="primm-label">Verändern</div>
     <InfoCardWhite>
         <div class="exercise-grid">
             <div class="exercise-content">
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import InfoCardWhite from './InfoCardWhite.vue';
+import InfoCardWhite from '@/components/InfoCardWhite.vue';
 </script>
 
 
