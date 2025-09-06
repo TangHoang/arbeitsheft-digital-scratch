@@ -1,12 +1,15 @@
 <template>
     <div class="horizontal-container">
-        <img v-if="imageUrls" v-for="url in imageUrls" :src="url" height="300" alt="Bild" class="scratch-image" />
+        <Image v-if="imageUrls" v-for="url in imageUrls" :src="url" :height="height" alt="Bild" class="scratch-image"
+            preview />
     </div>
 </template>
 
 <script setup>
+import Image from 'primevue/image';
 const props = defineProps({
-    imageUrls: { type: Array, default: [] }
+    imageUrls: { type: Array, default: [] },
+    height: String,
 })
 </script>
 
@@ -16,12 +19,12 @@ const props = defineProps({
     flex-direction: row;
     justify-content: left;
     flex-wrap: wrap;
-    height: 300px;
+    height: auto;
 }
 
 .scratch-image {
-    border: 1px solid #ccc;
-    border-radius: 18px;
-    max-width: 430px;
+    border-radius: 2px;
+    width: auto;
+    margin-right: 8px;
 }
 </style>
