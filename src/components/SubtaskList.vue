@@ -11,7 +11,7 @@ const { items } = defineProps({ items: Array })
 <style scoped>
 ul {
     margin: 0;
-    max-width: 85%;
+    min-width: 50%;
     list-style: none;
     padding-left: 0.2rem;
     align-items: center;

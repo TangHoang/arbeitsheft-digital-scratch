@@ -16,15 +16,15 @@ const props = defineProps({
     margin: 0 0 2rem;
     padding: 1rem 2rem 3rem;
     border-radius: 24px;
-    max-width: 900px;
+    max-width: 1200px;
     text-align: left;
     color: #3b2d0a;
 
     background:
         radial-gradient(circle at 15% 20%, #fdfbf0 0, transparent 45%),
         radial-gradient(circle at 85% 30%, #fffdf7 0, transparent 50%),
-        radial-gradient(circle at 50% 80%, #ffeefd 0, transparent 40%),
-        #fff9fd;
+        radial-gradient(circle at 50% 80%, #f7fcee 0, transparent 40%),
+        #fefffb;
 
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
 }

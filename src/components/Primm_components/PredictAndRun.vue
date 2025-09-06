@@ -28,7 +28,6 @@ import InfoCardWhite from '@/components/InfoCardWhite.vue';
     gap: 1.5rem;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px;
 }
 
 .exercise-content {

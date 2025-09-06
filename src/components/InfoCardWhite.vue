@@ -16,7 +16,7 @@ const props = defineProps({
     margin: 0 0 2rem;
     padding: 1rem 2rem 3rem;
     border-radius: 24px;
-    max-width: 900px;
+    max-width: 1200px;
     text-align: left;
     color: #3b2d0a;
 
@@ -36,7 +36,7 @@ const props = defineProps({
     color: #b85d00;
 }
 
-.info-card :deep(p) {
+.info-card p {
     margin: 0;
     font-size: 1.125rem;
     line-height: 1.7;

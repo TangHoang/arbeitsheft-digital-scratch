@@ -25,9 +25,7 @@ const props = defineProps({
 .answer-wrapper {
     display: flex;
     flex-direction: column;
-    padding-right: 1.5rem;
-    padding-bottom: 2rem;
-    max-width: 1000px;
+    padding-right: 3rem;
     min-width: 60%;
 }
 
