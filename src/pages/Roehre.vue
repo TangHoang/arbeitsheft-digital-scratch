@@ -9,12 +9,11 @@
             <template #default>
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
-                <ScratchImage :imageUrls="[rohr_bühne, rohr_img]" />
+                <ScratchImage :imageUrls="[rohr_bühne, rohr_img]" :height="'200px'" />
                 <StudentAnswer />
-                <div class="horizontal-container">
-                    <SubtaskList :items="content.pr.aufgabe_b" />
-                    <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1206376368/embed'" />
-                </div>
+
+                <SubtaskList :items="content.pr.aufgabe_b" />
+                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1206376368/embed'" />
             </template>
         </PredictAndRun>
 
@@ -23,8 +22,8 @@
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'300px'" />
-                    <ScratchImage :imageUrls="[rohr_img]" />
+                    <StudentAnswer :height="'200px'" />
+                    <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
                 </div>
             </template>
         </Investigate>
@@ -32,16 +31,13 @@
         <Modify>
             <template #default>
                 <h3> {{ content.modify.title }}</h3>
-
-
                 <div class="horizontal-container">
                     <div>
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
                             :floating="false" :buttonTitle="'Editor Öffnen'" />
                     </div>
-                    <ScratchImage :imageUrls="[rohr_img]" />
-
+                    <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
                 </div>
             </template>
         </Modify>
@@ -81,7 +77,7 @@ const content = {
     pr: {
         sectionTitle: "",
         title: "Aufgabe 1",
-        aufgabe_a: ["a) Stelle eine Vermutung über die Funktionalität des Codes auf. Beschreibe, wie sich die Röhren bewegen werden."],
+        aufgabe_a: ["a) Stelle eine Vermutung über die Funktionalität des Codes auf."],
         aufgabe_b: ["b) Führe nun das nebenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen.", "c) Waren deine Vermutungen richtig? :-)"],
         demo_link: "https://scratch.mit.edu/projects/1206376368/embed",
     },
@@ -105,10 +101,15 @@ const content = {
     width: 90%;
 }
 
+.vertical-container {
+    min-width: 60%;
+}
+
+
 .horizontal-container {
     display: flex;
     flex-flow: row;
-    justify-content: left;
+    justify-content: space-evenly;
     padding-bottom: 1rem;
 }
 </style>
