@@ -18,6 +18,8 @@ const chapter_list = [
     { id: 0, title: "Einleitung", routeName: "einleitung" },
     { id: 1, title: "Springen", routeName: "Springen" },
     { id: 2, title: "Röhre", routeName: "Roehre" },
+    { id: 3, title: "Kollision", routeName: "Kollision" },
+    { id: 3, title: "Punktestand", routeName: "Score" },
 
 ]
 function changeChapter(titel) {
