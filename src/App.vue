@@ -40,7 +40,7 @@ import NavBar from './components/NavBar.vue'
 
 .content-grid {
 	display: grid;
-	grid-template-columns: 20% 80%;
+	grid-template-columns: 15% 85%;
 	height: 100%;
 	overflow: hidden;
 }
