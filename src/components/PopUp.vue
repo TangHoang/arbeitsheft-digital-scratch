@@ -1,6 +1,7 @@
 <template>
     <div>
-        <button @click="isOpen = true" :class="['open-btn', { 'floating': floating }]">
+        <button @click="isOpen = true"
+            :class="['open-btn', { 'floating': floating, 'editor': type === 'editor', 'test': type === 'test' }]">
             {{ buttonTitle }}
         </button>
 
@@ -11,11 +12,8 @@
             </button>
 
             <div class="panel">
-
                 <iframe :src="iframeUrl" class="iframe" allowfullscreen></iframe>
-
                 <div class="hint-container">
-                    <hint :title="'Hinweis'" :hint="'Test'" :imageLink="Raumschiffimage" />
                 </div>
             </div>
         </div>
@@ -44,8 +42,8 @@ const props = defineProps({
     buttonTitle: {
         default: "Editor öffnen",
         type: String,
-    }
-
+    },
+    type: String,
 })
 
 </script>
@@ -60,6 +58,10 @@ const props = defineProps({
     cursor: pointer;
     margin-left: 1rem;
     margin-bottom: 1rem;
+}
+
+.test {
+    background-color: #3ce756;
 }
 
 .open-btn.floating {
