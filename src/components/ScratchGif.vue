@@ -32,7 +32,7 @@ const hover = ref(false)
 .vertical-container {
     display: flex;
     flex-flow: column;
-
+    max-width: 40%;
 }
 
 p {

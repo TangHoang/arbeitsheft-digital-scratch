@@ -21,7 +21,11 @@ a {
 
 p,
 li {
-	font-weight: 600;
+	font-weight: 500;
+}
+
+li {
+	padding-top: 5px;
 }
 
 a:hover {

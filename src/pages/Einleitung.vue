@@ -120,11 +120,15 @@ import InfoCardPurple from '../components/InfoCardPurple.vue';
 </script>
 <style>
 .einleitung {
-    width: 70%;
+    width: 80%;
 }
 
 p {
     font-size: 1.1rem;
+}
+
+.demo-tips {
+    padding-left: 1rem;
 }
 
 .horizontal-container {

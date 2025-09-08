@@ -1,6 +1,6 @@
 <template>
     <section class="info-card">
-        <h1 v-if="title">{{ title }}</h1>
+        <h2 v-if="title">{{ title }}</h2>
         <slot />
     </section>
 </template>
@@ -29,9 +29,9 @@ const props = defineProps({
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
 }
 
-.info-card h1 {
+.info-card h2 {
     margin-bottom: 1rem;
-    font-size: 2.25rem;
+    font-size: 1.8rem;
     line-height: 1.2;
     color: #b85d00;
 }
