@@ -45,19 +45,56 @@
         <Make>
             <template #default>
                 <h3> {{ content.make.title }}</h3>
-                <SubtaskList :items="content.make.aufgabe_a" />
-                <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                    :floating="false" :buttonTitle="'Editor Öffnen'" />
+                <div class="horizontal-container">
+                    <div class="vertical-container">
+                        <SubtaskList :items="content.make.aufgabe_a" />
+                        <PopUp :projectUrl="RohrProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
+                            :floating="false" :buttonTitle="'Editor öffnen'" :type="'editor'" />
+                        <PopUp :projectUrl="RohrProjectTestUrl"
+                            :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :type="'test'"
+                            :buttonTitle="'Testen'" />
+                    </div>
+                    <ScratchGif :imageUrls="[rohr_gif, rohr_lösung_bühne]" :height="'200px'" />
+                </div>
+
             </template>
         </Make>
+        <InfoCardPurple :title="'Recap'">
+            <ul class="info-list">
+                <li class="info-row">
+                    <span class="info-text">
+                        <strong>Bewegung von Sprites: </strong> Du hast gesehen, wie man Sprites auf der Bühne bewegt.
+                    </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                </li>
+                <li class="info-row">
 
+                    <span class="info-text">
+                        <strong>Zufallszahlen: </strong> Wir haben Zufallszahlen verwendet, um die Höhe der Röhren
+                        dynamisch
+                        anzupassen.
+                    </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                </li>
+                <li class="info-row">
+                    <span class="info-text">
+                        <strong>Sprites: </strong> Du hast selbst einen neuen Sprite erstellt und dessen Skript
+                        geschrieben.
+                    </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                </li>
+            </ul>
+        </InfoCardPurple>
     </div>
 </template>
 
 <script setup>
 import InfoCardOrange from "../components/InfoCardOrange.vue"
+import InfoCardPurple from "../components/InfoCardPurple.vue"
 import rohr_img from "@/assets/roehre_assets/rohr.png"
 import rohr_bühne from "@/assets/roehre_assets/rohr_bühne.png"
+import rohr_gif from "@/assets/roehre_assets/röhre.gif"
+import rohr_lösung_bühne from "@/assets/roehre_assets/rohr_lösung_bühne.png"
 
 import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
 import Investigate from "../components/Primm_components/Investigate.vue"
@@ -66,12 +103,13 @@ import Make from "../components/Primm_components/Make.vue"
 
 import SubtaskList from "../components/SubtaskList.vue"
 import ScratchImage from "../components/ScratchImage.vue"
+import ScratchGif from "../components/ScratchGif.vue"
 import StudentAnswer from "../components/StudentAnswer.vue"
 import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"
 
-const SprungProjectUrl = new URL("@/assets/roehre_assets/Aufgabe_Röhre_PRIMM.sb3", import.meta.url).href;
-
+const RohrProjectUrl = new URL("@/assets/roehre_assets/Aufgabe_Röhre_PRIMM.sb3", import.meta.url).href;
+const RohrProjectTestUrl = new URL("@/assets/whisker_tests/röhre.js", import.meta.url).href;
 
 const content = {
     pr: {
@@ -96,12 +134,13 @@ const content = {
 }
 </script>
 
-<style>
+<style scoped>
 .springen {
     width: 90%;
 }
 
 .vertical-container {
+    height: 100%;
     min-width: 60%;
 }
 
