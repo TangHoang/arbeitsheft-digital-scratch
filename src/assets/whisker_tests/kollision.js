@@ -1,31 +1,34 @@
-const RoehrenBewegung = async function (t) {
-    const r1 = t.getSprite('Röhre1');
-    const r2 = t.getSprite('Röhre2');
+const KollisionsTest = async function (t) {
+    const s = t.getSprite('Cat Flying');
 
-    // Initialisierung prüfen
-    t.assume.ok(r1 && r2, 'Sprites "röhre1" und/oder "röhre2" fehlen.');
+    t.assume.ok(s, `Sprite 'Cat Flying' existiert nicht.`);
 
-    // warten
-    await t.runForSteps(20);
+    // --- Boden Kollision ---
+    t.dragSprite('Cat Flying', s.y, -200);  // unter den Boden ziehen    
+    await t.runForSteps(5);
 
-    // Abstand messen
-    const abstand = Math.abs(r1.x - r2.x);
-    t.log(`Abstand zwischen röhre1 und röhre2: ${abstand}px`);
-
-    const min_abstand = 200;
-
-    // Test Mindestabstand
     t.assert.greaterOrEqual(
-        abstand, min_abstand,
-        `Abstand ist zu klein: ${abstand}px (mindestens ${min_abstand}px erwartet).`
+        s.y, -180,
+        `Kollisionslogik Boden fehlt: Sprite ist unter dem Boden (y=${s.y}).`
     );
+    t.log(`Boden-Test: Sprite.y=${s.y}`);
+
+    // --- Decken Kollision  ---
+    t.dragSprite('Cat Flying', s.y, 200);  // über die Decke ziehen    
+    await t.runForSteps(5);
+
+    t.assert.lessOrEqual(
+        s.y, 180,
+        `Kollisionslogik Decke fehlt: Sprite ist über der Decke (y=${s.y}).`
+    );
+    t.log(`Decken-Test: Sprite.y=${s.y}`);
 };
 
 module.exports = [
     {
-        test: RoehrenBewegung,
-        name: 'Röhrenabstand',
-        description: 'Haben Röhre1 und Röhre2 genug Abstand?',
+        test: KollisionsTest,
+        name: 'Kollision Boden & Decke',
+        description: 'Prüft, ob Cat Flying nicht unter den Boden oder über die Decke gelangen kann.',
         categories: []
     }
 ];
