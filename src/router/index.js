@@ -5,18 +5,18 @@ import Springen from '../pages/Springen.vue'
 import Roehre from '../pages/Roehre.vue'
 import Kollision from '../pages/Kollision.vue'
 import Score from '../pages/Score.vue'
+import ScratchEinfuehrung from '../pages/ScratchEinfuehrung.vue'
 
 export default createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         { path: '/', redirect: '/chapter/einleitung' },
-        { path: '/chapter/einleitung', name: "Einleitung", component: Einleitung },
-        { path: '/chapter/springen', name: "Springen", component: Springen },
-        { path: '/chapter/roehre', name: "Roehre", component: Roehre },
-        { path: '/chapter/kollision', name: "Kollision", component: Kollision },
-        { path: '/chapter/score', name: "Punktestand", component: Score },
-        { path: '/chapter/flappy-bird', name: "FlappyBird", component: FlappyBird },
-
-
+        { path: '/chapter/einleitung', name: "einleitung", component: Einleitung },
+        { path: '/chapter/scratch-einfuehrung', name: "scratch-einfuehrung", component: ScratchEinfuehrung },
+        { path: '/chapter/springen', name: "springen", component: Springen },
+        { path: '/chapter/roehre', name: "roehre", component: Roehre },
+        { path: '/chapter/kollision', name: "kollision", component: Kollision },
+        { path: '/chapter/score', name: "score", component: Score },
+        { path: '/chapter/flappy-bird', name: "flappy-bird", component: FlappyBird },
     ]
 })

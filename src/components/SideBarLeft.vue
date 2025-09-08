@@ -16,15 +16,12 @@
 <script setup>
 const chapter_list = [
     { id: 0, title: "Einleitung", routeName: "einleitung" },
-    { id: 1, title: "Springen", routeName: "Springen" },
-    { id: 2, title: "Röhre", routeName: "Roehre" },
-    { id: 3, title: "Kollision", routeName: "Kollision" },
-    { id: 3, title: "Punktestand", routeName: "Score" },
-
+    { id: 1, title: "Scratch-Einführung", routeName: "scratch-einfuehrung" },
+    { id: 2, title: "Springen", routeName: "springen" },
+    { id: 3, title: "Röhre", routeName: "roehre" },
+    { id: 4, title: "Kollision", routeName: "kollision" },
+    { id: 5, title: "Punktestand", routeName: "score" },
 ]
-function changeChapter(titel) {
-    alert(`Kapitel ${titel} wurde angeklickt!`)
-}
 </script>
 
 <style scoped>
