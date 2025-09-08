@@ -1,7 +1,7 @@
 <template>
     <div class="springen">
 
-        <InfoCardOrange :title="'Kapitel 3: Punktestand'">
+        <InfoCardOrange :title="'Kapitel 4: Punktestand'">
             <p>Nachdem dein Vogel eine Röhre passiert, soll die Punktzahl erhöht werden. Dies werden wir nun
                 implementieren.</p>
         </InfoCardOrange>
@@ -50,19 +50,56 @@
         <Make>
             <template #default>
                 <h3> {{ content.make.title }}</h3>
-                <SubtaskList :items="content.make.aufgabe_a" />
-                <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                    :floating="false" :buttonTitle="'Editor Öffnen'" />
+                <div class="horizontal-container">
+                    <div class="vertical-container">
+                        <SubtaskList :items="content.make.aufgabe_a" />
+                        <PopUp :projectUrl="ScoreProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
+                            :floating="false" :buttonTitle="'Editor Öffnen'" />
+                        <PopUp :projectUrl="ScoreProjectTestUrl"
+                            :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
+                            :type="'test'" />
+                    </div>
+                    <ScratchGif :imageUrls="[score_gif, score_lösung_img]" :height="'200px'" />
+                </div>
             </template>
         </Make>
 
+        <InfoCardPurple :title="'Recap'">
+            <ul class="info-list">
+                <li class="info-row">
+                    <span class="info-text">
+                        <strong>Variablen: </strong> Du hast gesehen, wie man mit einen Punktestand mit Variablen
+                        umsetzt.
+                    </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                </li>
+                <li class="info-row">
+
+                    <span class="info-text">
+                        <strong>Logik: </strong> Wir haben den 'warte'-Block verwendet, um den Counter bei der Berührung
+                        genau
+                        um 1 zu erhöhen.
+                    </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                </li>
+                <li class="info-row">
+                    <span class="info-text">
+                        <strong>Highscore: </strong> Du hast selbst einen Highscore implementiert.
+                    </span>
+                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                </li>
+            </ul>
+        </InfoCardPurple>
     </div>
 </template>
 
 <script setup>
 import InfoCardOrange from "../components/InfoCardOrange.vue"
+import InfoCardPurple from "../components/InfoCardPurple.vue"
 import score_img from "@/assets/score_assets/score.png"
 import score_bühne from "@/assets/score_assets/score_bühne.png"
+import score_gif from "@/assets/score_assets/score.gif"
+import score_lösung_img from "@/assets/score_assets/score_lösung_bühne.png"
 
 import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
 import Investigate from "../components/Primm_components/Investigate.vue"
@@ -76,7 +113,8 @@ import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"
 import ScratchGif from "../components/ScratchGif.vue"
 
-const SprungProjectUrl = new URL("@/assets/roehre_assets/Aufgabe_Röhre_PRIMM.sb3", import.meta.url).href;
+const ScoreProjectUrl = new URL("@/assets/score_assets/Aufgabe_Counter_PRIMM.sb3", import.meta.url).href;
+const ScoreProjectTestUrl = new URL("@/assets/whisker_tests/highscore.js", import.meta.url).href;
 
 
 const content = {
@@ -94,13 +132,14 @@ const content = {
     modify: {
         title: "Aufgabe 3",
         aufgabe_a: ["a) Übertrage zuerst den Programmcode im Bild in dein Projekt.",
-            "b) Es fehlt noch Röhre2! Kopiere nun den gegebenen Code, um die zweite Röhre miteinzubeziehen.",
-            "c) Verändere! Der Sprite, der bei Berührung mit der Röhre den Counter erhöht, sollst du so unsichtbar wie möglich machen."
+            "b) Entferne den 'warte'-Block, probiere es aus und passe ggf. deine Antwort in Aufgabe 2 an.",
+            "c) Es fehlt noch Röhre2! Kopiere nun den gegebenen Code, um die zweite Röhre miteinzubeziehen.",
+            "d) Verändere! Der Sprite, der bei Berührung mit der Röhre den Counter erhöht, sollst du so unsichtbar wie möglich machen."
         ]
     },
     make: {
         title: "Aufgabe 4",
-        aufgabe_a: ["a) Implementiere eine Kombo-Logik. Ab 10 Punkten soll sich der Score, immer um 2 erhöhen!", "b) Implementiere Soundeffekte für einen erfolgreichen Durchflug."]
+        aufgabe_a: ["a) Implementiere einen Highscore.", "b) Implementiere Soundeffekte für einen erfolgreichen Durchflug."]
     }
 }
 </script>
