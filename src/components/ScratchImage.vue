@@ -23,8 +23,9 @@ const props = defineProps({
 }
 
 .scratch-image {
-    border-radius: 2px;
+    border-radius: 3px;
     width: auto;
     margin-right: 8px;
+    filter: drop-shadow(0 0 0.75rem rgb(226, 216, 196));
 }
 </style>

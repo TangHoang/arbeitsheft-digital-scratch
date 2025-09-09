@@ -33,10 +33,12 @@ const hover = ref(false)
     display: flex;
     flex-flow: column;
     max-width: 40%;
+    align-items: center;
 }
 
 p {
     font-size: 0.9rem;
-    padding-left: 10px;
+    padding: 0px 10px;
+    text-align: center;
 }
 </style>

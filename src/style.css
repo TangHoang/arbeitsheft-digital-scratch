@@ -22,6 +22,11 @@ a {
 p,
 li {
 	font-weight: 500;
+	width: 100%;
+}
+
+ul {
+	width: 100%;
 }
 
 li {
