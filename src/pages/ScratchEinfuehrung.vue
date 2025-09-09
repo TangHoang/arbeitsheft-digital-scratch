@@ -7,6 +7,8 @@
                 wie Puzzleteile zusammen und erstellst so Animationen, Spiele und Geschichten
                 ohne komplizierten Code. In diesem Kapitel bekommst du einen Überblick über Scratch.
             </p>
+
+            <ScratchImage :imageUrls="[scratch_gesamt]" :height="'300px'" class="img" />
         </InfoCardOrange>
 
         <InfoCardPurple :title="'Skript'">
@@ -147,6 +149,8 @@ import schleifen_beispiel_gif from '@/assets/einfuehrung_assets/schleifen_beispi
 
 import bedingungen_img from '@/assets/einfuehrung_assets/bedingungen_img.png'
 import bedingungen_beispiel_gif from '@/assets/einfuehrung_assets/bedingungen_beispiel.gif'
+
+import scratch_gesamt from '@/assets/einfuehrung_assets/scratch_gesamt.png'
 </script>
 
 <style scoped>
