@@ -23,7 +23,6 @@
 <script setup>
 import { ref } from 'vue';
 import hint from './Hint.vue';
-import Raumschiffimage from "../assets/raumschiff_code_if.png"
 import ProjectLinkButton from './ProjectLinkButton.vue'
 
 
