@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, nextTick } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 import { CProgress, CProgressBar } from '@coreui/vue'
@@ -79,7 +79,11 @@ function finish() {
 }
 
 function scTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    nextTick(() => {
+        requestAnimationFrame(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        })
+    })
 }
 
 const totalChapters = chapters.length + 1

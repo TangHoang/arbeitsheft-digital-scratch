@@ -8,6 +8,9 @@ import Score from '../pages/Score.vue'
 import ScratchEinfuehrung from '../pages/ScratchEinfuehrung.vue'
 import Rueckblick from '../pages/Rueckblick.vue'
 
+import { nextTick } from 'vue'
+
+
 export default createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -20,7 +23,15 @@ export default createRouter({
         { path: '/chapter/score', name: "score", component: Score },
         { path: '/chapter/rueckblick', name: "rueckblick", component: Rueckblick },
     ],
-    scrollBehavior(to, from, savedPosition) {
-        return { top: 0, behavior: 'smooth' }
-    },
+
+    scrollBehavior() {
+        return new Promise((resolve) => {
+            nextTick(() => {
+                requestAnimationFrame(() => {
+                    resolve({ top: 0, behavior: 'smooth' })
+                })
+            })
+        })
+    }
+
 })
