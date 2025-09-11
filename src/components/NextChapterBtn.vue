@@ -4,7 +4,12 @@
             <button v-if="prevChapter" class="btn btn-secondary" @click="goPrev" aria-label="Vorheriges Kapitel">
                 ◀ Kapitel: {{ prevChapter.title }}
             </button>
-
+            <div class="progress-container">
+                <CProgress :height="6" class="progress-flex" :key="currentIndex">
+                    <CProgressBar :value="progressValue" />
+                </CProgress>
+                <small style="opacity:.7"> {{ progressValue }}%</small>
+            </div>
             <button v-if="nextChapter" class="btn btn-primary" @click="goNext" aria-label="Nächstes Kapitel">
                 Kapitel: {{ nextChapter.title }} ▶
             </button>
@@ -20,6 +25,7 @@
 import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
+import { CProgress, CProgressBar } from '@coreui/vue'
 const OVERVIEW_ROUTE = 'rueckblick'
 
 const chapters = [
@@ -75,6 +81,13 @@ function finish() {
 function scTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+const totalChapters = chapters.length + 1
+
+const progressValue = computed(() => {
+    if (currentIndex.value === -1) return 0
+    return Math.round(((currentIndex.value + 1) / totalChapters) * 100)
+})
 </script>
 
 <style scoped>
@@ -83,20 +96,21 @@ function scTop() {
     left: 0;
     right: 0;
     bottom: 0;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 6px;
 
-    padding: 12px clamp(12px, 4vw, 24px);
+    padding: 10px clamp(12px, 4vw, 24px);
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
 
-    background: rgba(255, 255, 255, 0.0.1);
-    -webkit-backdrop-filter: blur(1px) saturate(0.2);
-    backdrop-filter: blur(1px) saturate(1.2);
+    background: rgba(255, 255, 255, 0.01);
+    -webkit-backdrop-filter: blur(6px) saturate(0.2);
+    backdrop-filter: blur(6px) saturate(1.2);
 
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.08);
-    z-index: 1000;
+    z-index: 1;
 }
 
 @supports not ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))) {
@@ -174,5 +188,19 @@ function scTop() {
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+.progress-container {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-30%);
+    width: min(50%, 70%);
+}
+
+.progress-flex {
+    flex: 1;
+    min-width: 180px;
+    max-width: 520px;
 }
 </style>
