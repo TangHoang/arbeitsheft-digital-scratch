@@ -17,6 +17,8 @@ const props = defineProps({
     padding: 1rem 2rem 3rem;
     border-radius: 24px;
     max-width: 1200px;
+    width: 90%;
+
     text-align: left;
     color: #3b2d0a;
 

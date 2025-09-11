@@ -1,5 +1,5 @@
 <template>
-    <div class="springen">
+    <div class="score">
 
         <InfoCardOrange :title="'Kapitel 4: Punktestand'">
             <p>Nachdem dein Vogel eine Röhre passiert, soll die Punktzahl erhöht werden. Dies werden wir nun
@@ -144,8 +144,11 @@ const content = {
 }
 </script>
 
-<style>
-.springen {
+<style scoped>
+.score {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 90%;
 }
 

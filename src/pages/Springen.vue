@@ -136,21 +136,24 @@ const content = {
 }
 </script>
 
-<style>
+<style scoped>
 .springen {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 90%;
 }
 
 .horizontal-container {
     display: flex;
     flex-flow: row;
-    justify-content: space-evenly;
+    justify-content: left;
     padding-bottom: 1rem;
 }
 
 .vertical-container {
     height: 100%;
-    min-width: 60%;
+    min-width: 50%;
     max-width: 100%;
 }
 

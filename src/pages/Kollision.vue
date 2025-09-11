@@ -145,6 +145,9 @@ const content = {
 
 <style scoped>
 .springen {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 90%;
 }
 

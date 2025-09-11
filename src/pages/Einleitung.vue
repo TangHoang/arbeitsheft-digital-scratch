@@ -109,6 +109,8 @@
             <p> </p>
         </InfoCardWhite>
 
+
+
     </div>
 
 </template>
@@ -120,6 +122,9 @@ import InfoCardPurple from '../components/InfoCardPurple.vue';
 </script>
 <style>
 .einleitung {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 80%;
 }
 

@@ -155,6 +155,9 @@ import scratch_gesamt from '@/assets/einfuehrung_assets/scratch_gesamt.png'
 
 <style scoped>
 .einleitung {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 80%;
 }
 

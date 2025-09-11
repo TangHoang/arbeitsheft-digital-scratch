@@ -1,5 +1,5 @@
 <template>
-    <div class="springen">
+    <div class="roehre">
 
         <InfoCardOrange :title="'Kapitel 2: Röhre'">
             <p>In diesem Kapitel programmieren wir die bewegenden Röhren!</p>
@@ -135,20 +135,23 @@ const content = {
 </script>
 
 <style scoped>
-.springen {
+.roehre {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 90%;
 }
 
 .vertical-container {
     height: 100%;
-    min-width: 60%;
+    min-width: 50%;
 }
 
 
 .horizontal-container {
     display: flex;
     flex-flow: row;
-    justify-content: space-evenly;
+    justify-content: left;
     padding-bottom: 1rem;
 }
 </style>
