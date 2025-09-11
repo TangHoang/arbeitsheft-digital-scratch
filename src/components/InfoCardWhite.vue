@@ -36,6 +36,8 @@ const props = defineProps({
     font-size: 1.8rem;
     line-height: 1.2;
     color: #b85d00;
+    font-weight: 600;
+
 }
 
 .info-card p {

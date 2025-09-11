@@ -35,9 +35,11 @@ const props = defineProps({
     font-size: 2.25rem;
     line-height: 1.2;
     color: #b85d00;
+    font-weight: 600;
+
 }
 
-.info-card :deep(p) {
+.info-card p {
     margin: 0;
     font-size: 1.125rem;
     line-height: 1.7;

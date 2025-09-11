@@ -159,4 +159,9 @@ const content = {
     align-items: center;
     padding-bottom: 1rem;
 }
+
+h3 {
+    color: #b85d00;
+
+}
 </style>

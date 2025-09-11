@@ -160,4 +160,9 @@ const content = {
 .disclaimer {
     padding-top: 1rem;
 }
+
+h3 {
+    color: #b85d00;
+
+}
 </style>

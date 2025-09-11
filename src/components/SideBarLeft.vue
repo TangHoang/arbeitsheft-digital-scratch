@@ -22,18 +22,15 @@ const route = useRoute()
 const currentName = computed(() => String(route.name ?? ''))
 
 const chapter_list = [
-    { id: 0, title: " Einleitung", routeName: "einleitung" }, {
-        id: 1, title: "Scratch-Einführung",
-        routeName: "scratch-einfuehrung"
-    }, { id: 2, title: "Springen", routeName: "springen" }, {
-        id:
-            3, title: "Röhre", routeName: "roehre"
-    }, {
-        id: 4, title: "Kollision", routeName: "kollision"
-    }, { id: 5, title: "Punktestand", routeName: "score" }, {
-        id: 6, title: "Rückblick",
-        routeName: "rueckblick"
-    },] </script>
+    { id: 0, title: " Einleitung", routeName: "einleitung" },
+    { id: 1, title: "Scratch-Einführung", routeName: "scratch-einfuehrung" },
+    { id: 2, title: "Springen", routeName: "springen" },
+    { id: 3, title: "Röhre", routeName: "roehre" },
+    { id: 4, title: "Kollision", routeName: "kollision" },
+    { id: 5, title: "Punktestand", routeName: "score" },
+    { id: 6, title: "Rückblick", routeName: "rueckblick" }
+] 
+</script>
 
 <style scoped>
 .sidebar {
@@ -46,6 +43,7 @@ const chapter_list = [
     position: absolute;
     top: 50%;
     left: 0;
+    background-color: transparent;
 }
 
 .sidebar h2 {
