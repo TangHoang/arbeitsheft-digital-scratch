@@ -40,5 +40,8 @@ p {
     font-size: 0.9rem;
     padding: 0px 10px;
     text-align: center;
+    max-width: 60%;
+    min-width: 40%;
+    color: rgba(0, 0, 0, 0.5);
 }
 </style>
