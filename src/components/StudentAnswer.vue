@@ -1,24 +1,25 @@
 <template>
     <div class="answer-wrapper">
         <div class="input-box">
-            <textarea id="answer" placeholder="Trage hier deine Lösung ein." v-model="input" :style="{ height, width }">
+            <textarea :answerId="answerId" v-model="model" placeholder="Trage hier deine Lösung ein."
+                :style="{ height, width }">
             </textarea>
         </div>
-        <!-- 
-        <div class="hints-container">
-            <Hint :title="'TODO'" :hint="'TODO'" />
-        </div>
-        -->
     </div>
-
 </template>
 
 <script setup>
-import Hint from './Hint.vue';
+import { useAnswers } from '@/composables/useAnswers'
+
 const props = defineProps({
-    height: { type: String, default: '150px' },
-    width: { type: String, default: '100%' }
+    answerId: { type: String, required: true },
+    requiredheight: { type: String, default: '150px' },
+    height: { type: String, default: '200px' }
 })
+
+const { useAnswer } = useAnswers()
+const model = useAnswer(props.answerId)
+
 </script>
 
 <style scoped>

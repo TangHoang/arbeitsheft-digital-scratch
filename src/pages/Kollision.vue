@@ -11,7 +11,7 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[kollision_img, kollision_assets]" :height="'150px'" />
-                <StudentAnswer :height="'180px'" />
+                <StudentAnswer :height="'180px'" answerId="kollision/aufgabe1" />
                 <SubtaskList :items="content.pr.aufgabe_b" />
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213183568/embed'" />
             </template>
@@ -23,7 +23,7 @@
                 <SubtaskList :items="content.investigate.aufgabe_a" />
 
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" />
+                    <StudentAnswer :height="'200px'" answerId="kollision/aufgabe2" />
                     <ScratchImage :imageUrls="[kollision_img]" :height="'200px'" />
                 </div>
 

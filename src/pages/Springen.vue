@@ -10,7 +10,7 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[sprung_bühne, sprung_img]" :height="'200px'" />
-                <StudentAnswer />
+                <StudentAnswer answerId="springen/aufgabe1" :height="'200px'" />
                 <SubtaskList :items="content.pr.aufgabe_b" />
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213169461/embed'" />
             </template>
@@ -21,7 +21,7 @@
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" />
+                    <StudentAnswer :height="'200px'" answerId="springen/aufgabe2" />
                     <ScratchImage :imageUrls="[sprung_img]" :height="'200px'" />
                 </div>
             </template>
