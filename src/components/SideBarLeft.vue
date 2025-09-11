@@ -4,7 +4,8 @@
             <h2>Kapitelübersicht</h2>
             <ul>
                 <li v-for="chapter in chapter_list" :key="chapter.id">
-                    <router-link :to="chapter.routeName" class="chapter-link">
+                    <router-link :to="chapter.routeName" class="chapter-link"
+                        :class="{ active: currentName === chapter.routeName }">
                         {{ chapter.title }}
                     </router-link>
                 </li>
@@ -14,15 +15,25 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const currentName = computed(() => String(route.name ?? ''))
+
 const chapter_list = [
-    { id: 0, title: "Einleitung", routeName: "einleitung" },
-    { id: 1, title: "Scratch-Einführung", routeName: "scratch-einfuehrung" },
-    { id: 2, title: "Springen", routeName: "springen" },
-    { id: 3, title: "Röhre", routeName: "roehre" },
-    { id: 4, title: "Kollision", routeName: "kollision" },
-    { id: 5, title: "Punktestand", routeName: "score" },
-]
-</script>
+    { id: 0, title: " Einleitung", routeName: "einleitung" }, {
+        id: 1, title: "Scratch-Einführung",
+        routeName: "scratch-einfuehrung"
+    }, { id: 2, title: "Springen", routeName: "springen" }, {
+        id:
+            3, title: "Röhre", routeName: "roehre"
+    }, {
+        id: 4, title: "Kollision", routeName: "kollision"
+    }, { id: 5, title: "Punktestand", routeName: "score" }, {
+        id: 6, title: "Rückblick",
+        routeName: "rueckblick"
+    },] </script>
 
 <style scoped>
 .sidebar {
@@ -32,6 +43,9 @@ const chapter_list = [
     box-sizing: border-box;
     text-align: left;
     align-self: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
 }
 
 .sidebar h2 {
@@ -57,11 +71,20 @@ const chapter_list = [
     display: inline-block;
     padding: 0.3rem 0.5rem;
     transition: background-color 0.2s ease;
-    border-radius: 4px;
+    border-radius: 24px;
+    padding: 0.5rem 0.5rem;
 }
 
 .sidebar a:hover {
-    background-color: #ddd;
+    background-color: #ffcd97;
+    font-weight: 600;
+
+}
+
+.chapter-link.active {
+    background-color: #ffb866;
+    color: #111;
+    font-weight: 600;
 }
 
 .sidebar-content {

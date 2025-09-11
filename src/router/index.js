@@ -6,12 +6,9 @@ import Roehre from '../pages/Roehre.vue'
 import Kollision from '../pages/Kollision.vue'
 import Score from '../pages/Score.vue'
 import ScratchEinfuehrung from '../pages/ScratchEinfuehrung.vue'
+import Rueckblick from '../pages/Rueckblick.vue'
 
 export default createRouter({
-    scrollBehavior(to, from, savedPosition) {
-        // always scroll to top
-        return { top: 0 }
-    },
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         { path: '/', redirect: '/chapter/einleitung' },
@@ -21,6 +18,9 @@ export default createRouter({
         { path: '/chapter/roehre', name: "roehre", component: Roehre },
         { path: '/chapter/kollision', name: "kollision", component: Kollision },
         { path: '/chapter/score', name: "score", component: Score },
-        { path: '/chapter/flappy-bird', name: "flappy-bird", component: FlappyBird },
-    ]
+        { path: '/chapter/rueckblick', name: "rueckblick", component: Rueckblick },
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        return { top: 0, behavior: 'smooth' }
+    },
 })
