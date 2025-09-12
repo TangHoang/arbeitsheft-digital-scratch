@@ -6,6 +6,7 @@
         </button>
 
         <div :class="['overlay', { 'active': isOpen }]" @click.self="closeOverlay">
+
             <button @click="closeOverlay" class="floating-close-btn">Minimieren</button>
 
             <div class="panel">
@@ -28,7 +29,14 @@
                 <template v-if="showIframe">
                     <iframe :src="iframeUrl" class="iframe" allowfullscreen></iframe>
                     <div class="hint-container">
-                        <hint />
+                        <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Stelle die Sprache auf <strong>Deutsch</strong>,
+                            indem du auf den
+                            Globus 🌐 clickst!
+                        </p>
+                        <div class="image-container" v-if="images">
+                            <ScratchImage :imageUrls="images" :height="'120px'" />
+                        </div>
+
                     </div>
                 </template>
             </div>
@@ -37,42 +45,73 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import hint from './Hint.vue'
 import ProjectLinkButton from './ProjectLinkButton.vue'
+import ScratchImage from './ScratchImage.vue'
 import instructionImg from '@/assets/download_instruction.png'
 
 const isOpen = ref(false)
-const showIframe = ref(false)
-const hasBeenOpenedAlready = ref(false)
 
 const props = defineProps({
     projectUrl: { type: String, required: true },
     iframeUrl: { type: String, required: true },
+    showIframe: { type: Boolean, default: undefined },
+    hasBeenOpenedAlready: { type: Boolean, default: undefined },
+    requireDownload: { type: Boolean, default: true },
     floating: Boolean,
     buttonTitle: { default: 'Editor öffnen', type: String },
-    type: String
+    images: { type: Array }
 })
 
-function closeOverlay() {
-    isOpen.value = false
-}
+// Emits für 2-Way, falls der Parent v-model nutzt
+const emit = defineEmits(['update:showIframe', 'update:hasBeenOpenedAlready'])
+
+// Interner Fallback, wenn Parent nichts liefert
+const _showIframe = ref(false)
+const _hasOpened = ref(false)
+
+// Nutzt Prop wenn gesetzt, sonst internen State
+const showIframe = computed({
+    get: () => props.showIframe ?? _showIframe.value,
+    set: v => {
+        if (props.showIframe !== undefined) emit('update:showIframe', v)
+        else _showIframe.value = v
+    }
+})
+const hasOpened = computed({
+    get: () => props.hasBeenOpenedAlready ?? _hasOpened.value,
+    set: v => {
+        if (props.hasBeenOpenedAlready !== undefined) emit('update:hasBeenOpenedAlready', v)
+        else _hasOpened.value = v
+    }
+})
+
+function closeOverlay() { isOpen.value = false }
 
 function onDownloaded() {
     showIframe.value = true
-    hasBeenOpenedAlready.value = true
+    hasOpened.value = true
 }
 
 watch(isOpen, (open) => {
-    if (open && hasBeenOpenedAlready.value) {
+    if (open && hasOpened.value && !props.requireDownload) {
         showIframe.value = true
-    } else if (!open) {
+    } else if (open && hasOpened.value && props.requireDownload) {
+        showIframe.value = true
     }
 })
 </script>
 
 
+
 <style scoped>
+.horizontal-container {
+    display: flex;
+    flex-flow: row;
+
+}
+
 .open-btn {
     padding: 10px 20px;
     background-color: #3498db;
