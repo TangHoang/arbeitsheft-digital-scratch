@@ -13,6 +13,7 @@
                 <StudentAnswer answerId="springen/aufgabe1" :height="'200px'" />
                 <SubtaskList :items="content.pr.aufgabe_b" />
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213169461/embed'" />
+                <SubtaskList :items="content.pr.aufgabe_c" />
             </template>
         </PredictAndRun>
 
@@ -21,7 +22,8 @@
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" answerId="springen/aufgabe2" />
+                    <StudentAnswer :height="'200px'" answerId="springen/aufgabe2" :task="content.pr.aufgabe_a"
+                        :scratchJson="aufgabe_sprung_json" />
                     <ScratchImage :imageUrls="[sprung_img]" :height="'200px'" />
                 </div>
             </template>
@@ -52,7 +54,7 @@
                 </div>
 
                 <p class="disclaimer">
-                    <strong>Wichtig!</strong> Speichere deinen aktuellen Stand auf deinem PC. Im
+                    ⚠️ <strong>Wichtig!</strong> Speichere deinen aktuellen Stand auf deinem PC. Im
                     nächsten Kapitel werden
                     wir damit weiter arbeiten!
                 </p>
@@ -109,6 +111,8 @@ import StudentAnswer from "../components/StudentAnswer.vue"
 import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"
 
+import aufgabe_sprung_json from '@/assets/sprung_assets/aufgabe_sprung.json'
+
 const SprungProjectUrl = new URL("@/assets/sprung_assets/Aufgabe_Sprung_PRIMM.sb3", import.meta.url).href;
 const SprungProjectTestUrl = new URL("@/assets/whisker_tests/sprung.js", import.meta.url).href;
 
@@ -118,7 +122,8 @@ const content = {
         sectionTitle: "",
         title: "Aufgabe 1",
         aufgabe_a: ["a) Stelle eine Vermutung über die Funktionalität des Codes auf.", "Bei welcher Taste wird das Programm reagieren?", "Wie verhält sich die Katze, wenn du nichts machst?"],
-        aufgabe_b: ["b) Führe nun das nebenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen.", "c) Waren deine Vermutungen richtig? :-)"],
+        aufgabe_b: ["b) Führe nun das untenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen.",],
+        aufgabe_c: ["c) Waren deine Vermutungen richtig? :-)"],
         demo_link: "https://scratch.mit.edu/projects/1213169461/embed",
     },
     investigate: {
@@ -127,7 +132,7 @@ const content = {
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ["a) Passe den Code so an, dass er höher springt und schneller fällt.", "Hinweis: Lade dafür das Projekt zuerst auf deinem PC herunter und lade es dann im Editor hoch."]
+        aufgabe_a: ["a) Passe den Code so an, dass er höher springt und schneller fällt.",]
     },
     make: {
         title: "Aufgabe 4",
@@ -163,6 +168,6 @@ const content = {
 
 h3 {
     color: #b85d00;
-
+    font-weight: 500;
 }
 </style>

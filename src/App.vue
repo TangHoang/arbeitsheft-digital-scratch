@@ -11,7 +11,6 @@
 			<NextChapterBtn :routeName="$route.name" />
 		</div>
 		<SideBarLeft />
-
 	</div>
 </template>
 
@@ -53,6 +52,7 @@ import NextChapterBtn from './components/NextChapterBtn.vue';
 	display: grid;
 	height: 100%;
 	overflow: hidden;
+	margin-bottom: 10rem;
 }
 
 .sidebar-wrapper {

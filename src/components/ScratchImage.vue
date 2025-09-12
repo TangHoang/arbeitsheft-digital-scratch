@@ -27,5 +27,6 @@ const props = defineProps({
     width: auto;
     margin-right: 8px;
     filter: drop-shadow(0 0 0.75rem rgb(226, 216, 196));
+    margin-bottom: 1rem;
 }
 </style>

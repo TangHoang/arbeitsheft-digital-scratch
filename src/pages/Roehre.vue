@@ -14,6 +14,8 @@
 
                 <SubtaskList :items="content.pr.aufgabe_b" />
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1206376368/embed'" />
+                <SubtaskList :items="content.pr.aufgabe_c" />
+
             </template>
         </PredictAndRun>
 
@@ -116,7 +118,8 @@ const content = {
         sectionTitle: "",
         title: "Aufgabe 1",
         aufgabe_a: ["a) Stelle eine Vermutung über die Funktionalität des Codes auf."],
-        aufgabe_b: ["b) Führe nun das nebenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen.", "c) Waren deine Vermutungen richtig? :-)"],
+        aufgabe_b: ["b) Führe nun das nebenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen."],
+        aufgabe_c: ["c) Waren deine Vermutungen richtig? :-)"],
         demo_link: "https://scratch.mit.edu/projects/1206376368/embed",
     },
     investigate: {
@@ -157,6 +160,7 @@ const content = {
 
 h3 {
     color: #b85d00;
+    font-weight: 500;
 
 }
 </style>
