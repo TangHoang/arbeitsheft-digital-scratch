@@ -5,47 +5,72 @@
             {{ buttonTitle }}
         </button>
 
-        <div :class="['overlay', { 'active': isOpen }]" @click.self="isOpen = false">
-            <ProjectLinkButton :url="projectUrl" class="project-link-btn" />
-            <button @click="isOpen = false" class="floating-close-btn">
-                Minimieren
-            </button>
+        <div :class="['overlay', { 'active': isOpen }]" @click.self="closeOverlay">
+            <button @click="closeOverlay" class="floating-close-btn">Minimieren</button>
 
             <div class="panel">
-                <iframe :src="iframeUrl" class="iframe" allowfullscreen></iframe>
-                <div class="hint-container">
+                <div v-if="!showIframe" class="pre-screen">
+                    <div class="pre-screen-card">
+                        <h2>Projekt herunterladen</h2>
+                        <p class="pre-hint">
+                            1. Lade zuerst das Scratch-Projekt herunter. Danach wird der Editor hier eingeblendet.
+                        </p>
+
+                        <p class="pre-hint">
+                            2. Lade das heruntergeladene Projekt im Editor hoch (siehe Bild).
+                        </p>
+                        <ProjectLinkButton :url="projectUrl" class="pre-download-btn" @downloaded="onDownloaded"
+                            @click="showIframe = true" />
+                        <img :src="instructionImg" class="instruction-img"></img>
+                    </div>
                 </div>
+
+                <template v-if="showIframe">
+                    <iframe :src="iframeUrl" class="iframe" allowfullscreen></iframe>
+                    <div class="hint-container">
+                        <hint />
+                    </div>
+                </template>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import hint from './Hint.vue';
+import { ref, watch } from 'vue'
+import hint from './Hint.vue'
 import ProjectLinkButton from './ProjectLinkButton.vue'
+import instructionImg from '@/assets/download_instruction.png'
 
-
-const isOpen = ref(false);
+const isOpen = ref(false)
+const showIframe = ref(false)
+const hasBeenOpenedAlready = ref(false)
 
 const props = defineProps({
-    projectUrl: {
-        type: String,
-        required: true
-    },
-    iframeUrl: {
-        type: String,
-        required: true,
-    },
+    projectUrl: { type: String, required: true },
+    iframeUrl: { type: String, required: true },
     floating: Boolean,
-    buttonTitle: {
-        default: "Editor öffnen",
-        type: String,
-    },
-    type: String,
+    buttonTitle: { default: 'Editor öffnen', type: String },
+    type: String
 })
 
+function closeOverlay() {
+    isOpen.value = false
+}
+
+function onDownloaded() {
+    showIframe.value = true
+    hasBeenOpenedAlready.value = true
+}
+
+watch(isOpen, (open) => {
+    if (open && hasBeenOpenedAlready.value) {
+        showIframe.value = true
+    } else if (!open) {
+    }
+})
 </script>
+
 
 <style scoped>
 .open-btn {
@@ -68,7 +93,6 @@ const props = defineProps({
     bottom: 400px;
     left: 200px;
     animation: pulseAnim 3s infinite ease-in-out;
-
 }
 
 @keyframes pulseAnim {
@@ -85,23 +109,9 @@ const props = defineProps({
     }
 }
 
-.project-link-btn {
-    position: fixed;
-    top: 20px;
-    left: 50px;
-    padding: 10px 15px;
-    background-color: #3ce756;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    z-index: 1100;
-    cursor: pointer;
-}
-
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -109,12 +119,10 @@ const props = defineProps({
     align-items: center;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.5);
-
-    /* Verstecken im minimierten Zustand */
     opacity: 0;
     pointer-events: none;
     transform: translateY(100%);
-    transition: all 0.4s ease;
+    transition: all .4s ease;
 }
 
 .overlay.active {
@@ -124,13 +132,13 @@ const props = defineProps({
 }
 
 .panel {
-    background: white;
+    background: transparent;
     width: 98%;
     height: 85%;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
     display: flex;
     flex-direction: row;
 }
@@ -139,7 +147,7 @@ const props = defineProps({
     position: fixed;
     top: 20px;
     right: 50px;
-    padding: 0.6rem;
+    padding: .6rem;
     background-color: #e74c3c;
     color: white;
     border: none;
@@ -161,5 +169,60 @@ const props = defineProps({
     border-left: 3px solid #000000;
     overflow-y: auto;
     padding: 10px;
+}
+
+.pre-screen {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background: transparent;
+}
+
+.pre-screen-card {
+    width: min(680px, 92vw);
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.instruction-img {
+    width: 500px;
+}
+
+.pre-screen-card h2 {
+    margin: 0 0 .75rem 0;
+}
+
+.pre-hint {
+    margin: 0 0 1.25rem 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+.pre-download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pre-note {
+    display: block;
+    margin-top: .75rem;
+    color: #666;
+    font-size: .875rem;
 }
 </style>
