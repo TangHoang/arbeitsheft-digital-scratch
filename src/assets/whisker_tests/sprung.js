@@ -3,7 +3,7 @@ const Kostuem = async function (t) {
     let sprite = t.getSprite('Cat Flying');
     await t.runForSteps(20);     // warten
 
-    const expectedAfterPress = 'kostuem2';
+    const expectedAfterPress = 'cat flying-b';
     // --- Vorher ---
     const idxBefore = sprite.currentCostume;
     const nameBefore = sprite.getCostumeByIndex(idxBefore).name;
