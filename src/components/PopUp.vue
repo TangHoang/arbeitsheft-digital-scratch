@@ -10,7 +10,7 @@
             <button @click="closeOverlay" class="floating-close-btn">Minimieren</button>
 
             <div class="panel">
-                <div v-if="!showIframe" class="pre-screen">
+                <div v-if="!showIframe && type === 'editor'" class="pre-screen">
                     <div class="pre-screen-card">
                         <h2>Projekt herunterladen</h2>
                         <p class="pre-hint">
@@ -23,6 +23,29 @@
                         <ProjectLinkButton :url="projectUrl" class="pre-download-btn" @downloaded="onDownloaded"
                             @click="showIframe = true" />
                         <img :src="instructionImg" class="instruction-img"></img>
+                    </div>
+                </div>
+
+                <div v-if="!showIframe && type === 'test'" class="pre-screen">
+                    <div class="pre-screen-card">
+                        <h2>Test-Datei herunterladen</h2>
+                        <p class="pre-hint">
+                            1. Lade zuerst die Test-Datei herunter. Danach wird der Test-Bildschirm hier eingeblendet.
+                        </p>
+
+                        <p class="pre-hint">
+                            2. Lade die Datei im Editor hoch (siehe Bild).
+                        </p>
+                        <img :src="whisker_instruction_1" class="instruction-img"></img>
+                        <p class="pre-hint">
+                            3. Wechsle dann in den Tab Mein Projekt und starte den Test..
+                        </p>
+                        <img :src="whisker_instruction_2" class="instruction-img"></img>
+
+                        <ProjectLinkButton :url="projectUrl" class="pre-download-btn" @downloaded="onDownloaded"
+                            @click="showIframe = true" />
+
+
                     </div>
                 </div>
 
@@ -51,6 +74,10 @@ import ProjectLinkButton from './ProjectLinkButton.vue'
 import ScratchImage from './ScratchImage.vue'
 import instructionImg from '@/assets/download_instruction.png'
 
+import whisker_instruction_1 from '@/assets/whisker_instruction_1.png'
+import whisker_instruction_2 from '@/assets/whisker_instruction_2.png'
+
+
 const isOpen = ref(false)
 
 const props = defineProps({
@@ -61,7 +88,8 @@ const props = defineProps({
     requireDownload: { type: Boolean, default: true },
     floating: Boolean,
     buttonTitle: { default: 'Editor öffnen', type: String },
-    images: { type: Array }
+    images: { type: Array },
+    type: String,
 })
 
 // Emits für 2-Way, falls der Parent v-model nutzt
@@ -79,7 +107,7 @@ function onIframeLoad() {
     const iframe = frameRef.value
     console.log('[overlay] iframe load fired', { src: iframe?.src })
 
-    // Same-Origin-Zugriff absichern
+    // Same-Origin-Zugriff
     let win, doc
     try {
         win = iframe?.contentWindow
@@ -92,9 +120,6 @@ function onIframeLoad() {
         console.warn('[overlay] Kein Zugriff auf contentWindow/contentDocument')
         return
     }
-
-    // Sprach-Redirect? (Whisker setzt lng, Seite lädt evtl. gleich nochmal)
-    console.log('[overlay] iframe title (vor Ready):', doc.title)
 
     // Warten bis Whisker initialisiert ist (nach Redirect/Skripten)
     if (readyPoll) clearInterval(readyPoll)
@@ -300,7 +325,7 @@ watch(isOpen, (open) => {
 }
 
 .instruction-img {
-    width: 500px;
+    width: 660px;
 }
 
 .pre-screen-card h2 {
