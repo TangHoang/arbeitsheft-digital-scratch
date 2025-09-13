@@ -13,7 +13,8 @@
                 <StudentAnswer answerId="roehre/aufgabe1" />
 
                 <SubtaskList :items="content.pr.aufgabe_b" />
-                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1206376368/embed'" />
+                <!--<ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1206376368/embed'" />-->
+                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1216517561/embed'" />
                 <SubtaskList :items="content.pr.aufgabe_c" />
 
             </template>
@@ -37,35 +38,24 @@
                     <div>
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor Öffnen'" />
-                    </div>
-                    <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
-                </div>
-            </template>
-        </Modify>
-
-        <Make>
-            <template #default>
-                <h3> {{ content.make.title }}</h3>
-                <div class="horizontal-container">
-                    <div class="vertical-container">
-                        <SubtaskList :items="content.make.aufgabe_a" />
-                        <PopUp :projectUrl="RohrProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor öffnen'" :type="'editor'" />
+                            :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.modify.aufgabe_a"
+                            :hints="content.modify.hints" />
                         <PopUp :projectUrl="RohrProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :type="'test'"
                             :buttonTitle="'Testen'" />
                     </div>
-                    <ScratchGif :imageUrls="[rohr_gif, rohr_lösung_bühne]" :height="'200px'" />
+                    <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213178249/embed'" />
                 </div>
-
             </template>
-        </Make>
+        </Modify>
+
         <InfoCardPurple :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
-                        <strong>Bewegung von Sprites: </strong> Du hast gesehen, wie man Sprites auf der Bühne bewegt.
+                        <strong>Bewegung von Sprites: </strong> Du hast gesehen, wie man Sprites auf der Bühne
+                        automatisch
+                        bewegt.
                     </span>
                     <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
                 </li>
@@ -78,13 +68,6 @@
                     </span>
                     <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
                 </li>
-                <li class="info-row">
-                    <span class="info-text">
-                        <strong>Sprites: </strong> Du hast selbst einen neuen Sprite erstellt und dessen Skript
-                        geschrieben.
-                    </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
-                </li>
             </ul>
         </InfoCardPurple>
     </div>
@@ -93,7 +76,7 @@
 <script setup>
 import InfoCardOrange from "../components/InfoCardOrange.vue"
 import InfoCardPurple from "../components/InfoCardPurple.vue"
-import rohr_img from "@/assets/roehre_assets/rohr.png"
+import rohr_img from "@/assets/roehre_assets/rohr_predict.png"
 import rohr_bühne from "@/assets/roehre_assets/rohr_bühne.png"
 import rohr_gif from "@/assets/roehre_assets/röhre.gif"
 import rohr_lösung_bühne from "@/assets/roehre_assets/rohr_lösung_bühne.png"
@@ -124,11 +107,21 @@ const content = {
     },
     investigate: {
         title: "Aufgabe 2",
-        aufgabe_a: ["a) Erkläre die Funktion des Codes. Beziehe dich dabei auf die einzelnen Blöcke.", "Welcher Block ist für die Bewegung nach links zuständig? Wozu braucht man den Block 'Zufallszahl' ?"]
+        aufgabe_a: ["a) Erkläre die Funktion des Codes.", "Welcher Block ist für die Bewegung nach links zuständig?", "Welcher Bedingung muss erfüllt werden, damit die Röhre wieder auf der rechten Seite auftaucht?"]
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ["a) Übertrage zuerst den Programmcode im Bild in dein Projekt.", "b) Passe den Programmcode so an, dass sich die Röhren schneller bewegen und die Röhren eine größere Varianz in der Höhe haben."]
+        aufgabe_a: ["In Flappy Bird verändern sich die Höhen (y-Werte) der Röhre zufällig.",
+            'a) Erstelle eine Variable mit dem Namen "Zufallszahl".',
+            'b) Setze deine Variable Zufallszahl auf eine Zufallszahl zwischen -25 und 50.',
+            'c) Gehe dann nicht zum Punkt (250, 0), sondern zu (250, Zufallszahl).',
+            'd) Dupliziere dein Rohr und platziere es mit einem Abstand von genau 250 Pixeln zum ersten Rohr, wenn die grüne Flagge gedrückt wird!'
+        ],
+        hints: ['b) Verwende den Block "setze <<Variable>> auf <<Wert>>"" im Abschnitt Variablen und setze ihn ganz am Anfang der Schleife.',
+            'b) Verwende den Block "Zufallszahl von <<x>> bis <<y>>" im Abschnitt Operatoren, um den Wert von der Variable "Zufallszahl" zu ändern.',
+            'c) Ziehe deine Variable "Zufallszahl" in die y-Komponente.',
+            'd) Verändere den Block, der unter dem Event "Wenn grüne Flagge angeklickt wird" ist.'
+        ]
     },
     make: {
         title: "Aufgabe 4",
