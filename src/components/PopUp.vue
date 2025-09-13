@@ -6,7 +6,6 @@
         </button>
 
         <div :class="['overlay', { 'active': isOpen }]" @click.self="closeOverlay">
-
             <button @click="closeOverlay" class="floating-close-btn">Minimieren</button>
 
             <div class="panel">
@@ -16,50 +15,51 @@
                         <p class="pre-hint">
                             1. Lade zuerst das Scratch-Projekt herunter. Danach wird der Editor hier eingeblendet.
                         </p>
-
                         <p class="pre-hint">
                             2. Lade das heruntergeladene Projekt im Editor hoch (siehe Bild).
                         </p>
                         <ProjectLinkButton :url="projectUrl" class="pre-download-btn" @downloaded="onDownloaded"
                             @click="showIframe = true" />
-                        <img :src="instructionImg" class="instruction-img"></img>
+                        <img :src="instructionImg" class="instruction-img" />
                     </div>
                 </div>
 
-                <div v-if="!showIframe && type === 'test'" class="pre-screen">
+                <div v-else-if="!showIframe && type === 'test'" class="pre-screen">
                     <div class="pre-screen-card">
                         <h2>Test-Datei herunterladen</h2>
                         <p class="pre-hint">
                             1. Lade zuerst die Test-Datei herunter. Danach wird der Test-Bildschirm hier eingeblendet.
                         </p>
-
                         <p class="pre-hint">
                             2. Lade die Datei im Editor hoch (siehe Bild).
                         </p>
-                        <img :src="whisker_instruction_1" class="instruction-img"></img>
+                        <img :src="whisker_instruction_1" class="instruction-img" />
                         <p class="pre-hint">
-                            3. Wechsle dann in den Tab Mein Projekt und starte den Test..
+                            3. Wechsle dann in den Tab „Mein Projekt“ und starte den Test.
                         </p>
-                        <img :src="whisker_instruction_2" class="instruction-img"></img>
-
+                        <img :src="whisker_instruction_2" class="instruction-img" />
                         <ProjectLinkButton :url="projectUrl" class="pre-download-btn" @downloaded="onDownloaded"
                             @click="showIframe = true" />
-
-
                     </div>
                 </div>
 
-                <template v-if="showIframe">
-                    <iframe ref="frameRef" :src="iframeUrl" class="iframe" allowfullscreen @load="onIframeLoad" />
-                    <div class="hint-container">
-                        <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Stelle die Sprache auf <strong>Deutsch</strong>,
-                            indem du auf den
-                            Globus 🌐 clickst!
-                        </p>
-                        <div class="image-container" v-if="images">
-                            <ScratchImage :imageUrls="images" :height="'120px'" />
-                        </div>
+                <template v-else>
+                    <div class="subtasks-bar">
+                        <SubtaskList :items="exercises" />
+                    </div>
 
+                    <div class="content-row">
+                        <iframe ref="frameRef" :src="iframeUrl" class="iframe" allowfullscreen @load="onIframeLoad" />
+                        <div class="hint-container">
+                            <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Stelle die Sprache auf
+                                <strong>Deutsch</strong>,
+                                indem du auf den
+                                Globus 🌐 clickst!
+                            </p>
+                            <div class="image-container" v-if="images">
+                                <ScratchImage :imageUrls="images" :height="'120px'" />
+                            </div>
+                        </div>
                     </div>
                 </template>
             </div>
@@ -67,12 +67,14 @@
     </div>
 </template>
 
+
 <script setup>
 import { ref, computed, watch, onBeforeUnmount } from 'vue'
 import hint from './Hint.vue'
 import ProjectLinkButton from './ProjectLinkButton.vue'
 import ScratchImage from './ScratchImage.vue'
 import instructionImg from '@/assets/download_instruction.png'
+import SubtaskList from './SubtaskList.vue'
 
 import whisker_instruction_1 from '@/assets/whisker_instruction_1.png'
 import whisker_instruction_2 from '@/assets/whisker_instruction_2.png'
@@ -90,6 +92,7 @@ const props = defineProps({
     buttonTitle: { default: 'Editor öffnen', type: String },
     images: { type: Array },
     type: String,
+    exercises: Array
 })
 
 // Emits für 2-Way, falls der Parent v-model nutzt
@@ -216,7 +219,7 @@ watch(isOpen, (open) => {
 }
 
 .test {
-    background-color: #3ce756;
+    background-color: #ffbf00;
 }
 
 .open-btn.floating {
@@ -249,29 +252,44 @@ watch(isOpen, (open) => {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
+    background: rgba(0, 0, 0, 0);
     pointer-events: none;
     transform: translateY(100%);
     transition: all .4s ease;
 }
 
 .overlay.active {
-    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
     pointer-events: auto;
     transform: translateY(0);
 }
 
 .panel {
     background: transparent;
-    width: 98%;
-    height: 85%;
+    width: 98vw;
+    height: 99vh;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.subtasks-bar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    padding: 8px 12px;
+    height: 12vh;
+}
+
+.subtasks-bar :deep(li) {
+    font-size: 0.8rem;
+    line-height: 1;
+    margin-top: 2px;
 }
 
 .floating-close-btn {
@@ -287,9 +305,16 @@ watch(isOpen, (open) => {
     cursor: pointer;
 }
 
+.content-row {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
 .iframe {
+    flex: 1;
     width: 100%;
-    height: 100%;
+    min-height: 0cap;
     border: none;
 }
 
