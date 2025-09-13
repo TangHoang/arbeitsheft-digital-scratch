@@ -27,7 +27,7 @@
                 </div>
 
                 <template v-if="showIframe">
-                    <iframe :src="iframeUrl" class="iframe" allowfullscreen></iframe>
+                    <iframe ref="frameRef" :src="iframeUrl" class="iframe" allowfullscreen @load="onIframeLoad" />
                     <div class="hint-container">
                         <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Stelle die Sprache auf <strong>Deutsch</strong>,
                             indem du auf den
@@ -45,7 +45,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onBeforeUnmount } from 'vue'
 import hint from './Hint.vue'
 import ProjectLinkButton from './ProjectLinkButton.vue'
 import ScratchImage from './ScratchImage.vue'
@@ -70,6 +70,73 @@ const emit = defineEmits(['update:showIframe', 'update:hasBeenOpenedAlready'])
 // Interner Fallback, wenn Parent nichts liefert
 const _showIframe = ref(false)
 const _hasOpened = ref(false)
+
+const frameRef = ref(null)
+let tapMo = null
+let readyPoll = null
+
+function onIframeLoad() {
+    const iframe = frameRef.value
+    console.log('[overlay] iframe load fired', { src: iframe?.src })
+
+    // Same-Origin-Zugriff absichern
+    let win, doc
+    try {
+        win = iframe?.contentWindow
+        doc = iframe?.contentDocument
+    } catch (e) {
+        console.warn('[overlay] Same-Origin blockiert?', e)
+        return
+    }
+    if (!win || !doc) {
+        console.warn('[overlay] Kein Zugriff auf contentWindow/contentDocument')
+        return
+    }
+
+    // Sprach-Redirect? (Whisker setzt lng, Seite lädt evtl. gleich nochmal)
+    console.log('[overlay] iframe title (vor Ready):', doc.title)
+
+    // Warten bis Whisker initialisiert ist (nach Redirect/Skripten)
+    if (readyPoll) clearInterval(readyPoll)
+    readyPoll = setInterval(() => {
+        const ok = !!win.Whisker && doc.getElementById('run-all-tests')
+        if (!ok) return
+
+        clearInterval(readyPoll)
+        console.log('[overlay] Whisker ready, Hook setzen')
+
+        // 1) Callback für _generateResults
+        win.messageServantCallback = ({ summary }) => {
+            const passedCount = Number(summary?.passed ?? 0)
+            const failedCount = Number(summary?.failed ?? 0)
+            const allPassed = failedCount === 0 && passedCount > 0
+            console.log('[Whisker summary]', { passedCount, failedCount, allPassed, raw: summary })
+        }
+
+        // 2) TAP-Fallback beobachten
+        const tapPre = doc.querySelector('#output-run pre.output-content')
+        if (tapPre) {
+            if (tapMo) tapMo.disconnect()
+            tapMo = new MutationObserver(() => {
+                const txt = tapPre.textContent || ''
+                const p = (txt.match(/(^|\n)\s*ok\b/gi) || []).length
+                const f = (txt.match(/(^|\n)\s*not\s+ok\b/gi) || []).length
+                if (p + f > 0) {
+                    console.log('[Whisker TAP]', { passedCount: p, failedCount: f, allPassed: f === 0 && p > 0 })
+                    emit('test-status', { allPassed: f === 0 && p > 0, passedCount: p, failedCount: f })
+                }
+            })
+            tapMo.observe(tapPre, { childList: true, subtree: true, characterData: true })
+        } else {
+            console.log('[overlay] Kein TAP <pre> gefunden (noch nicht sichtbar?)')
+        }
+    }, 100)
+}
+
+onBeforeUnmount(() => {
+    if (tapMo) tapMo.disconnect()
+    if (readyPoll) clearInterval(readyPoll)
+})
 
 // Nutzt Prop wenn gesetzt, sonst internen State
 const showIframe = computed({
