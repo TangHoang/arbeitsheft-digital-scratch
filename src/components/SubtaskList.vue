@@ -1,11 +1,14 @@
 <template>
-    <ul>
+    <ol type="a" :start="start">
         <li v-for="(t, i) in items" :key="i">{{ t }}</li>
-    </ul>
+    </ol>
 </template>
 
 <script setup>
-const { items } = defineProps({ items: Array })
+const props = defineProps({
+    items: Array,
+    start: Number,
+})
 </script>
 
 <style scoped>
