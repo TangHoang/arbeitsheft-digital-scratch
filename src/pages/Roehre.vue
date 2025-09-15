@@ -10,13 +10,11 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[rohr_bühne, rohr_img]" :height="'200px'" />
-                <StudentAnswer answerId="roehre/aufgabe1" />
+                <StudentAnswer answerId="roehre/aufgabe1" :hints="content.pr.hints" />
 
-                <SubtaskList :items="content.pr.aufgabe_b" />
-                <!--<ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1206376368/embed'" />-->
+                <SubtaskList :items="content.pr.aufgabe_b" :start="2" />
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1216517561/embed'" />
-                <SubtaskList :items="content.pr.aufgabe_c" />
-
+                <HintWithSolution class="solution" />
             </template>
         </PredictAndRun>
 
@@ -25,7 +23,8 @@
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" answerId="roehre/aufgabe2" />
+                    <StudentAnswer :height="'200px'" answerId="roehre/aufgabe2" :solution="content.investigate.solution"
+                        :hints="content.investigate.hints" />
                     <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
                 </div>
             </template>
@@ -35,16 +34,26 @@
             <template #default>
                 <h3> {{ content.modify.title }}</h3>
                 <div class="horizontal-container">
-                    <div>
-                        <SubtaskList :items="content.modify.aufgabe_a" />
+                    <div class="vertical-container exercise-container">
+                        <p class="comment">{{ content.modify.kommentar_vorbereitung }}</p>
+                        <SubtaskList :items="content.modify.vorbereitung" />
+                        <p class="comment">{{ content.modify.kommentar_a }}</p>
+                        <SubtaskList :items="content.modify.aufgabe_a" :start="2" />
                         <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
                             :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.modify.aufgabe_a"
                             :hints="content.modify.hints" />
                         <PopUp :projectUrl="RohrProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :type="'test'"
                             :buttonTitle="'Testen'" />
+                        <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Speichere dein Projekt auf deinem PC mit dem
+                            Namen 'FlappyBird_v2.sb3'.
+                        </p>
                     </div>
-                    <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213178249/embed'" />
+                    <div class="vertical-container">
+                        <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
+                        <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213178249/embed'" />
+
+                    </div>
                 </div>
             </template>
         </Modify>
@@ -92,6 +101,7 @@ import ScratchGif from "../components/ScratchGif.vue"
 import StudentAnswer from "../components/StudentAnswer.vue"
 import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"
+import HintWithSolution from "../components/HintWithSolution.vue"
 
 const RohrProjectUrl = new URL("@/assets/roehre_assets/Aufgabe_Röhre_PRIMM.sb3", import.meta.url).href;
 const RohrProjectTestUrl = new URL("@/assets/whisker_tests/röhre.js", import.meta.url).href;
@@ -100,22 +110,60 @@ const content = {
     pr: {
         sectionTitle: "",
         title: "Aufgabe 1",
-        aufgabe_a: ["a) Stelle eine Vermutung über die Funktionalität des Codes auf."],
-        aufgabe_b: ["b) Führe nun das nebenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen."],
-        aufgabe_c: ["c) Waren deine Vermutungen richtig? :-)"],
+        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf."],
+        aufgabe_b: ["Führe nun das nebenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen."],
+        aufgabe_c: ["Waren deine Vermutungen richtig? :-)"],
         demo_link: "https://scratch.mit.edu/projects/1206376368/embed",
+        hints: [
+            {
+                title: "Hinweis 1",
+                content: "Schau dir den Block <code> wiederhole fortlaufend </code> genau an. Welche Variable wird fortlaufend verändert?"
+            },
+            {
+                title: "Hinweis 2",
+                content: "Wenn <code> x </code> verringert wird, bewegt sich die Figur in welche Richtung?"
+            },
+
+        ],
+
+
     },
     investigate: {
         title: "Aufgabe 2",
-        aufgabe_a: ["a) Erkläre die Funktion des Codes.", "Welcher Block ist für die Bewegung nach links zuständig?", "Welcher Bedingung muss erfüllt werden, damit die Röhre wieder auf der rechten Seite auftaucht?"]
+        aufgabe_a: ["Erkläre die Funktion des Codes.",
+            "Welcher Block ist für die Bewegung nach links zuständig?",
+            "Welche Bedingung muss erfüllt werden, damit die Röhre wieder auf der rechten Seite auftaucht?",
+        ],
+        aufgabe_b: [
+            'Öffne deine Datei "FlappyBird_v1.sb3" im Editor und übertrage den Code.'
+        ],
+        hints: [{
+
+            title: "Hinweis 1",
+            content: "Betrachte <code> falls x-Position < -260 </code>. Zu welcher Position springt die Figur, wenn die Bedingung eintritt?"
+
+        }],
+        solution: `
+  <p><b>Lösung:</b></p>
+  <ol>
+    <li>Im Block <code>wiederhole fortlaufend</code> wird die <code>x</code>-Position in jedem Schritt um einen <i>konstanten</i> negativen Wert verringert (hier: <code>ändere x um -5</code>).</li>
+    <li>Dadurch bewegt sich das Rohr <b>gleichmäßig nach links</b>.</li>
+    <li>Sobald <code>x &lt; -260</code> erreicht ist, springt das Rohr wieder auf eine <b>rechte Startposition</b> (z.&nbsp;B. <code>setze x auf 260</code>), damit es erneut von rechts ins Bild fährt.</li>
+  </ol>
+  <p><b>Ergebnis:</b> Ein endloser „Laufband“-Effekt: Das Rohr scrollt konstant nach links und wird nach Verlassen des linken Randes rechts neu platziert.</p>
+`
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ["In Flappy Bird verändern sich die Höhen (y-Werte) der Röhre zufällig.",
-            'a) Erstelle eine Variable mit dem Namen "Zufallszahl".',
-            'b) Setze deine Variable Zufallszahl auf eine Zufallszahl zwischen -25 und 50.',
-            'c) Gehe dann nicht zum Punkt (250, 0), sondern zu (250, Zufallszahl).',
-            'd) Dupliziere dein Rohr und platziere es mit einem Abstand von genau 250 Pixeln zum ersten Rohr, wenn die grüne Flagge gedrückt wird!'
+        kommentar_vorbereitung: "Zuerst eine Vorbereitung:",
+        vorbereitung: ['Öffne deine Datei "FlappyBird_v1.sb3" im Editor und übertrage den Code rechts in Röhre1 und Röhre2.',
+        ],
+        kommentar_a: "In Flappy Bird verändern sich die Höhen der Röhre zufällig. Das wollen wir auch. Nun bist du an der Reihe diesen Code anzupassen. ",
+        aufgabe_a: [
+            'Erstelle eine Variable mit dem Namen "Zufallszahl".',
+            'Setze deine Variable Zufallszahl auf eine Zufallszahl zwischen -25 und 50.',
+            'Verändere den Code so, dass die neue Position nicht (250, 0), sondern (250, Zufallszahl) ist.',
+            'Platziere das zweite Rohr im Abstand von genau 250 Pixeln zum ersten Rohr, wenn die grüne Flagge gedrückt wird!'
         ],
         hints: ['b) Verwende den Block "setze <<Variable>> auf <<Wert>>"" im Abschnitt Variablen und setze ihn ganz am Anfang der Schleife.',
             'b) Verwende den Block "Zufallszahl von <<x>> bis <<y>>" im Abschnitt Operatoren, um den Wert von der Variable "Zufallszahl" zu ändern.',
@@ -139,8 +187,16 @@ const content = {
 }
 
 .vertical-container {
+    display: flex;
+    flex-flow: column;
     height: 100%;
-    min-width: 50%;
+    min-width: 45%;
+}
+
+.exercise-container {
+    align-items: left;
+    margin-right: 2rem;
+    min-width: 55%;
 }
 
 
@@ -155,5 +211,16 @@ h3 {
     color: #b85d00;
     font-weight: 500;
 
+}
+
+.comment {
+    padding: 1rem 1rem;
+    background-color: bisque;
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+.solution {
+    padding: 1rem 1rem;
 }
 </style>
