@@ -7,150 +7,86 @@
                 wie Puzzleteile zusammen und erstellst so Animationen, Spiele und Geschichten
                 ohne komplizierten Code. In diesem Kapitel bekommst du einen Überblick über Scratch.
             </p>
-
-            <ScratchImage :imageUrls="[scratch_gesamt]" :height="'300px'" class="img" />
+            <ScratchImage :imageUrls="[scratch_gesamt]" :height="'300px'" class="img" :orientation="'horizontal'" />
         </InfoCardOrange>
 
-        <InfoCardPurple :title="'Programmierblöcke'">
-            <p>
-                In Scratch gibt es verschiedene Arten von Blöcken.
-                Man zieht sie in den Skriptbereich und baut daraus Programme.
-            </p>
-            <p>Wichtige Kategorien:</p>
-            <div class="horizontal-container">
-                <ul>
-                    <li><b>Bewegung:</b> bewegt oder dreht ein Sprite.</li>
-                    <li><b>Aussehen:</b> ändert Kostüme oder Bühnenbilder, lässt Sprites sprechen oder denken.</li>
-                    <li><b>Klang:</b> spielt Töne oder Geräusche ab.</li>
-                    <li><b>Ereignisse:</b> starten Skripte.</li>
-                    <li><b>Steuerung:</b> Schleifen und Bedingungen.</li>
-                    <li><b>Fühlen:</b> prüft Berührungen, Mausklicks oder Tasten.</li>
-                    <li><b>Operatoren:</b> Rechnen, Vergleiche, Logik.</li>
-                    <li><b>Variablen:</b> speichern Zahlen oder Texte (für alle oder nur für ein Sprite).</li>
-                    <li><b>Listen:</b> speichern mehrere Werte in einer Reihenfolge.</li>
-                    <li><b>Meine Blöcke:</b> hier können eigene Befehle erstellt werden.</li>
-                </ul>
-                <ScratchImage :imageUrls="[programmierbloecke_img]" :height="'300px'" class="img" />
-            </div>
-        </InfoCardPurple>
-
-        <InfoCardPurple :title="'Skript'">
+        <InfoCardWhite :title="'Bühnenbilder'">
             <div class="vertical-container">
-                <p>In Scratch nennt man eine Abfolge von Blöcken ein Skript.
-                    Ein Skript gibt also Anweisungen, die der Computer nacheinander ausführt.
-                    Man kann damit festlegen, was eine Figur (Sprite) tun oder sagen soll.
-                    Skripte erstellt man im Skriptbereich. Dazu zieht man Blöcke aus der Blockpalette und steckt sie wie
-                    Puzzleteile zusammen.
-                </p>
-                <ScratchImage :imageUrls="[skript_img]" :height="'300px'" class="img" />
+                <p>Bühnenbilder sind wie Hintergrundbilder. So machst du dein Projekt schöner!</p>
+                <ScratchImage :imageUrls="[buehne_img]" :height="'300px'" class="img" />
+                <p><strong>Aufgabe: </strong> Suche dir dein eigenes Bühnenbild aus.</p>
+                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
+                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[figur_img]" />
             </div>
-        </InfoCardPurple>
+
+        </InfoCardWhite>
+
+        <InfoCardWhite :title="'Figuren'">
+            <div class="vertical-container">
+                <p>Figuren führen die Befehlsblöcke aus, die im Programmierbereich stehen.</p>
+                <ScratchImage :imageUrls="[figur_img]" :height="'300px'" class="img" />
+                <p> <strong> Aufgabe: </strong> Suche dir eine Figur aus.</p>
+                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
+                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[figur_img]" />
+            </div>
+
+        </InfoCardWhite>
 
         <InfoCardPurple :title="'Ereignisse'">
             <div class="vertical-container">
-                <p>
-                    Ein Ereignis ist ein gewisses Etwas, das ein Skript startet.
-                </p>
-                <p>Beispiele:</p>
-                <ul>
-                    <li> Wenn die grüne Flagge angeklickt wird,</li>
-                    <li> wenn eine Taste gedrückt wird,</li>
-                    <li>wenn auf ein Sprite geklickt wird.</li>
-                </ul>
-                <p>Mit Ereignissen bestimmt man, wann etwas passieren soll.</p>
+                <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Ereignisse</b>.</p>
                 <ScratchImage :imageUrls="[skript_img]" :height="'300px'" class="img" />
-                <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Blöcke wie
-                    im Bild in den Skriptbereich
-                    ziehst.</p>
             </div>
-
-            <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[skript_img]" />
         </InfoCardPurple>
 
-        <InfoCardWhite :title="'Figur (Sprite)'">
+        <InfoCardPurple :title="'Bewegung'">
             <div class="vertical-container">
-                <p>
-                    In Scratch heißen alle Objekte und Figuren Sprites.
-                    Ein Sprite kann z. B. eine Katze, ein Ball oder eine eigene Zeichnung sein.
+                <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Bewegung</b>.</p>
+
+                <ScratchImage :imageUrls="[bewegung_img]" :height="'300px'" class="img" />
+                <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Ereignis-,
+                    sowie Bewegungsblöcke kombinierst. Ziehe dazu die Blöcke in den Programmierbereich.
                 </p>
-                <p>Man kann:</p>
-                <ul>
-                    <li> ein fertiges Sprite aus der Bibliothek auswählen,</li>
-                    <li> ein neues Sprite zeichnen,</li>
-                    <li>oder ein eigenes Bild hochladen.</li>
-                </ul>
-                <p>Sprites führen die Befehle aus, die im Skript stehen.</p>
-                <ScratchGif :imageUrls="[figure_gif, figur_img]" :height="'300px'" class="img" />
-                <p> <strong> Aufgabe: </strong> Verändere deinen Sprite zu Rocketship.</p>
+                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
+                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[skript_img, bewegung_img]" />
             </div>
-            <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[figur_img]" />
+        </InfoCardPurple>
+
+        <InfoCardWhite :title="'Aussehen'">
+            <div class="vertical-container">
+                <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Aussehen</b>.</p>
+                <ScratchImage :imageUrls="[aussehen_img]" :height="'300px'" class="img" />
+                <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Ereignis-,
+                    sowie Aussehenblöcke kombinierst.
+                </p>
+                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
+                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[skript_img, aussehen_img]" />
+            </div>
         </InfoCardWhite>
 
-
-
-        <InfoCardWhite :title="'Bühne und Bühnenbilder'">
+        <InfoCardWhite :title="'Steuerung'">
             <div class="vertical-container">
-                <p>Die Bühne ist der Bereich, in dem alles passiert. </p>
-                <ul>
-                    <li> Die Bühne enthält Bühnenbilder (Hintergrundbilder) und Sprites.</li>
-                    <li> Die Bühne kann eigene Skripte und Klänge haben (z. B. Szene wechseln, Spielzustand steuern).
-                    </li>
-                </ul>
-                <p>Koordinatensystem: Die Mitte der Bühne ist (0, 0), x von −240 bis 240, y von −180 bis 180. Sprites
-                    bewegen sich in diesem Bereich.
+                <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
+                <ScratchImage :imageUrls="[steuerung_img]" :height="'300px'" class="img" />
+                <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Ereignis-,
+                    sowie Aussehenblöcke kombinierst.
                 </p>
-                <ScratchGif :imageUrls="[buehne_gif, buehne_img]" :height="'300px'" class="img" />
-                <p><strong>Aufgabe: </strong> Verändere dein Hintergrundbild zu Galaxy.</p>
+                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
+                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[steuerung_img]" />
             </div>
-            <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[figur_img]" />
+
         </InfoCardWhite>
 
-
-
-        <InfoCardWhite :title="'Schleifen'">
+        <InfoCardPurple :title="'Koordinatensystem in Scratch'">
             <div class="vertical-container">
-                <p>
-                    Eine Schleife wiederholt bestimmte Anweisungen mehrmals.
-                    So spart man sich viele gleiche Blöcke hintereinander.
-                </p>
-                <p>Arten von Schleifen in Scratch:</p>
-                <ul>
-                    <li><b>wiederhole (n):</b> führt Befehle genau n-mal aus.</li>
-                    <li><b>wiederhole fortlaufend:</b> läuft unendlich lange.</li>
-                    <li><b>wiederhole bis &lt;Bedingung&gt;:</b> wiederholt Befehle, bis etwas Bestimmtes passiert.</li>
-                </ul>
-                <ScratchGif :imageUrls="[schleifen_beispiel_gif, schleifen_img]" :height="'300px'" class="img" />
-                <p> <strong>Aufgabe: </strong> Programmiere das Beispiel nach und probiere es aus, indem du am Ende die
-                    grüne Flagge betätigst.</p>
-            </div>
-            <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[schleifen_img]" />
-        </InfoCardWhite>
+                <p>Scratch verwendet ein Koordinatensystem, wie aus dem Mathematikunterricht.</p>
 
-        <InfoCardPurple :title="'Bedingungen'">
-            <div class="vertical-container">
-                <p>
-                    Bedingungen prüfen, ob etwas stimmt.
-                    Je nach Ergebnis („wahr“ oder „falsch“) läuft das Programm anders weiter.
-                </p>
-                <p>Wichtige Bedingungs-Blöcke:</p>
-                <ul>
-                    <li><b>falls &lt;Bedingung&gt; dann:</b> führt Befehle nur aus, wenn die Bedingung wahr ist.</li>
-                    <li><b>falls &lt;Bedingung&gt; dann sonst:</b> führt entweder den „dann“-Teil oder den „sonst“-Teil
-                        aus.
-                    </li>
-                </ul>
-                <p>Beispiel: „Falls Leertaste gedrückt wird, dann gehe 10 Schritte (vorwärts), ansonsten gehe -1 Schritt
-                    (rückwärts).“</p>
-                <ScratchGif :imageUrls="[bedingungen_beispiel_gif, bedingungen_img]" :height="'300px'" class="img" />
-                <p> <strong>Aufgabe: </strong> Finde alle Blöcke, die im Bild zu sehen sind und programmiere es nach.
+                <ScratchImage :imageUrls="[koordinatensystem_img]" :height="'300px'" class="img" />
+                <p> <strong>Aufgabe: </strong> Bringe die Fledermaus auf die farbigen Punkte. Welche Werte/Zahlen musst
+                    du angeben?
                 </p>
             </div>
-            <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[bedingungen_img]" />
+            <StudentAnswer answerId="einfuehrung/aufgabe_koordinatensystem" />
         </InfoCardPurple>
 
         <InfoCardWhite :title="'Variablen'">
@@ -166,7 +102,8 @@
                     <li>Zufallszahl merken</li>
                 </ul>
                 <ScratchGif :imageUrls="[variable_gif, variable_img]" :height="'400px'" class="img" />
-                <p><strong>Aufgabe: </strong>Beschreibe, wie sich die Variable vergangene Sekunden verhalten wird.</p>
+                <p><strong>Aufgabe: </strong>Beschreibe, wie sich die Variable <i>Vergangene Sekunden</i> verhalten
+                    wird.</p>
             </div>
 
             <StudentAnswer answerId="einfuehrung/aufgabe_variablen" />
@@ -190,9 +127,17 @@ import ScratchGif from '../components/ScratchGif.vue';
 
 import StudentAnswer from '../components/StudentAnswer.vue';
 
+import steuerung_img from '@/assets/einfuehrung_assets/steuerung_img.png'
+
 import skript_img from '@/assets/einfuehrung_assets/skript_img.png';
 import figur_img from '@/assets/einfuehrung_assets/figur_img.png'
 import figure_gif from '@/assets/einfuehrung_assets/sprite_gif.gif'
+
+import aussehen_img from '@/assets/einfuehrung_assets/aussehen_img.png'
+
+import koordinatensystem_img from '@/assets/einfuehrung_assets/koordinatensystem_img.png'
+
+import bewegung_img from '@/assets/einfuehrung_assets/bewegung_img.png'
 
 import buehne_img from '@/assets/einfuehrung_assets/buehne_img.png'
 import buehne_gif from '@/assets/einfuehrung_assets/buehnenbild_gif.gif'
