@@ -11,6 +11,7 @@
 			<NextChapterBtn :routeName="$route.name" />
 		</div>
 		<SideBarLeft />
+		<IframeOverlayPortal />
 	</div>
 </template>
 
@@ -18,6 +19,8 @@
 import SideBarLeft from './components/SideBarLeft.vue'
 import NavBar from './components/NavBar.vue'
 import NextChapterBtn from './components/NextChapterBtn.vue';
+import IframeOverlayPortal from '@/components/IframeOverlayPortal.vue'
+
 
 </script>
 
