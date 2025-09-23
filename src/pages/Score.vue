@@ -15,7 +15,7 @@
                     <ScratchImage :imageUrls="[score_img, score_bühne]" :height="'200px'" />
                 </div>
                 <SubtaskList :items="content.pr.aufgabe_b" />
-                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213183568/embed'" />
+                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213460873/embed/'" />
                 <HintWithSolution :solution="content.pr.solution" class="solution" />
             </template>
         </PredictAndRun>
@@ -26,8 +26,7 @@
                 <SubtaskList :items="content.investigate.aufgabe_a" />
 
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" answerId="score/aufgabe2" :hints="content.investigate.hints"
-                        :solution="content.investigate.solution" />
+                    <StudentAnswer :height="'200px'" answerId="score/aufgabe2" :hints="content.investigate.hints" />
                     <ScratchImage :imageUrls="[score_img]" :height="'200px'" />
                 </div>
 
@@ -56,7 +55,8 @@
                     <div class="vertical-container">
                         <SubtaskList :items="content.make.aufgabe_a" />
                         <PopUp :projectUrl="ScoreProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.make.aufgabe_a" />
+                            :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.make.aufgabe_a"
+                            :showIframe="true" :hints="content.make.hints" />
                         <PopUp :projectUrl="ScoreProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
                             :type="'test'" />
@@ -141,25 +141,36 @@ const content = {
         aufgabe_a: ["Erkläre die Funktionalität des Codes.", "Was ist wohl der Sinn des 'Warte'-Blocks ...? "],
         hints: [
             {
-                content: 'Die Figur "Crystal" berührt das Rohr nicht nur in einer Instanz. Sie berührt das Rohr über einen gewissen <b> Zeitraum </b>.'
-            }
-        ],
-        solution: `
-        <p><b>Erklärung:</b> Würden wir nicht warten bis die Figur das Rohr <b>nicht</b> berührt, würde die Punktzahl bei jeder passierten Röhre, um mehr als 1 steigen.</p>
-        `
+                content: 'Die Figur "Crystal" berührt das Rohr nicht nur in einer Instanz. Sie berührt das Rohr über einen gewissen <b> Zeitraum </b>.',
+            },
+            {
+                content: 'Falls du Aufgabe b) nicht lösen kannst, gehe weiter zu <b> Aufgabe 3</b>.'
 
+            },
+        ],
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ["Übertrage zuerst den Programmcode im Bild in dein Projekt.",
+        aufgabe_a: ["Übertrage zuerst den Programmcode im Bild in die Figur Crystal.",
             "Entferne den 'warte'-Block, probiere es aus und passe ggf. deine Antwort in Aufgabe 2 an.",
             "Es fehlt noch Röhre2! Kopiere nun den gegebenen Code, um die zweite Röhre miteinzubeziehen.",
-            "Verändere! Der Sprite, der bei Berührung mit der Röhre den Counter erhöht, sollst du so unsichtbar wie möglich machen."
+            "Verändere! Die Figur Crystal, die bei Berührung mit der Röhre den Counter erhöht, sollst du so unsichtbar wie möglich machen."
         ]
     },
     make: {
         title: "Aufgabe 4",
-        aufgabe_a: ["Implementiere einen Highscore.", "Zusatz: Implementiere Soundeffekte für einen erfolgreichen Durchflug."]
+        aufgabe_a: ["Implementiere einen Highscore.", "Zusatz: Implementiere Soundeffekte für einen erfolgreichen Durchflug."],
+        hints: [
+            {
+                content: 'Erstelle eine Variable Highscore.'
+            },
+            {
+                content: 'Immer, wenn die Punktzahl erhöht wird, musst du schauen ob die aktuelle Punktzahl höher als der Highscore ist.'
+            },
+            {
+                content: 'Verwende einen <code> falls ... dann ...</code> Block, um den Highscore neu zu setzen, <b> falls </b> die Punktzahl höher als der Highscore ist.'
+            }
+        ]
     }
 }
 </script>

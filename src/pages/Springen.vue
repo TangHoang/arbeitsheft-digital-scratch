@@ -10,10 +10,10 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[sprung_bühne, sprung_predict]" :height="'200px'" />
-                <StudentAnswer answerId="springen/aufgabe1" :height="'200px'" :hints="content.pr.hints" />
-                <SubtaskList :items="content.pr.aufgabe_b" :start="2" />
-                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1216552925/embed'" />
-                <HintWithSolution :solution="content.pr.solution" class="solution" />
+                <StudentAnswer answerId="springen/aufgabe1" :height="'200px'" :hints="content.pr.hints"
+                    :taskType="'vermuten'" @revealScratch="showDemo = true" />
+                <ScratchDemo v-if="showDemo" :scratchUrl="'https://scratch.mit.edu/projects/1216552925/embed'" />
+                <!-- <HintWithSolution :solution="content.pr.solution" class="solution" />-->
             </template>
         </PredictAndRun>
 
@@ -22,14 +22,9 @@
                 <h3> {{ content.investigate.title }}</h3>
                 <div class="horizontal-container">
                     <div class="vertical-container">
-                        <p class="comment">{{ content.investigate.kommentar_aufgabe_a }}</p>
                         <SubtaskList :items="content.investigate.aufgabe_a" />
-
                         <SubtaskList :items="content.investigate.aufgabe_b" :start="2" />
                     </div>
-
-                    <ScratchImage :imageUrls="[sprung_predict]" :height="'200px'" />
-
                 </div>
                 <div class="horizontal-container">
                     <StudentAnswer :height="'200px'" answerId="springen/aufgabe2" :task="content.pr.aufgabe_a"
@@ -64,7 +59,7 @@
                             Namen 'FlappyBird_v1.sb3'.
                         </p>
                     </div>
-                    <ScratchGif :imageUrls="[sprung_gif, sprung_bühne]" :height="'200px'" />
+                    <ScratchImage :imageUrls="[sprung_predict]" :height="'200px'" />
 
                 </div>
 
@@ -130,7 +125,8 @@ import aufgabe_sprung_json from '@/assets/sprung_assets/aufgabe_sprung.json'
 const SprungProjectUrl = new URL("@/assets/sprung_assets/Aufgabe_Sprung_PRIMM.sb3", import.meta.url).href;
 const SprungProjectTestUrl = new URL("@/assets/whisker_tests/sprung.js", import.meta.url).href;
 
-const testResult = ref(null)
+const testResult = ref(null);
+const showDemo = ref(false);
 
 const content = {
     pr: {
@@ -145,8 +141,8 @@ const content = {
     investigate: {
         title: "Aufgabe 2",
         kommentar_aufgabe_a: "Die Figur springt nicht, wie in der Flappy-Bird Demo am Anfang des Arbeitsheftes. Es fehlt die 'Gravitation'!",
-        aufgabe_a: ["Starte das Projekt für ein Beispiel für 'Gravitation'"],
-        aufgabe_b: ["Erkläre, wieso unser Vogel aus Aufgabe 1 nur mit gleichmäßiger Geschwindigkeit fällt.",],
+        aufgabe_a: ["Vergleiche die Demo in Aufgabe 1 und Aufgabe 2, was fällt dir auf?"],
+        aufgabe_b: ["Woran könnte das liegen?",],
         hints: [
             {
                 title: "Hinweis 1",
@@ -159,19 +155,29 @@ const content = {
         ],
         solution: `
     <p><b>Erklärung:</b> Unser Vogel fällt gleichmäßig, weil sein <code>y</code>-Wert in jedem Schritt um denselben Wert geändert wird (z. B. -5).</p>
-    <p>Damit bleibt die Geschwindigkeit konstant – es gibt keine Beschleunigung.</p>
+    <p>Damit bleibt die Geschwindigkeit konstant: Es gibt keine Beschleunigung.</p>
     <p><b>Gravitation</b> würde bedeuten: Die Geschwindigkeit nimmt Schritt für Schritt zu, also der Vogel fällt immer schneller.</p>`
 
     },
     modify: {
         title: "Aufgabe 3",
         aufgabe_a: ['Erstelle eine Variable „Vertikale Änderung“.',
-            'Bei Leertaste soll sie auf 15 gesetzt werden, andernfalls um -2 verändert werden.',
-            'Ändere y (außerhalb) nach der Schleife  um die Variable "Vertikale Änderung".',
+            'Bei Leertaste soll die Variable auf 15 gesetzt werden, andernfalls um -2 verändert werden.',
+            'Ändere nach dem falls-dann-Block die Höhe der Katze um die Variable "Vertikale Änderung".',
             "Immer wenn die Figur springt, soll das Kostüm geändert werden.",
             "Zusatz: Füge Soundeffekte hinzu."
         ],
-        hints: ["b) Verwende die Blöcke setze Variable und ändere Variable im Abschnitt Variablen.", "c) Verwende den Block ändere y um im Abschnitt Bewegung.", "d) Verwende den Block wechsle Kostüm im Abschnitt Aussehen."]
+        hints: [
+            {
+                content: "b) Verwende die Blöcke setze Variable und ändere Variable im Abschnitt Variablen."
+            },
+            {
+                content: "c) Verwende den Block ändere y um im Abschnitt Bewegung."
+            },
+            {
+                content: "d) Verwende den Block wechsle Kostüm im Abschnitt Aussehen."
+            }
+        ]
     },
     make: {
         title: "Aufgabe 4",

@@ -30,7 +30,8 @@
             </p>
             <PopUp :projectUrl="KollisionProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
                 :floating="false" :buttonTitle="'Editor Öffnen'" :type="'editor'" :exercises="content.pr.aufgabe_b"
-                :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false" :hints="content.pr.hints" />
+                :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
+                :hints="content.modify.hints" />
             <PopUp :projectUrl="KollisionProjectTestUrl" :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'"
                 :buttonTitle="'Test'" :type="'test'" />
         </Make>
@@ -112,7 +113,15 @@ const content = {
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ["a) Übertrage zuerst den Programmcode im Bild in dein Projekt.", "b) Verändere den gegebenen Programmcode! Wenn das Rohr berührt wird, soll dein Bird auf den Boden fallen!"]
+        aufgabe_a: ["a) Übertrage zuerst den Programmcode im Bild in dein Projekt.", "b) Verändere den gegebenen Programmcode! Wenn das Rohr berührt wird, soll dein Bird auf den Boden fallen!"],
+        hints: [
+            {
+                content: 'Du findest einen geeigneten Block im Abschnitt <b>Fühlen</>.'
+            },
+            {
+                content: 'Suche im Abschnitt <b>Steuerung</b> nach einem geeigneten Block, um das Skript zu stoppen.'
+            }
+        ]
     },
     make: {
         title: "Aufgabe 4",

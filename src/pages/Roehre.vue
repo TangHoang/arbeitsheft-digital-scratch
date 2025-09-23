@@ -10,10 +10,9 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[rohr_bühne, rohr_img]" :height="'200px'" />
-                <StudentAnswer answerId="roehre/aufgabe1" :hints="content.pr.hints" />
-
-                <SubtaskList :items="content.pr.aufgabe_b" :start="2" />
-                <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1216517561/embed'" />
+                <StudentAnswer answerId="roehre/aufgabe1" :hints="content.pr.hints" :taskType="'vermuten'"
+                    @revealScratch="showDemo = true" />
+                <ScratchDemo v-if="showDemo" :scratchUrl="'https://scratch.mit.edu/projects/1216517561/embed'" />
                 <HintWithSolution class="solution" />
             </template>
         </PredictAndRun>
@@ -41,7 +40,7 @@
                         <SubtaskList :items="content.modify.aufgabe_a" :start="2" />
                         <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
                             :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.modify.aufgabe_a"
-                            :hints="content.modify.hints" />
+                            :hints="content.modify.hints" :showIframe="true" />
                         <PopUp :projectUrl="RohrProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :type="'test'"
                             :buttonTitle="'Testen'" />
@@ -83,6 +82,7 @@
 </template>
 
 <script setup>
+import { ref } from "vue"
 import InfoCardOrange from "../components/InfoCardOrange.vue"
 import InfoCardPurple from "../components/InfoCardPurple.vue"
 import rohr_img from "@/assets/roehre_assets/rohr_predict.png"
@@ -105,6 +105,7 @@ import HintWithSolution from "../components/HintWithSolution.vue"
 
 const RohrProjectUrl = new URL("@/assets/roehre_assets/Aufgabe_Röhre_PRIMM.sb3", import.meta.url).href;
 const RohrProjectTestUrl = new URL("@/assets/whisker_tests/röhre.js", import.meta.url).href;
+const showDemo = ref(false)
 
 const content = {
     pr: {
@@ -165,10 +166,10 @@ const content = {
             'Verändere den Code so, dass die neue Position nicht (250, 0), sondern (250, Zufallszahl) ist.',
             'Platziere das zweite Rohr im Abstand von genau 250 Pixeln zum ersten Rohr, wenn die grüne Flagge gedrückt wird!'
         ],
-        hints: ['b) Verwende den Block "setze <<Variable>> auf <<Wert>>"" im Abschnitt Variablen und setze ihn ganz am Anfang der Schleife.',
-            'b) Verwende den Block "Zufallszahl von <<x>> bis <<y>>" im Abschnitt Operatoren, um den Wert von der Variable "Zufallszahl" zu ändern.',
-            'c) Ziehe deine Variable "Zufallszahl" in die y-Komponente.',
-            'd) Verändere den Block, der unter dem Event "Wenn grüne Flagge angeklickt wird" ist.'
+        hints: [{ content: 'a) Verwende den Block "setze <<Variable>> auf <<Wert>>"" im Abschnitt Variablen und setze ihn ganz am Anfang der Schleife.' },
+        { content: 'b) Verwende den Block "Zufallszahl von <<x>> bis <<y>>" im Abschnitt Operatoren, um den Wert von der Variable "Zufallszahl" zu ändern.' },
+        { content: 'c) Ziehe deine Variable "Zufallszahl" in die y-Komponente.' },
+        { content: 'd) Verändere den Block, der unter dem Event "Wenn grüne Flagge angeklickt wird" ist.' }
         ]
     },
     make: {
