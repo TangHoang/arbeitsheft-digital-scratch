@@ -1,5 +1,9 @@
 <template>
-    <div class="horizontal-container">
+    <div v-if="orientation === 'horizontal'" class="horizontal-container">
+        <Image v-if="imageUrls" v-for="url in imageUrls" :src="url" :height="height" alt="Bild" class="scratch-image"
+            preview />
+    </div>
+    <div v-if="orientation === 'vertical'" class="vertical-container">
         <Image v-if="imageUrls" v-for="url in imageUrls" :src="url" :height="height" alt="Bild" class="scratch-image"
             preview />
     </div>
@@ -10,6 +14,7 @@ import Image from 'primevue/image';
 const props = defineProps({
     imageUrls: { type: Array, default: [] },
     height: String,
+    orientation: { type: String, default: "horizontal" }
 })
 </script>
 
@@ -17,7 +22,15 @@ const props = defineProps({
 .horizontal-container {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     flex-wrap: wrap;
     height: auto;
 }
