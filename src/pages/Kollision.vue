@@ -25,13 +25,9 @@
         <Make>
             <h3>Aufgabe 2</h3>
             <SubtaskList :items="content.pr.aufgabe_b" />
-            <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Verwende deinen bisherigen Fortschritt in der Datei
-                'FlappyBird_v2.sb3', um damit weiterzuarbeiten.
-            </p>
-            <PopUp :projectUrl="KollisionProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                :floating="false" :buttonTitle="'Editor Öffnen'" :type="'editor'" :exercises="content.pr.aufgabe_b"
-                :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                :hints="content.modify.hints" />
+
+            <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
+                :exercises="content.pr.aufgabe_b" :hints="content.modify.hints" />
             <PopUp :projectUrl="KollisionProjectTestUrl" :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'"
                 :buttonTitle="'Test'" :type="'test'" />
         </Make>
@@ -89,6 +85,7 @@ import ScratchGif from "../components/ScratchGif.vue"
 import StudentAnswer from "../components/StudentAnswer.vue"
 import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"
+import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 
 const KollisionProjectUrl = new URL("@/assets/kollision_assets/Aufgabe_Kollision_PRIMM.sb3", import.meta.url).href;
 const KollisionProjectTestUrl = new URL("@/assets/whisker_tests/kollision.js", import.meta.url).href;

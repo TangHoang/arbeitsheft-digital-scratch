@@ -13,9 +13,8 @@
                 <li>Implementiere einen Home-Screen.</li>
                 <li>Implementiere einen Lose-Screen.</li>
             </ol>
-            <PopUp :projectUrl="KollisionProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                :floating="false" :buttonTitle="'Editor Öffnen'" :type="'editor'" :hasBeenOpenedAlready="true"
-                :showIframe="true" :requireDownload="false" />
+            <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'" />
+
         </Make>
     </div>
 
@@ -25,7 +24,7 @@
 <script setup>
 import InfoCardOrange from '../components/InfoCardOrange.vue';
 import Make from '../components/Primm_components/Make.vue';
-import PopUp from '../components/PopUp.vue';
+import OpenIFrameButton from '../components/OpenIFrameButton.vue';
 </script>
 
 <style scoped>

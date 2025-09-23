@@ -38,9 +38,8 @@
                         <SubtaskList :items="content.modify.vorbereitung" />
                         <p class="comment">{{ content.modify.kommentar_a }}</p>
                         <SubtaskList :items="content.modify.aufgabe_a" :start="2" />
-                        <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.modify.aufgabe_a"
-                            :hints="content.modify.hints" :showIframe="true" />
+                        <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
+                            :exercises="content.modify.aufgabe_a" :hints="content.modify.hints" />
                         <PopUp :projectUrl="RohrProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :type="'test'"
                             :buttonTitle="'Testen'" />
@@ -87,6 +86,7 @@ import InfoCardOrange from "../components/InfoCardOrange.vue"
 import InfoCardPurple from "../components/InfoCardPurple.vue"
 import rohr_img from "@/assets/roehre_assets/rohr_predict.png"
 import rohr_bühne from "@/assets/roehre_assets/rohr_bühne.png"
+import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 import rohr_gif from "@/assets/roehre_assets/röhre.gif"
 import rohr_lösung_bühne from "@/assets/roehre_assets/rohr_lösung_bühne.png"
 

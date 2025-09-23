@@ -44,25 +44,12 @@
                 </div>
 
                 <template v-if="showIframe">
-                    <div class="subtasks-bar">
+                    <div v-if="exercises?.length" class="subtasks-bar">
                         <SubtaskList :items="exercises" />
                     </div>
 
                     <div class="content-row">
                         <iframe ref="frameRef" :src="iframeUrl" class="iframe" allowfullscreen @load="onIframeLoad" />
-                        <div class="hint-container">
-                            <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Stelle die Sprache auf
-                                <strong>Deutsch</strong>,
-                                indem du auf den
-                                Globus 🌐 clickst!
-                            </p>
-                            <h5>Hinweise</h5>
-                            <HintWithSolution :hints="hints" />
-
-                            <div class="image-container" v-if="images">
-                                <ScratchImage :imageUrls="images" :height="'120px'" />
-                            </div>
-                        </div>
                     </div>
                 </template>
             </div>
@@ -73,7 +60,6 @@
 
 <script setup>
 import { ref, computed, watch, onBeforeUnmount } from 'vue'
-import hint from './Hint.vue'
 import ProjectLinkButton from './ProjectLinkButton.vue'
 import ScratchImage from './ScratchImage.vue'
 import instructionImg from '@/assets/download_instruction.png'
@@ -330,6 +316,7 @@ watch(isOpen, (open) => {
     border-left: 3px solid #000000;
     overflow-y: auto;
     padding: 10px;
+    padding-top: 5rem;
 }
 
 .pre-screen {

@@ -15,8 +15,8 @@
                 <p>Bühnenbilder sind wie Hintergrundbilder. So machst du dein Projekt schöner!</p>
                 <ScratchImage :imageUrls="[buehne_img]" :height="'300px'" class="img" />
                 <p><strong>Aufgabe: </strong> Suche dir dein eigenes Bühnenbild aus.</p>
-                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[figur_img]" />
+                <OpenIFrameButton :images="[buehne_img]" />
+
             </div>
 
         </InfoCardWhite>
@@ -26,8 +26,7 @@
                 <p>Figuren führen die Befehlsblöcke aus, die im Programmierbereich stehen.</p>
                 <ScratchImage :imageUrls="[figur_img]" :height="'300px'" class="img" />
                 <p> <strong> Aufgabe: </strong> Suche dir eine Figur aus.</p>
-                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[figur_img]" />
+                <OpenIFrameButton :images="[figur_img]" />
             </div>
 
         </InfoCardWhite>
@@ -47,8 +46,7 @@
                 <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Ereignis-,
                     sowie Bewegungsblöcke kombinierst. Ziehe dazu die Blöcke in den Programmierbereich.
                 </p>
-                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[skript_img, bewegung_img]" />
+                <OpenIFrameButton :images="[skript_img, bewegung_img]" />
             </div>
         </InfoCardPurple>
 
@@ -59,8 +57,7 @@
                 <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Ereignis-,
                     sowie Aussehenblöcke kombinierst.
                 </p>
-                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[skript_img, aussehen_img]" />
+                <OpenIFrameButton :images="[skript_img, aussehen_img]" />
             </div>
         </InfoCardWhite>
 
@@ -71,10 +68,8 @@
                 <p> <strong>Aufgabe: </strong> Probiere aus aus, indem du auf Editor öffnen clickst und die Ereignis-,
                     sowie Aussehenblöcke kombinierst.
                 </p>
-                <PopUp :hasBeenOpenedAlready="true" :showIframe="true" :requireDownload="false"
-                    :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'" :images="[steuerung_img]" />
+                <OpenIFrameButton :images="[steuerung_img]" />
             </div>
-
         </InfoCardWhite>
 
         <InfoCardPurple :title="'Koordinatensystem in Scratch'">
@@ -124,6 +119,7 @@ import InfoCardPurple from '../components/InfoCardPurple.vue';
 import InfoCardWhite from '../components/InfoCardWhite.vue';
 import ScratchImage from '../components/ScratchImage.vue';
 import ScratchGif from '../components/ScratchGif.vue';
+import OpenIFrameButton from '../components/OpenIFrameButton.vue';
 
 import StudentAnswer from '../components/StudentAnswer.vue';
 

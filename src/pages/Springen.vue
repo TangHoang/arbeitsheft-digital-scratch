@@ -41,12 +41,12 @@
                 <div class="horizontal-container">
                     <div class="vertical-container">
                         <SubtaskList :items="content.modify.aufgabe_a" />
-                        <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor Öffnen'" :type="'editor'"
+                        <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor öffnen'"
                             :exercises="content.modify.aufgabe_a" :hints="content.modify.hints" />
                         <PopUp :projectUrl="SprungProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
                             :type="'test'" @test-status="onTestStatus" />
+
                         <p v-if="testResult?.allPassed">
                             ✅ Alle Tests bestanden ({{ testResult.passedCount }} / {{ testResult.passedCount +
                                 testResult.failedCount }})
@@ -55,8 +55,9 @@
                             ❌ ({{ testResult.failedCount }}/ {{ testResult.passedCount +
                                 testResult.failedCount }}) Tests fehlgeschlagen
                         </p>
-                        <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Speichere dein Projekt auf deinem PC mit dem
-                            Namen 'FlappyBird_v1.sb3'.
+                        <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Dein Projektzustand bleibt erhalten! Du kannst
+                            einfach zum nächsten Kapitel gehen, ohne Angst zu haben, dass dein Fortschritt verschwindet
+                            :-).
                         </p>
                     </div>
                     <ScratchImage :imageUrls="[sprung_predict]" :height="'200px'" />
@@ -101,6 +102,7 @@ import { ref } from "vue"
 import InfoCardOrange from "../components/InfoCardOrange.vue"
 import InfoCardWhite from "../components/InfoCardWhite.vue"
 import InfoCardPurple from "../components/InfoCardPurple.vue"
+import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 
 import sprung_img from "@/assets/sprung_assets/sprung.png"
 import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"

@@ -39,8 +39,9 @@
                 <div class="horizontal-container">
                     <div>
                         <SubtaskList :items="content.modify.aufgabe_a" />
-                        <PopUp :projectUrl="SprungProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.modify.aufgabe_a" />
+                        <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
+                            :exercises="content.modify.aufgabe_a" />
+
                     </div>
                     <ScratchImage :imageUrls="[score_img]" :height="'200px'" />
 
@@ -54,9 +55,8 @@
                 <div class="horizontal-container">
                     <div class="vertical-container">
                         <SubtaskList :items="content.make.aufgabe_a" />
-                        <PopUp :projectUrl="ScoreProjectUrl" :iframeUrl="'https://scratch.fim.uni-passau.de/scratch/'"
-                            :floating="false" :buttonTitle="'Editor Öffnen'" :exercises="content.make.aufgabe_a"
-                            :showIframe="true" :hints="content.make.hints" />
+                        <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
+                            :exercises="content.make.aufgabe_a" :hints="content.make.hints" />
                         <PopUp :projectUrl="ScoreProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
                             :type="'test'" />
@@ -115,6 +115,7 @@ import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"
 import ScratchGif from "../components/ScratchGif.vue"
 import HintWithSolution from "../components/HintWithSolution.vue"
+import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 
 const ScoreProjectUrl = new URL("@/assets/score_assets/Aufgabe_Counter_PRIMM.sb3", import.meta.url).href;
 const ScoreProjectTestUrl = new URL("@/assets/whisker_tests/highscore.js", import.meta.url).href;
