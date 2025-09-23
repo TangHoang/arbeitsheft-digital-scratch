@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <template v-else>
+                <template v-if="showIframe">
                     <div class="subtasks-bar">
                         <SubtaskList :items="exercises" />
                     </div>
@@ -56,6 +56,9 @@
                                 indem du auf den
                                 Globus 🌐 clickst!
                             </p>
+                            <h5>Hinweise</h5>
+                            <HintWithSolution :hints="hints" />
+
                             <div class="image-container" v-if="images">
                                 <ScratchImage :imageUrls="images" :height="'120px'" />
                             </div>
@@ -75,6 +78,7 @@ import ProjectLinkButton from './ProjectLinkButton.vue'
 import ScratchImage from './ScratchImage.vue'
 import instructionImg from '@/assets/download_instruction.png'
 import SubtaskList from './SubtaskList.vue'
+import HintWithSolution from './HintWithSolution.vue'
 
 import whisker_instruction_1 from '@/assets/whisker_instruction_1.png'
 import whisker_instruction_2 from '@/assets/whisker_instruction_2.png'
@@ -88,11 +92,12 @@ const props = defineProps({
     showIframe: { type: Boolean, default: undefined },
     hasBeenOpenedAlready: { type: Boolean, default: undefined },
     requireDownload: { type: Boolean, default: true },
-    floating: Boolean,
+    floating: { type: Boolean },
     buttonTitle: { default: 'Editor öffnen', type: String },
     images: { type: Array },
-    type: String,
-    exercises: Array
+    type: { type: String },
+    exercises: { type: Array },
+    hints: { type: Array },
 })
 
 // Emits für 2-Way, falls der Parent v-model nutzt
@@ -363,6 +368,11 @@ watch(isOpen, (open) => {
     line-height: 1.5;
 }
 
+.hint {
+    font-size: 0.9rem;
+    color: #333;
+}
+
 .pre-download-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -380,5 +390,10 @@ watch(isOpen, (open) => {
     margin-top: .75rem;
     color: #666;
     font-size: .875rem;
+}
+
+.image-container {
+    display: flex;
+    flex-flow: column;
 }
 </style>

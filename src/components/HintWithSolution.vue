@@ -1,6 +1,5 @@
 <template>
-    <div class="hints-with-solution">
-        <!-- Hint headers row (boxy look) -->
+    <div class="hints-with-solution" :class="layout">
         <div class="hint-row" role="tablist">
             <template v-if="props.hints && props.hints.length">
                 <button v-for="(h, i) in hints" :key="`hint-${i}`" class="hint-chip boxy"
@@ -11,7 +10,6 @@
                 </button>
             </template>
 
-            <!-- Solution as a chip inside the same row -->
             <button v-if="hasSolution" class="hint-chip boxy solution-chip"
                 :class="{ active: activeKey === 'solution', disabled: requireHints && !allRead, ready: !requireHints || allRead, open: activeKey === 'solution' }"
                 :disabled="requireHints && !allRead" role="tab" :aria-selected="activeKey === 'solution'"
@@ -21,11 +19,9 @@
             </button>
         </div>
 
-        <!-- Opened content area appears below the row -->
         <Transition name="fade">
             <div v-if="activeKey !== null" class="hint-panel boxy" role="tabpanel">
                 <div class="space-y-3">
-                    <!-- Render hint content when a hint is active -->
                     <template v-if="typeof activeKey === 'number'">
                         <div v-if="currentHint?.img" class="max-w-full">
                             <Image :src="currentHint.img.src"
@@ -42,13 +38,12 @@
                         </div>
                     </template>
 
-                    <!-- Render solution when solution chip is active -->
                     <template v-else-if="hasSolution">
                         <div v-if="solutionImg">
                             <Image :src="solutionImg.src" :alt="solutionImg.alt || 'Lösungsbild'"
                                 :preview="solutionImg.preview !== false" />
                             <small v-if="solutionImg.caption" class="block text-sm opacity-70">{{ solutionImg.caption
-                            }}</small>
+                                }}</small>
                         </div>
                         <div v-if="$slots.solution">
                             <slot name="solution" />
@@ -59,7 +54,6 @@
             </div>
         </Transition>
 
-        <!-- Helper text for progress (only if solution exists and hints exist) -->
         <div class="mt-2" v-if="requireHints && hasSolution && !allRead">
             <small class="opacity-70">Lies zuerst alle Hinweise ({{ readCount }} / {{ hints.length }}), um die Lösung zu
                 öffnen.</small>
@@ -90,6 +84,7 @@ const props = defineProps<{
     solutionImg?: HintImage | null
     autoOpenFirst?: boolean
     confirmMessage?: string
+    layout?: 'horizontal' | 'vertical'
 }>()
 
 const emit = defineEmits<{
@@ -100,8 +95,8 @@ const emit = defineEmits<{
 const slots = useSlots()
 const hasSolution = computed(() => Boolean(props.solution || props.solutionImg || !!slots.solution))
 const requireHints = computed(() => props.hints && props.hints.length > 0)
+const layout = computed(() => props.layout ?? 'horizontal')
 
-// activeKey is either a hint index (number) or 'solution' or null
 const activeKey = ref<number | 'solution' | null>(props.autoOpenFirst && props.hints && props.hints.length ? 0 : null)
 const read = ref<Set<number>>(new Set(props.autoOpenFirst && props.hints && props.hints.length ? [0] : []))
 const solutionRevealedOnce = ref(false)
@@ -131,17 +126,13 @@ function toggle(i: number) {
 
 function onSolutionChip() {
     if (!hasSolution.value) return
-
     if (requireHints.value && !allRead.value) return
-
     if (solutionRevealedOnce.value) {
         activeKey.value = 'solution'
         return
     }
-
     const confirmed = window.confirm(
-        props.confirmMessage ??
-        'Willst du die Lösung wirklich sehen?'
+        props.confirmMessage ?? 'Willst du die Lösung wirklich sehen?'
     )
     if (confirmed) {
         activeKey.value = 'solution'
@@ -152,25 +143,26 @@ function onSolutionChip() {
 </script>
 
 <style scoped>
-/* Boxy look */
 .boxy {
     border-radius: 0.4rem;
 }
 
-/* row of closed hints + solution chip */
-.hint-row {
+.hint-row.horizontal {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     align-items: stretch;
 }
 
+.hint-row.vertical {
+    display: grid;
+    gap: 0.5rem;
+}
+
 .hint-chip {
     appearance: none;
     border: 1px solid #d1d5db;
-    /* gray-300 */
     background: #f9fafb;
-    /* gray-50  */
     padding: 0.55rem 0.8rem;
     cursor: pointer;
     font-weight: 600;
@@ -214,7 +206,6 @@ function onSolutionChip() {
     transform: rotate(180deg);
 }
 
-/* opened content area directly underneath the row */
 .hint-panel {
     border: 1px solid #e5e7eb;
     padding: 0.9rem 1rem;
