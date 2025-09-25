@@ -86,22 +86,13 @@
 
         <InfoCardWhite :title="'Variablen'">
             <div class="vertical-container">
-                <p>
-                    Variablen sind Speicherplätze für Zahlen oder Texte. Sie helfen dir, sich Werte
-                    während des Programms zu merken und wiederzuverwenden.
-                </p>
-                <p>Beispiele:</p>
-                <ul>
-                    <li>Punkte im Spiel zählen</li>
-                    <li>Spielername speichern</li>
-                    <li>Zufallszahl merken</li>
-                </ul>
-                <ScratchGif :imageUrls="[variable_gif, variable_img]" :height="'400px'" class="img" />
-                <p><strong>Aufgabe: </strong>Beschreibe, wie sich die Variable <i>Vergangene Sekunden</i> verhalten
-                    wird.</p>
-            </div>
+                <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
 
-            <StudentAnswer answerId="einfuehrung/aufgabe_variablen" />
+                <ScratchImage :imageUrls="[variablen_img]" :height="'400px'" class="img" />
+                <p><strong>Aufgabe: </strong> Experimentiere mit Variablen, indem du diese mit den vorher verwendeten
+                    Blöcken kombinierst!</p>
+                <OpenIFrameButton :images="[variablen_img]" />
+            </div>
         </InfoCardWhite>
 
         <InfoCardOrange :title="'Geschafft!'">
@@ -118,16 +109,14 @@ import InfoCardOrange from '../components/InfoCardOrange.vue';
 import InfoCardPurple from '../components/InfoCardPurple.vue';
 import InfoCardWhite from '../components/InfoCardWhite.vue';
 import ScratchImage from '../components/ScratchImage.vue';
-import ScratchGif from '../components/ScratchGif.vue';
 import OpenIFrameButton from '../components/OpenIFrameButton.vue';
-
 import StudentAnswer from '../components/StudentAnswer.vue';
 
 import steuerung_img from '@/assets/einfuehrung_assets/steuerung_img.png'
 
 import skript_img from '@/assets/einfuehrung_assets/skript_img.png';
+
 import figur_img from '@/assets/einfuehrung_assets/figur_img.png'
-import figure_gif from '@/assets/einfuehrung_assets/sprite_gif.gif'
 
 import aussehen_img from '@/assets/einfuehrung_assets/aussehen_img.png'
 
@@ -136,22 +125,11 @@ import koordinatensystem_img from '@/assets/einfuehrung_assets/koordinatensystem
 import bewegung_img from '@/assets/einfuehrung_assets/bewegung_img.png'
 
 import buehne_img from '@/assets/einfuehrung_assets/buehne_img.png'
-import buehne_gif from '@/assets/einfuehrung_assets/buehnenbild_gif.gif'
 
-import programmierbloecke_img from '@/assets/einfuehrung_assets/programmierbloecke_img.png'
-
-import schleifen_img from '@/assets/einfuehrung_assets/schleifen_img.png'
-import schleifen_beispiel_gif from '@/assets/einfuehrung_assets/schleifen_beispiel.gif'
-
-import bedingungen_img from '@/assets/einfuehrung_assets/bedingungen_img.png'
-import bedingungen_beispiel_gif from '@/assets/einfuehrung_assets/bedingungen_beispiel.gif'
-
-import variable_gif from '@/assets/einfuehrung_assets/variable_gif.gif'
-import variable_img from '@/assets/einfuehrung_assets/variable_img.png'
+import variablen_img from '@/assets/einfuehrung_assets/variablen_img.png'
 
 import scratch_gesamt from '@/assets/einfuehrung_assets/scratch_gesamt.png'
 
-import PopUp from '../components/PopUp.vue';
 </script>
 
 <style scoped>
