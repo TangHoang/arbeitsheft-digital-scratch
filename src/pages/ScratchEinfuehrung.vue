@@ -1,6 +1,6 @@
 <template>
     <div class="einleitung">
-        <InfoCardOrange :title="'Kapitel 0: Einführung in Scratch'">
+        <InfoCard variant="orange" :title="'Kapitel 0: Einführung in Scratch'">
             <p>
                 <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache für Anfänger. Du setzt
                 Bausteine
@@ -8,9 +8,9 @@
                 ohne komplizierten Code. In diesem Kapitel bekommst du einen Überblick über Scratch.
             </p>
             <ScratchImage :imageUrls="[scratch_gesamt]" :height="'300px'" class="img" :orientation="'horizontal'" />
-        </InfoCardOrange>
+        </InfoCard>
 
-        <InfoCardWhite :title="'Bühnenbilder'">
+        <InfoCard variant="white" :title="'Bühnenbilder'">
             <div class="vertical-container">
                 <p>Bühnenbilder sind wie Hintergrundbilder. So machst du dein Projekt schöner!</p>
                 <ScratchImage :imageUrls="[buehne_img]" :height="'300px'" class="img" />
@@ -19,9 +19,9 @@
 
             </div>
 
-        </InfoCardWhite>
+        </InfoCard>
 
-        <InfoCardWhite :title="'Figuren'">
+        <InfoCard variant="white" :title="'Figuren'">
             <div class="vertical-container">
                 <p>Figuren führen die Befehlsblöcke aus, die im Programmierbereich stehen.</p>
                 <ScratchImage :imageUrls="[figur_img]" :height="'300px'" class="img" />
@@ -29,16 +29,16 @@
                 <OpenIFrameButton :images="[figur_img]" />
             </div>
 
-        </InfoCardWhite>
+        </InfoCard>
 
-        <InfoCardPurple :title="'Ereignisse'">
+        <InfoCard variant="purple" :title="'Ereignisse'">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Ereignisse</b>.</p>
                 <ScratchImage :imageUrls="[skript_img]" :height="'300px'" class="img" />
             </div>
-        </InfoCardPurple>
+        </InfoCard>
 
-        <InfoCardPurple :title="'Bewegung'">
+        <InfoCard variant="purple" :title="'Bewegung'">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Bewegung</b>.</p>
 
@@ -48,9 +48,9 @@
                 </p>
                 <OpenIFrameButton :images="[skript_img, bewegung_img]" />
             </div>
-        </InfoCardPurple>
+        </InfoCard>
 
-        <InfoCardWhite :title="'Aussehen'">
+        <InfoCard variant="purple" :title="'Aussehen'">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Aussehen</b>.</p>
                 <ScratchImage :imageUrls="[aussehen_img]" :height="'300px'" class="img" />
@@ -59,9 +59,9 @@
                 </p>
                 <OpenIFrameButton :images="[skript_img, aussehen_img]" />
             </div>
-        </InfoCardWhite>
+        </InfoCard>
 
-        <InfoCardWhite :title="'Steuerung'">
+        <InfoCard variant="purple" :title="'Steuerung'">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
                 <ScratchImage :imageUrls="[steuerung_img]" :height="'300px'" class="img" />
@@ -70,9 +70,9 @@
                 </p>
                 <OpenIFrameButton :images="[steuerung_img]" />
             </div>
-        </InfoCardWhite>
+        </InfoCard>
 
-        <InfoCardPurple :title="'Koordinatensystem in Scratch'">
+        <InfoCard variant="purple" :title="'Koordinatensystem in Scratch'">
             <div class="vertical-container">
                 <p>Scratch verwendet ein Koordinatensystem, wie aus dem Mathematikunterricht.</p>
 
@@ -82,9 +82,9 @@
                 </p>
             </div>
             <StudentAnswer answerId="einfuehrung/aufgabe_koordinatensystem" />
-        </InfoCardPurple>
+        </InfoCard>
 
-        <InfoCardWhite :title="'Variablen'">
+        <InfoCard variant="white" :title="'Variablen'">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
 
@@ -93,21 +93,20 @@
                     Blöcken kombinierst!</p>
                 <OpenIFrameButton :images="[variablen_img]" />
             </div>
-        </InfoCardWhite>
+        </InfoCard>
 
-        <InfoCardOrange :title="'Geschafft!'">
+        <InfoCard variant="orange" :title="'Geschafft!'">
             <p>Du hast gerade deine ersten Erfahrungen mit Scratch gemacht. Jetzt beginnst du, wie versprochen, dein
                 Flappy-Bird-Spiel zu programmieren. </p>
             <p> Verwenden den Knopf unten links oder die Kapitelübersicht oben rechts, um zum nächsten Kapitel zu
                 wechseln.</p>
-        </InfoCardOrange>
+        </InfoCard>
     </div>
 </template>
 
 <script setup>
-import InfoCardOrange from '../components/InfoCardOrange.vue';
-import InfoCardPurple from '../components/InfoCardPurple.vue';
-import InfoCardWhite from '../components/InfoCardWhite.vue';
+import InfoCard from '../components/InfoCard.vue';
+
 import ScratchImage from '../components/ScratchImage.vue';
 import OpenIFrameButton from '../components/OpenIFrameButton.vue';
 import StudentAnswer from '../components/StudentAnswer.vue';

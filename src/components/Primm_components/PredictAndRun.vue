@@ -1,17 +1,17 @@
 <template>
     <div class="primm-label">Vermuten und Überprüfen</div>
-    <InfoCardWhite>
+    <InfoCard variant="white">
         <div class="exercise-grid">
             <div class="exercise-content">
                 <slot />
             </div>
         </div>
-    </InfoCardWhite>
+    </InfoCard>
 
 </template>
 
 <script setup>
-import InfoCardWhite from '@/components/InfoCardWhite.vue';
+import InfoCard from '../InfoCard.vue';
 </script>
 
 

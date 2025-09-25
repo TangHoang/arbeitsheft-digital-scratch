@@ -1,9 +1,9 @@
 <template>
     <div class="springen">
 
-        <InfoCardOrange :title="'Kapitel 1: Springen'">
+        <InfoCard variant="orange" :title="'Kapitel 1: Springen'">
             <p>Nach diesem Kapitel wird dein Vogel springen können!</p>
-        </InfoCardOrange>
+        </InfoCard>
 
         <PredictAndRun>
             <template #default>
@@ -67,7 +67,7 @@
             </template>
         </Modify>
 
-        <InfoCardPurple :title="'Recap'">
+        <InfoCard variant="purple" :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
@@ -95,21 +95,17 @@
                         loading="lazy" />
                 </li>
             </ul>
-        </InfoCardPurple>
+        </InfoCard>
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue"
 
-import InfoCardOrange from "../components/InfoCardOrange.vue"
-import InfoCardWhite from "../components/InfoCardWhite.vue"
-import InfoCardPurple from "../components/InfoCardPurple.vue"
+import InfoCard from "../components/InfoCard.vue"
 import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 
-import sprung_img from "@/assets/sprung_assets/sprung.png"
 import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"
-import sprung_gif from "@/assets/sprung_assets/sprung_costume_change.gif"
 import sprung_predict from '@/assets/sprung_assets/sprung_predict.png'
 
 import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
@@ -119,7 +115,6 @@ import Make from "../components/Primm_components/Make.vue"
 
 import SubtaskList from "../components/SubtaskList.vue"
 import ScratchImage from "../components/ScratchImage.vue"
-import ScratchGif from "../components/ScratchGif.vue"
 import StudentAnswer from "../components/StudentAnswer.vue"
 import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"

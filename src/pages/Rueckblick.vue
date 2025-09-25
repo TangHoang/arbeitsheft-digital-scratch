@@ -1,11 +1,11 @@
 <template>
     <div class="rueckblick">
-        <InfoCardOrange :title="'Geschafft!'">
+        <InfoCard variant="orange" :title="'Geschafft!'">
             <p>Nach 4 Kapiteln hast du nun ein funktionierendes Flappy-Bird Spiel programmiert. Für deine erste
                 Erfahrung
                 war das hoffentlich lehrreich und interessant!</p>
             <p>Falls du besonders schnell bist, ist hier noch eine Zusatzaufgabe.</p>
-        </InfoCardOrange>
+        </InfoCard>
 
         <Make>
             <h3>Aufgabe 1</h3>
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import InfoCardOrange from '../components/InfoCardOrange.vue';
+import InfoCard from '../components/InfoCard.vue';
 import Make from '../components/Primm_components/Make.vue';
 import OpenIFrameButton from '../components/OpenIFrameButton.vue';
 </script>

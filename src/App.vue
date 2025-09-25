@@ -1,16 +1,16 @@
 <template>
 	<div class="layout">
 		<div class="nav-wrapper">
-			<NavBar />
+			<NavBar v-if="!$route.meta.standalone" />
 		</div>
 		<div class="content-grid">
 			<div class="main">
 				<RouterView />
 			</div>
 			<div></div>
-			<NextChapterBtn :routeName="$route.name" />
+			<NextChapterBtn :routeName="$route.name" v-if="!$route.meta.standalone" />
 		</div>
-		<SideBarLeft />
+		<SideBarLeft v-if="!$route.meta.standalone" />
 		<IframeOverlayPortal />
 	</div>
 </template>

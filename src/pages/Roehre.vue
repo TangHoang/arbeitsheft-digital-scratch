@@ -1,9 +1,9 @@
 <template>
     <div class="roehre">
 
-        <InfoCardOrange :title="'Kapitel 2: Röhre'">
+        <InfoCard variant="orange" :title="'Kapitel 2: Röhre'">
             <p>In diesem Kapitel programmieren wir die bewegenden Röhren!</p>
-        </InfoCardOrange>
+        </InfoCard>
 
         <PredictAndRun>
             <template #default>
@@ -56,7 +56,7 @@
             </template>
         </Modify>
 
-        <InfoCardPurple :title="'Recap'">
+        <InfoCard variant="purple" :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
@@ -78,19 +78,18 @@
                         loading="lazy" />
                 </li>
             </ul>
-        </InfoCardPurple>
+        </InfoCard>
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue"
-import InfoCardOrange from "../components/InfoCardOrange.vue"
-import InfoCardPurple from "../components/InfoCardPurple.vue"
+import InfoCard from "../components/InfoCard.vue"
+
 import rohr_img from "@/assets/roehre_assets/rohr_predict.png"
 import rohr_bühne from "@/assets/roehre_assets/rohr_bühne.png"
 import OpenIFrameButton from "../components/OpenIFrameButton.vue"
-import rohr_gif from "@/assets/roehre_assets/röhre.gif"
-import rohr_lösung_bühne from "@/assets/roehre_assets/rohr_lösung_bühne.png"
+
 
 import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
 import Investigate from "../components/Primm_components/Investigate.vue"
@@ -99,7 +98,6 @@ import Make from "../components/Primm_components/Make.vue"
 
 import SubtaskList from "../components/SubtaskList.vue"
 import ScratchImage from "../components/ScratchImage.vue"
-import ScratchGif from "../components/ScratchGif.vue"
 import StudentAnswer from "../components/StudentAnswer.vue"
 import ScratchDemo from "../components/ScratchDemo.vue"
 import PopUp from "../components/PopUp.vue"

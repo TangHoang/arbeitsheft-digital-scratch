@@ -1,6 +1,6 @@
 <template>
     <div class="einleitung">
-        <InfoCardOrange :title="'Willkommen!'">
+        <InfoCard variant="orange" :title="'Willkommen!'">
             <p>
                 In diesem Arbeitsheft programmierst du Schritt für Schritt ein eigenes
                 <strong>Flappy-Bird-Spiel</strong> in Scratch. Dabei lernst du Grundideen
@@ -8,8 +8,8 @@
                 Am Ende bewegst du Figuren über die Bühne, reagierst auf Tasten,
                 arbeitest mit Variablen, Ereignissen, Schleifen, Bedingungen und testest dein Spiel automatisch.
             </p>
-        </InfoCardOrange>
-        <InfoCardWhite :title="'Demo: Flappy Bird'">
+        </InfoCard>
+        <InfoCard variant="white" :title="'Demo: Flappy Bird'">
             <div class="horizontal-container">
                 <div>
                     <iframe src="https://scratch.mit.edu/projects/17828009/embed" allowtransparency="true" width="485"
@@ -26,8 +26,8 @@
                     </p>
                 </div>
             </div>
-        </InfoCardWhite>
-        <InfoCardOrange :title="'Scratch'">
+        </InfoCard>
+        <InfoCard variant="orange" :title="'Scratch'">
             <p>
                 <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache für Anfänger. Du setzt
                 Bausteine
@@ -35,8 +35,8 @@
                 ohne komplizierten Code. Die Ausführung deines Codes, ist ganz einfach, wie du oben bei der Demo bereits
                 gesehen hast.
             </p>
-        </InfoCardOrange>
-        <InfoCardPurple :title="'Worum geht es?'">
+        </InfoCard>
+        <InfoCard variant="purple" :title="'Worum geht es?'">
             <p> Am Ende dieses Arbeitsheftes hast du ein spielbares <strong>Flappy-Bird</strong> Spiel mit der
                 Programmiersprache
                 <strong>Scratch </strong>programmiert!
@@ -75,8 +75,8 @@
                     <img class="info-icon" src="@/assets/einleitung_assets/score.gif" alt="Score" loading="lazy" />
                 </li>
             </ul>
-        </InfoCardPurple>
-        <InfoCardWhite :title="'Aufgabenstruktur'">
+        </InfoCard>
+        <InfoCard variant="white" :title="'Aufgabenstruktur'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
@@ -111,10 +111,10 @@
                         loading="lazy" />
                 </li>
             </ul>
-        </InfoCardWhite>
-        <InfoCardWhite :title="'Es geht los!'">
+        </InfoCard>
+        <InfoCard variant="orange" :title="'Es geht los!'">
             <p> </p>
-        </InfoCardWhite>
+        </InfoCard>
 
 
 
@@ -122,9 +122,7 @@
 
 </template>
 <script setup>
-import InfoCardOrange from '../components/InfoCardOrange.vue';
-import InfoCardWhite from '../components/InfoCardWhite.vue';
-import InfoCardPurple from '../components/InfoCardPurple.vue';
+import InfoCard from '../components/InfoCard.vue';
 
 </script>
 <style>

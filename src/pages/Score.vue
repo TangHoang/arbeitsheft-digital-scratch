@@ -1,10 +1,10 @@
 <template>
     <div class="score">
 
-        <InfoCardOrange :title="'Kapitel 4: Punktestand'">
+        <InfoCard variant="orange" :title="'Kapitel 4: Punktestand'">
             <p>Nachdem dein Vogel eine Röhre passiert, soll die Punktzahl erhöht werden. Dies werden wir nun
                 implementieren.</p>
-        </InfoCardOrange>
+        </InfoCard>
 
         <PredictAndRun>
             <template #default>
@@ -66,7 +66,7 @@
             </template>
         </Make>
 
-        <InfoCardPurple :title="'Recap'">
+        <InfoCard variant="orange" :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
@@ -94,13 +94,13 @@
                         loading="lazy" />
                 </li>
             </ul>
-        </InfoCardPurple>
+        </InfoCard>
     </div>
 </template>
 
 <script setup>
-import InfoCardOrange from "../components/InfoCardOrange.vue"
-import InfoCardPurple from "../components/InfoCardPurple.vue"
+import InfoCard from "../components/InfoCard.vue"
+
 import score_img from "@/assets/score_assets/score.png"
 import score_bühne from "@/assets/score_assets/score_bühne.png"
 import score_gif from "@/assets/score_assets/score.gif"

@@ -1,10 +1,10 @@
 <template>
     <div class="springen">
 
-        <InfoCardOrange :title="'Kapitel 3: Kollision'">
+        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'">
             <p>Jetzt wollen wir die vorherigen zwei Kapitel sinnvoll kombinieren. Wenn dein Vogel ein Rohr berüht, soll
                 das Spiel beendet werden!</p>
-        </InfoCardOrange>
+        </InfoCard>
 
         <PredictAndRun>
             <h3> Aufgabe 1</h3>
@@ -32,7 +32,7 @@
                 :buttonTitle="'Test'" :type="'test'" />
         </Make>
 
-        <InfoCardOrange :title="'Recap'">
+        <InfoCard variant="orange" :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
@@ -62,15 +62,14 @@
                         loading="lazy" />
                 </li>
             </ul>
-        </InfoCardOrange>
+        </InfoCard>
 
     </div>
 </template>
 
 <script setup>
-import InfoCardOrange from "../components/InfoCardOrange.vue"
-import InfoCardPurple from "../components/InfoCardPurple.vue"
-import InfoCardWhite from "../components/InfoCardWhite.vue"
+import InfoCard from "../components/InfoCard.vue"
+
 import kollision_img from "@/assets/kollision_assets/kollision.png"
 import kollision_assets from "@/assets/kollision_assets/kollision_sprite.png"
 import kollision_gif from "@/assets/kollision_assets/kollision_gif.gif"
