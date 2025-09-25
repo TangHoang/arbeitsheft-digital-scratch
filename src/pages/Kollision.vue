@@ -40,7 +40,8 @@
                         alles'
                         beendet.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
 
@@ -49,14 +50,16 @@
                         gleichzeitig
                         abzudecken.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
                     <span class="info-text">
                         <strong>Kollision: </strong> Du hast selbst die Kollision mit der Decke und dem Boden
                         implementiert.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
             </ul>
         </InfoCardOrange>

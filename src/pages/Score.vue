@@ -73,7 +73,8 @@
                         <strong>Variablen: </strong> Du hast gesehen, wie man mit einen Punktestand mit Variablen
                         umsetzt.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
 
@@ -82,13 +83,15 @@
                         genau
                         um 1 zu erhöhen.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
                     <span class="info-text">
                         <strong>Highscore: </strong> Du hast selbst einen Highscore implementiert.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
             </ul>
         </InfoCardPurple>

@@ -50,26 +50,29 @@
                     <span class="info-text"><strong>1. Springen: </strong>Mit Hilfe der Leertaste wird dein Vogel
                         hochspringen und danach
                         herunterfallen.</span>
-                    <img class="info-icon" src="@/assets/cat_walking.gif" alt="Steuerung" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/cat_walking.gif" alt="Steuerung"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
                     <span class="info-text"><strong>2. Röhre: </strong>Du wirst Röhren generieren, die sich gleichmäßig
                         bewegen und in ihrer Höhe
                         verändern.</span>
-                    <img class="info-icon" src="@/assets/moving_rohr.gif" alt="Testen & Debuggen" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/moving_rohr.gif" alt="Testen & Debuggen"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
                     <span class="info-text"><strong>3. Kollision: </strong>Wenn dein Vogel die Röhre berührt, wird das
                         Spiel
                         abbrechen.</span>
-                    <img class="info-icon" width="80px" src="@/assets/collision.gif" alt="Kollision" loading="lazy" />
+                    <img class="info-icon" width="80px" src="@/assets/einleitung_assets/collision.gif" alt="Kollision"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
                     <span class="info-text"><strong>4. Punktestand: </strong>Jedes Mal, wenn dein Vogel eine Röhre
                         passiert,
                         wird deine Punktzahl
                         erhöht.</span>
-                    <img class="info-icon" src="@/assets/score.gif" alt="Score" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/score.gif" alt="Score" loading="lazy" />
                 </li>
             </ul>
         </InfoCardPurple>
@@ -81,27 +84,31 @@
                         Code.
                         Über dessen Funktion stellst du zuerst eine Vermutung auf.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
 
                 <li class="info-row">
                     <span class="info-text">
                         <strong>2. Analysieren: </strong>Daraufhin wirst du den Code beschreiben und erklären.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
 
                 <li class="info-row">
                     <span class="info-text">
                         <strong>3. Verändern: </strong>Nachdem du den Code nachvollzogen hast, bist du an der Reihe
                         einige Änderungen daran vorzunehmen. </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
                     <span class="info-text">
                         <strong>4. Coden: </strong>Schließlich bist du selbst mit deiner Kreativität an der Reihe, um
                         eigene Funktionalitäten zu implementieren. </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
             </ul>
         </InfoCardWhite>

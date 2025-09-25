@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Einleitung from '@/pages/Einleitung.vue'
-import FlappyBird from '@/pages/FlappyBird.vue'
 import Springen from '../pages/Springen.vue'
 import Roehre from '../pages/Roehre.vue'
 import Kollision from '../pages/Kollision.vue'

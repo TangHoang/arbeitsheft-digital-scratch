@@ -73,7 +73,8 @@
                     <span class="info-text">
                         <strong>Code: </strong> Du hast Vermutung über Code gemacht und überprüft.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
 
                 <li class="info-row">
@@ -82,14 +83,16 @@
                         und zwar
                         der Tastendruck der Leertaste.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
 
                 <li class="info-row">
                     <span class="info-text">
                         <strong>Sprunglogik: </strong> Du hast selbst die Gravitation implementiert!
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
             </ul>
         </InfoCardPurple>

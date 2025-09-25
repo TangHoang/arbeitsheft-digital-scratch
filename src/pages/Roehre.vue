@@ -64,7 +64,8 @@
                         automatisch
                         bewegt.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
                 <li class="info-row">
 
@@ -73,7 +74,8 @@
                         dynamisch
                         anzupassen.
                     </span>
-                    <img class="info-icon" src="@/assets/green_checkmark.webp" alt="Bild" loading="lazy" />
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
                 </li>
             </ul>
         </InfoCardPurple>
