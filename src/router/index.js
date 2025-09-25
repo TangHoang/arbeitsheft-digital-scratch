@@ -21,6 +21,13 @@ export default createRouter({
         { path: '/chapter/kollision', name: "kollision", component: Kollision },
         { path: '/chapter/score', name: "score", component: Score },
         { path: '/chapter/rueckblick', name: "rueckblick", component: Rueckblick },
+
+        {
+            path: '/standalone/scratch-einfuehrung',
+            name: 'scratch-einfuehrung-standalone',
+            component: ScratchEinfuehrung,
+            meta: { standalone: true }
+        },
     ],
 
     scrollBehavior() {

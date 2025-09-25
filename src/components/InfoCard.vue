@@ -3,7 +3,7 @@
         <div class="card-header">
             <h1 v-if="variant === 'orange' && title" class="card-title">{{ title }}</h1>
             <h2 v-else-if="title" class="card-title">{{ title }}</h2>
-            <StandaloneIntroBtn v-if="showIntro" />
+            <StandaloneIntroBtn v-if="showIntro" class="show-intro-link" />
         </div>
 
         <div class="card-content">
@@ -52,6 +52,10 @@ const props = defineProps({
     font-weight: 600;
     line-height: 1.2;
     color: #b85d00;
+}
+
+.show-intro-link {
+    margin-left: auto;
 }
 
 h1.card-title {

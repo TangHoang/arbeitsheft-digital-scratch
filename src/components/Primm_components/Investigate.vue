@@ -1,6 +1,6 @@
 <template>
     <div class="primm-label">Beschreiben und Analysieren</div>
-    <InfoCard variant="white">
+    <InfoCard variant="white" :showIntro="true">
         <div class="exercise-grid">
             <div class="exercise-content">
                 <slot />
