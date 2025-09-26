@@ -199,14 +199,29 @@ watch(isOpen, (open) => {
 }
 
 .open-btn {
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: white;
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 9999px;
     cursor: pointer;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0.5rem;
+}
+
+.open-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.open-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .test {
