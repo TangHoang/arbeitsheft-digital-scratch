@@ -3,7 +3,7 @@ import { reactive, readonly } from 'vue'
 const state = reactive({
     open: false,
     showIframe: false,
-    hasOpened: false,
+    hasOpened: true,
     type: 'editor',
     iframeSrc: 'https://scratch.fim.uni-passau.de/scratch/',
     projectUrl: '',
