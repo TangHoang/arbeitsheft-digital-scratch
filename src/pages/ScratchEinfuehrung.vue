@@ -67,9 +67,19 @@
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
                 <ScratchImage :imageUrls="[steuerung_img]" :height="'300px'" class="img" />
-                <p> <strong>Aufgabe: </strong> Ergänze dein bisheriges Projekt mit Blöcken aus der Rubrik
+                <CollapsibleExample class="left-align">
+                    <p>Betrachte die folgenden zwei Kombinationen aus Event-, Steuerung- und Bewegungsblöcken.</p>
+                    <p>Übertrage beide Beispiele und probiere sie aus.</p>
+                    <ScratchImage :imageUrls="[steuerung_nowhile, steuerung_while]" :height="'200px'" />
+                    <OpenIFrameButton :images="[steuerung_nowhile, steuerung_while]" />
+                    <p> <strong>Aufgabe: </strong> Beschreibe den Unterschied beider Implementierungen.
+                    </p>
+                    <StudentAnswer class="left-align" />
+                </CollapsibleExample>
+                <p> <strong>Aufgabe: </strong> Experimentiere im Editor mit verschiedenen Blöcken aus der Rubrik
                     <b>Steuerung</b>.
                 </p>
+
                 <OpenIFrameButton :images="[steuerung_img]" />
             </div>
         </InfoCard>
@@ -91,7 +101,17 @@
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
 
                 <ScratchImage :imageUrls="[variablen_img]" :height="'400px'" class="img" />
-                <p><strong>Aufgabe: </strong> Experimentiere mit Variablen, indem du diese mit den vorher verwendeten
+                <CollapsibleExample>
+                    <p>In diesem Beispiel wurde eine Variable <b>'Vergangene Sekunden'</b> erstellt. Diese Variable wird
+                        in einer Schleife pro Sekunde, um 1 erhöht.</p>
+                    <div class="horizontal-container">
+                        <ScratchImage :imageUrls="[variable_img]" :height="'300px'" />
+                        <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1217100324/embed'" />
+                    </div>
+
+                </CollapsibleExample>
+                <p><strong>Aufgabe: </strong> Experimentiere mit Variablen, indem du diese mit den vorher
+                    verwendeten
                     Blöcken kombinierst!</p>
                 <OpenIFrameButton :images="[variablen_img]" />
             </div>
@@ -112,8 +132,13 @@ import InfoCard from '../components/InfoCard.vue';
 import ScratchImage from '../components/ScratchImage.vue';
 import OpenIFrameButton from '../components/OpenIFrameButton.vue';
 import StudentAnswer from '../components/StudentAnswer.vue';
+import CollapsibleExample from '../components/CollapsibleExample.vue';
 
 import steuerung_img from '@/assets/einfuehrung_assets/steuerung_img.png'
+
+import steuerung_while from '@/assets/einfuehrung_assets/steuerung_beispiel_while.png'
+import steuerung_nowhile from '@/assets/einfuehrung_assets/steuerung_beispiel_ohneWhile.png'
+
 
 import skript_img from '@/assets/einfuehrung_assets/skript_img.png';
 
@@ -128,8 +153,10 @@ import bewegung_img from '@/assets/einfuehrung_assets/bewegung_img.png'
 import buehne_img from '@/assets/einfuehrung_assets/buehne_img.png'
 
 import variablen_img from '@/assets/einfuehrung_assets/variablen_img.png'
+import variable_img from '@/assets/einfuehrung_assets/variable_img.png'
 
 import scratch_gesamt from '@/assets/einfuehrung_assets/scratch_gesamt.png'
+import ScratchDemo from '../components/ScratchDemo.vue';
 
 </script>
 
@@ -151,9 +178,21 @@ import scratch_gesamt from '@/assets/einfuehrung_assets/scratch_gesamt.png'
     display: flex;
     flex-flow: row;
     justify-content: space-around;
+    align-items: center;
 }
 
 .img {
     padding-top: 1rem;
+}
+
+.example-container {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.left-align {
+    align-self: start;
 }
 </style>
