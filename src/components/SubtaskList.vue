@@ -1,5 +1,5 @@
 <template>
-    <ol type="a" :start="start">
+    <ol :type="type" :start="start" :class="{ 'no-start': nostart }">
         <li v-for="(t, i) in items" :key="i">{{ t }}</li>
     </ol>
 </template>
@@ -7,25 +7,15 @@
 <script setup>
 const props = defineProps({
     items: Array,
-    start: Number,
+    start: { type: Number, default: 1 },
+    type: { type: String, default: 'a' },
+    nostart: { type: Boolean, default: false },
 })
 </script>
 
 <style scoped>
-ul {
-    margin: 0;
-    min-width: 60%;
+.no-start {
     list-style: none;
-    padding-left: 0.2rem;
-    align-items: center;
-    padding: 0px 16px 14px;
-
-}
-
-li {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: #3b2d0a;
-    margin-top: 9px;
+    padding-left: 0;
 }
 </style>
