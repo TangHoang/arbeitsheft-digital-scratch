@@ -4,6 +4,7 @@
             <h1 v-if="variant === 'orange' && title" class="card-title">{{ title }}</h1>
             <h2 v-else-if="title" class="card-title">{{ title }}</h2>
             <StandaloneIntroBtn v-if="showIntro" class="show-intro-link" />
+            <div class="time-info" v-if="showTime">🕑 {{ showTime }}</div>
         </div>
 
         <div class="card-content">
@@ -21,7 +22,8 @@ const props = defineProps({
         default: 'white',
         validator: v => ['orange', 'white', 'purple'].includes(v)
     },
-    showIntro: { type: Boolean, default: false }
+    showIntro: { type: Boolean, default: false },
+    showTime: { type: String, default: null }
 })
 </script>
 
@@ -64,6 +66,10 @@ h1.card-title {
 
 h2.card-title {
     font-size: 1.4rem;
+}
+
+.time-info {
+    font-weight: 600;
 }
 
 .white {

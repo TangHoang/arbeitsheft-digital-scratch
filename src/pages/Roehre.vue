@@ -1,7 +1,7 @@
 <template>
     <div class="roehre">
 
-        <InfoCard variant="orange" :title="'Kapitel 2: Röhre'">
+        <InfoCard variant="orange" :title="'Kapitel 2: Röhre'" :showTime="'🕑 30-35 Minuten'">
             <p>In diesem Kapitel programmieren wir die bewegenden Röhren!</p>
         </InfoCard>
 

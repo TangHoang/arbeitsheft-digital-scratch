@@ -1,14 +1,14 @@
 <template>
     <div class="springen">
 
-        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'">
+        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'" :showTime="'30-35 Minuten'">
             <p>Jetzt wollen wir die vorherigen zwei Kapitel sinnvoll kombinieren. Wenn dein Vogel ein Rohr berüht, soll
                 das Spiel beendet werden!</p>
         </InfoCard>
 
         <PredictAndRun>
             <h3> Aufgabe 1</h3>
-            <SubtaskList :items="content.pr.aufgabe_a" />
+            <SubtaskList :items="content.pr.aufgabe_a" :nostart="true" />
             <div class="horizontal-container">
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213184253/embed'" />
                 <div class="vertical-container">
@@ -24,6 +24,7 @@
 
         <Make>
             <h3>Aufgabe 2</h3>
+            <SubtaskList :items="content.pr.aufgabe_2" :nostart="true" />
             <SubtaskList :items="content.pr.aufgabe_b" />
 
             <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
@@ -99,6 +100,7 @@ const content = {
         title: "Aufgabe 1",
         aufgabe_a: ["Starte das Projekt und probiere es aus.",
         ],
+        aufgabe_2: ['Implementiere folgende Aspekte: '],
         aufgabe_b: ['Wenn die Figur Röhre1 oder Röhre2 berührt, soll alles gestoppt werden.',
             'Wenn die Figur den Boden oder die Decke berührt, soll alles gestoppt werden.',
             'Zusatz: Implementiere Soundeffekte für Kollisionen.'],

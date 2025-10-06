@@ -1,7 +1,7 @@
 <template>
     <div class="springen">
 
-        <InfoCard variant="orange" :title="'Kapitel 1: Springen'">
+        <InfoCard variant="orange" :title="'Kapitel 1: Springen'" :showTime="'🕑 30-35 Minuten'">
             <p>Nach diesem Kapitel wird dein Vogel springen können!</p>
         </InfoCard>
 
@@ -141,8 +141,8 @@ const content = {
     investigate: {
         title: "Aufgabe 2",
         kommentar_aufgabe_a: "Die Figur springt nicht, wie in der Flappy-Bird Demo am Anfang des Arbeitsheftes. Es fehlt die 'Gravitation'!",
-        aufgabe_a: ["Vergleiche die Demo in Aufgabe 1 und Aufgabe 2, was fällt dir auf?"],
-        aufgabe_b: ["Woran könnte das liegen?",],
+        aufgabe_a: ["Vergleiche die Demo in Aufgabe 1 und Aufgabe 2. Was fällt dir auf?"],
+        aufgabe_b: ["Beschreibe, woran das liegen könnte.",],
         hints: [
             {
                 title: "Hinweis 1",

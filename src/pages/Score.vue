@@ -1,7 +1,7 @@
 <template>
     <div class="score">
 
-        <InfoCard variant="orange" :title="'Kapitel 4: Punktestand'">
+        <InfoCard variant="orange" :title="'Kapitel 4: Punktestand'" :showTime="'🕑 30-35 Minuten'">
             <p>Nachdem dein Vogel eine Röhre passiert, soll die Punktzahl erhöht werden. Dies werden wir nun
                 implementieren.</p>
         </InfoCard>
