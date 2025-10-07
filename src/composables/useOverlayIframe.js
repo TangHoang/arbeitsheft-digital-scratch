@@ -2,7 +2,7 @@ import { reactive, readonly } from 'vue'
 
 const state = reactive({
     open: false,
-    showIframe: false,
+    showIframe: null,
     hasOpened: true,
     type: 'editor',
     iframeSrc: 'https://scratch.fim.uni-passau.de/scratch/',
@@ -13,16 +13,19 @@ const state = reactive({
 })
 
 function openOverlay(opts = {}) {
-    // iframeSrc nur setzen, wenn noch leer, um Reload zu verhindern
     if (opts.iframeSrc && !state.iframeSrc) state.iframeSrc = opts.iframeSrc
     if (opts.projectUrl) state.projectUrl = opts.projectUrl
     if (opts.type) state.type = opts.type
+    if (opts.showIframe == false) {
+        state.showIframe = opts.showIframe
+    }
+    else {
+        state.showIframe = state.hasOpened
+    }
     state.images = opts.images ?? state.images
     state.exercises = opts.exercises ?? state.exercises
     state.hints = opts.hints ?? state.hints
-
     state.open = true
-    state.showIframe = state.hasOpened
 }
 
 function closeOverlay() { state.open = false }

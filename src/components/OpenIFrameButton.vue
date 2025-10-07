@@ -12,6 +12,7 @@ const props = defineProps({
     images: { type: Array, default: () => [] },
     exercises: { type: Array, default: () => [] },
     hints: { type: Array, default: () => [] },
+    showIframe: { type: Boolean, default: true }
 })
 
 const { openOverlay } = useOverlayIframe()
@@ -23,6 +24,7 @@ function open() {
         images: props.images,
         exercises: props.exercises,
         hints: props.hints,
+        showIframe: props.showIframe
     })
 }
 </script>
