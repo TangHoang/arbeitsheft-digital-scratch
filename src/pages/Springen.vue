@@ -42,7 +42,7 @@
                     <div class="vertical-container">
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor öffnen'"
-                            :exercises="content.modify.aufgabe_a" :hints="content.modify.hints" />
+                            :exercises="content.modify.aufgabe_a" :hints="content.modify.hints" :showIframe="false" />
                         <PopUp :projectUrl="SprungProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
                             :type="'test'" @test-status="onTestStatus" />
@@ -66,6 +66,9 @@
 
             </template>
         </Modify>
+
+        <StarRating :max="5" />
+
 
         <InfoCard variant="purple" :title="'Recap'">
             <ul class="info-list">
@@ -104,6 +107,8 @@ import { ref } from "vue"
 
 import InfoCard from "../components/InfoCard.vue"
 import OpenIFrameButton from "../components/OpenIFrameButton.vue"
+
+import StarRating from "../components/StarRating.vue"
 
 import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"
 import sprung_predict from '@/assets/sprung_assets/sprung_predict.png'

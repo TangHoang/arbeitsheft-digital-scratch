@@ -1,7 +1,7 @@
 <template>
     <div class="springen">
 
-        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'" :showTime="'30-35 Minuten'">
+        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'" :showTime="'🕑 30-35 Minuten'">
             <p>Jetzt wollen wir die vorherigen zwei Kapitel sinnvoll kombinieren. Wenn dein Vogel ein Rohr berüht, soll
                 das Spiel beendet werden!</p>
         </InfoCard>
@@ -32,6 +32,8 @@
             <PopUp :projectUrl="KollisionProjectTestUrl" :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'"
                 :buttonTitle="'Test'" :type="'test'" />
         </Make>
+
+        <StarRating :max="5" />
 
         <InfoCard variant="orange" :title="'Recap'">
             <ul class="info-list">
@@ -70,6 +72,7 @@
 
 <script setup>
 import InfoCard from "../components/InfoCard.vue"
+import StarRating from "../components/StarRating.vue"
 
 import kollision_img from "@/assets/kollision_assets/kollision.png"
 import kollision_assets from "@/assets/kollision_assets/kollision_sprite.png"

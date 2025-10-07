@@ -56,6 +56,9 @@
             </template>
         </Modify>
 
+        <StarRating :max="5" />
+
+
         <InfoCard variant="purple" :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
@@ -85,6 +88,7 @@
 <script setup>
 import { ref } from "vue"
 import InfoCard from "../components/InfoCard.vue"
+import StarRating from "../components/StarRating.vue"
 
 import rohr_img from "@/assets/roehre_assets/rohr_predict.png"
 import rohr_bühne from "@/assets/roehre_assets/rohr_bühne.png"

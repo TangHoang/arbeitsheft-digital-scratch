@@ -66,6 +66,9 @@
             </template>
         </Make>
 
+        <StarRating :max="5" />
+
+
         <InfoCard variant="orange" :title="'Recap'">
             <ul class="info-list">
                 <li class="info-row">
@@ -119,6 +122,7 @@ import PopUp from "../components/PopUp.vue"
 import ScratchGif from "../components/ScratchGif.vue"
 import HintWithSolution from "../components/HintWithSolution.vue"
 import OpenIFrameButton from "../components/OpenIFrameButton.vue"
+import StarRating from "../components/StarRating.vue"
 
 const ScoreProjectUrl = new URL("@/assets/score_assets/Aufgabe_Counter_PRIMM.sb3", import.meta.url).href;
 const ScoreProjectTestUrl = new URL("@/assets/whisker_tests/highscore.js", import.meta.url).href;

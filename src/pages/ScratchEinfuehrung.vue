@@ -117,6 +117,8 @@
             </div>
         </InfoCard>
 
+        <StarRating :max="5" />
+
         <InfoCard variant="orange" :title="'Geschafft!'">
             <p>Du hast gerade deine ersten Erfahrungen mit Scratch gemacht. Jetzt beginnst du, wie versprochen, dein
                 Flappy-Bird-Spiel zu programmieren. </p>
@@ -133,6 +135,7 @@ import ScratchImage from '../components/ScratchImage.vue';
 import OpenIFrameButton from '../components/OpenIFrameButton.vue';
 import StudentAnswer from '../components/StudentAnswer.vue';
 import CollapsibleExample from '../components/CollapsibleExample.vue';
+import StarRating from '../components/StarRating.vue';
 
 import steuerung_img from '@/assets/einfuehrung_assets/steuerung_img.png'
 
