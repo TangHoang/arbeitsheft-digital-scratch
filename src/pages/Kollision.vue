@@ -28,7 +28,7 @@
             <SubtaskList :items="content.pr.aufgabe_b" />
 
             <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
-                :exercises="content.pr.aufgabe_b" :hints="content.modify.hints" />
+                :exercises="content.pr.aufgabe_b" :exerciseId="'kollision/aufgabe2'" :hints="content.modify.hints" />
             <PopUp :projectUrl="KollisionProjectTestUrl" :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'"
                 :buttonTitle="'Test'" :type="'test'" />
         </Make>

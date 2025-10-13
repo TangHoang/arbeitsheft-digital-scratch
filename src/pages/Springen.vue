@@ -42,7 +42,8 @@
                     <div class="vertical-container">
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor öffnen'"
-                            :exercises="content.modify.aufgabe_a" :hints="content.modify.hints" :showIframe="false" />
+                            :exercises="content.modify.aufgabe_a" :exerciseId="'springen/aufgabe3'"
+                            :hints="content.modify.hints" :showIframe="false" />
                         <PopUp :projectUrl="SprungProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
                             :type="'test'" @test-status="onTestStatus" />
@@ -112,6 +113,7 @@ import StarRating from "../components/StarRating.vue"
 
 import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"
 import sprung_predict from '@/assets/sprung_assets/sprung_predict.png'
+import sprungHint from '@/assets/sprung_assets/sprung_hint.png'
 
 import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
 import Investigate from "../components/Primm_components/Investigate.vue"
@@ -137,10 +139,10 @@ const content = {
     pr: {
         sectionTitle: "",
         title: "Aufgabe 1",
-        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf.", "Bei welcher Taste wird das Programm reagieren?", "Wie verhält sich die Katze, wenn du nichts machst?"],
+        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf.",],
         aufgabe_b: ["Führe nun das untenstehende Programm aus, indem du die grüne Flagge anklickst und überprüfe deine Vermutungen.",],
         demo_link: "https://scratch.mit.edu/projects/1213169461/embed",
-        hints: [{ content: 'Untersuche den FALLS ... DANN ... Block genauer!' }, { content: 'Achte auf alle blauen Blöcke!' }],
+        hints: [{ content: ' Bei welcher Taste wird das Programm reagieren? Untersuche den FALLS ... DANN ... Block genauer!' }, { content: 'Achte auf alle blauen Blöcke!' }],
         solution: 'Der Vogel springt beim Drücken der Leertaste nach oben. Wenn nichts gedrückt wird, fällt er langsam herunter.',
     },
     investigate: {
@@ -150,12 +152,13 @@ const content = {
         aufgabe_b: ["Beschreibe, woran das liegen könnte.",],
         hints: [
             {
+                id: 'hint-1',
                 title: "Hinweis 1",
                 content: "Schau dir dein Vogel-Skript genau an: Wird dort <code>y</code> in jedem Schritt geändert?"
             },
             {
                 title: "Hinweis 2",
-                content: "Gravitation sorgt für eine <strong>Fallbeschleunigung</strong>. Wie müsste man also <code>y</code> in jedem Schritt ändern?"
+                content: "Gravitation sorgt für eine <strong>Fallbeschleunigung</strong>. Die Fallgeschwindigkeit muss sich also stetig erhöhen. Wie müsste man also <code>y</code> in jedem Schritt ändern?"
             }
         ],
         solution: `
@@ -167,20 +170,24 @@ const content = {
     modify: {
         title: "Aufgabe 3",
         aufgabe_a: ['Erstelle eine Variable „Vertikale Änderung“.',
-            'Bei Leertaste soll die Variable auf 15 gesetzt werden, andernfalls um -2 verändert werden.',
-            'Ändere nach dem falls-dann-Block die Höhe der Katze um die Variable "Vertikale Änderung".',
-            "Immer wenn die Figur springt, soll das Kostüm geändert werden.",
+            'Implementiere: Bei Leertaste soll die Variable auf 15 gesetzt werden, ansonsten um -2 verändert werden.',
+            'Ändere nach dem falls-dann-Block (am Ende der Schleife) die Höhe der Katze um die Variable "Vertikale Änderung".',
+            "Implementiere: Immer wenn die Figur springt, soll das Kostüm geändert werden.",
             "Zusatz: Füge Soundeffekte hinzu."
         ],
         hints: [
             {
-                content: "b) Verwende die Blöcke setze Variable und ändere Variable im Abschnitt Variablen."
+                content: "b) Verwende die Blöcke <code>setze Variable </code> und <code> ändere Variable </code> im Abschnitt Variablen."
             },
             {
-                content: "c) Verwende den Block ändere y um im Abschnitt Bewegung."
+                content: "c) Verwende den Block <code> ändere y um ... </code> im Abschnitt Bewegung."
             },
             {
-                content: "d) Verwende den Block wechsle Kostüm im Abschnitt Aussehen."
+                content: "d) Verwende den Block <code> wechsle Kostüm ... </code> im Abschnitt Aussehen."
+            },
+            {
+                content: "Letzter Hinweis: Platziere den Block <code> ändere y um 'Vertikale Änderung' </code> an die richtige Stelle.</code>",
+                img: { src: sprungHint }
             }
         ]
     },

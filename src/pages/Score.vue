@@ -40,7 +40,7 @@
                     <div>
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
-                            :exercises="content.modify.aufgabe_a" />
+                            :exercises="content.modify.aufgabe_a" :exerciseId="'score/aufgabe3'" />
 
                     </div>
                     <ScratchImage :imageUrls="[score_img]" :height="'200px'" />

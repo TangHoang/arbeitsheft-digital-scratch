@@ -39,13 +39,11 @@
                         <p class="comment">{{ content.modify.kommentar_a }}</p>
                         <SubtaskList :items="content.modify.aufgabe_a" :start="2" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
-                            :exercises="content.modify.aufgabe_a" :hints="content.modify.hints" />
+                            :exercises="content.modify.aufgabe_a" :exerciseId="'roehre/aufgabe3'"
+                            :hints="content.modify.hints" />
                         <PopUp :projectUrl="RohrProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :type="'test'"
                             :buttonTitle="'Testen'" />
-                        <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Speichere dein Projekt auf deinem PC mit dem
-                            Namen 'FlappyBird_v2.sb3'.
-                        </p>
                     </div>
                     <div class="vertical-container">
                         <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
