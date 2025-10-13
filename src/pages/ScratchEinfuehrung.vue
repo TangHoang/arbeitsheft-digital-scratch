@@ -77,7 +77,7 @@
                     <StudentAnswer class="left-align" />
                 </CollapsibleExample>
                 <p> <strong>Aufgabe: </strong> Experimentiere im Editor mit verschiedenen Blöcken aus der Rubrik
-                    <b>Steuerung</b>.
+                    <b>Steuerung</b>, indem du das Beispiel erweiterst.
                 </p>
 
                 <OpenIFrameButton :images="[steuerung_img]" />
@@ -86,8 +86,11 @@
 
         <InfoCard variant="purple" :title="'7. Koordinatensystem in Scratch'">
             <div class="vertical-container">
-                <p>Scratch verwendet ein Koordinatensystem wie aus dem Mathematikunterricht.</p>
-
+                <p>Scratch verwendet ein Koordinatensystem wie aus dem Mathematikunterricht. </p>
+                <p>Möglicherweise siehst du hier zum ersten Mal die Verwendung von Koordinatensystemen außerhalb der
+                    Mathematik.</p>
+                <p>Tatsächlich werden sie in unzähligen Computerspielen, wie Fortnite, Clash Royale oder Brawl Stars
+                    verwendet, um die Spielfiguren und Objekte zu steuern!</p>
                 <ScratchImage :imageUrls="[koordinatensystem_img]" :height="'300px'" class="img" />
                 <p> <strong>Aufgabe: </strong> Gebe die Koordinaten der farbigen Punkte an und schätze die Koordinaten
                     der Fledermaus.
@@ -110,9 +113,10 @@
                     </div>
 
                 </CollapsibleExample>
-                <p><strong>Aufgabe: </strong> Experimentiere mit Variablen, indem du diese mit den vorher
-                    verwendeten
-                    Blöcken kombinierst!</p>
+                <p><strong>Aufgabe: </strong> Erweitere das Programm, indem du direkt nach
+                    <code>Wenn grüne Flagge angeklickt wird</code> die Variable <code>Vergangene Sekunden</code> auf 0
+                    setzt.
+                </p>
                 <OpenIFrameButton :images="[variablen_img]" />
             </div>
         </InfoCard>
