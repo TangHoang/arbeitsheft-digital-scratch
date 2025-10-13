@@ -2,9 +2,8 @@
     <div class="hints-with-solution" :class="layout">
         <div class="hint-row" role="tablist">
             <template v-if="props.hints && props.hints.length">
-                <button v-for="(h, i) in hints" :key="`hint-${i}`" class="hint-chip boxy"
-                    :class="{ active: activeKey === i, read: read.has(i) }" role="tab" :aria-selected="activeKey === i"
-                    @click="toggle(i)">
+                <button v-for="(h, i) in hints" :key="getHintId(i)" class="hint-chip boxy"
+                    :class="{ active: activeKey === i, read: read.has(i) }" role="tab" @click="toggle(i)">
                     <span class="label">{{ h.title || `Hinweis ${i + 1}` }}</span>
                     <span class="arrow" :class="{ open: activeKey === i }">▼</span>
                 </button>
@@ -23,19 +22,20 @@
             <div v-if="activeKey !== null" class="hint-panel boxy" role="tabpanel">
                 <div class="space-y-3">
                     <template v-if="typeof activeKey === 'number'">
-                        <div v-if="currentHint?.img" class="max-w-full">
-                            <Image :src="currentHint.img.src"
-                                :alt="currentHint.img.alt || `Bild ${Number(activeKey) + 1}`"
-                                :preview="currentHint.img.preview !== false" />
-                            <small v-if="currentHint.img.caption" class="block text-sm opacity-70">{{
-                                currentHint.img.caption }}</small>
-                        </div>
-
                         <div class="hint-content">
                             <slot :name="`hint-${activeKey}`">
                                 <p v-html="currentHint?.content"></p>
                             </slot>
                         </div>
+                        <div v-if="currentHint?.img">
+                            <Image :src="currentHint.img.src" :height="'250px'"
+                                :alt="currentHint.img.alt || `Bild ${Number(activeKey) + 1}`"
+                                :preview="currentHint.img.preview !== false" />
+                            <small v-if="currentHint.img.caption" class="text-sm opacity-70">{{
+                                currentHint.img.caption }}</small>
+                        </div>
+
+
                     </template>
 
                     <template v-else-if="hasSolution">
@@ -63,6 +63,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, useSlots } from 'vue'
+import { useRoute } from 'vue-router'
 import Image from 'primevue/image'
 
 export interface HintImage {
@@ -71,8 +72,8 @@ export interface HintImage {
     caption?: string
     preview?: boolean
 }
-
 export interface HintItem {
+    id?: string
     title?: string
     content?: string
     img?: HintImage
@@ -80,6 +81,8 @@ export interface HintItem {
 
 const props = defineProps<{
     hints?: HintItem[]
+    chapter?: string
+    exerciseId?: string
     solution?: string
     solutionImg?: HintImage | null
     autoOpenFirst?: boolean
@@ -92,36 +95,71 @@ const emit = defineEmits<{
     (e: 'revealed'): void
 }>()
 
+const route = useRoute()
+const LS_KEY = 'hintUsageV1'
 const slots = useSlots()
+
+function loadHintUsage(): Record<string, true> {
+    try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}') } catch { return {} }
+}
+function saveHintUsage(data: Record<string, true>) {
+    localStorage.setItem(LS_KEY, JSON.stringify(data))
+}
+
+function getHintId(i: number) {
+    const customId = props.hints?.[i]?.id || `hint-${i + 1}`
+    return `${props.exerciseId}/${customId}`
+}
+
 const hasSolution = computed(() => Boolean(props.solution || props.solutionImg || !!slots.solution))
-const requireHints = computed(() => props.hints && props.hints.length > 0)
+const requireHints = computed(() => !!props.hints?.length)
 const layout = computed(() => props.layout ?? 'horizontal')
 
-const activeKey = ref<number | 'solution' | null>(props.autoOpenFirst && props.hints && props.hints.length ? 0 : null)
-const read = ref<Set<number>>(new Set(props.autoOpenFirst && props.hints && props.hints.length ? [0] : []))
+const activeKey = ref<number | 'solution' | null>(
+    props.autoOpenFirst && props.hints?.length ? 0 : null
+)
+const read = ref<Set<number>>(new Set(
+    props.autoOpenFirst && props.hints?.length ? [0] : []
+))
 const solutionRevealedOnce = ref(false)
 
 watch(
     () => props.hints,
     () => {
-        activeKey.value = props.autoOpenFirst && props.hints && props.hints.length ? 0 : null
-        read.value = new Set(props.autoOpenFirst && props.hints && props.hints.length ? [0] : [])
+        const usage = loadHintUsage()
+        const newRead = new Set<number>()
+        for (let i = 0; i < (props.hints?.length ?? 0); i++) {
+            if (usage[getHintId(i)]) newRead.add(i)
+        }
+        if (!newRead.size && props.autoOpenFirst && props.hints?.length) {
+            newRead.add(0)
+            activeKey.value = 0
+        } else if (!props.hints?.length) {
+            activeKey.value = null
+        }
+        read.value = newRead
         solutionRevealedOnce.value = false
     },
-    { deep: true }
+    { immediate: true, deep: true }
 )
 
 const currentHint = computed(() =>
-    typeof activeKey.value === 'number' && props.hints ? props.hints[activeKey.value] : null
+    typeof activeKey.value === 'number' && props.hints
+        ? props.hints[activeKey.value]
+        : null
 )
-
 const readCount = computed(() => read.value.size)
-const allRead = computed(() => props.hints && read.value.size >= props.hints.length && props.hints.length > 0)
+const allRead = computed(() => !!props.hints && read.value.size >= props.hints.length && props.hints.length > 0)
 watch(allRead, (v) => v && emit('all-read'))
 
 function toggle(i: number) {
     activeKey.value = activeKey.value === i ? null : i
-    if (activeKey.value === i) read.value.add(i)
+    if (activeKey.value === i) {
+        read.value.add(i)
+        const usage = loadHintUsage()
+        usage[getHintId(i)] = true
+        saveHintUsage(usage)
+    }
 }
 
 function onSolutionChip() {
@@ -131,9 +169,7 @@ function onSolutionChip() {
         activeKey.value = 'solution'
         return
     }
-    const confirmed = window.confirm(
-        props.confirmMessage ?? 'Willst du die Lösung wirklich sehen?'
-    )
+    const confirmed = window.confirm(props.confirmMessage ?? 'Willst du die Lösung wirklich sehen?')
     if (confirmed) {
         activeKey.value = 'solution'
         solutionRevealedOnce.value = true
@@ -141,6 +177,7 @@ function onSolutionChip() {
     }
 }
 </script>
+
 
 <style scoped>
 .boxy {
@@ -211,6 +248,10 @@ function onSolutionChip() {
     padding: 0.9rem 1rem;
     margin-top: 0.5rem;
     background: #fff;
+}
+
+.hint-image {
+    width: 100px;
 }
 
 .space-y-3>*+* {
