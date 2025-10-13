@@ -28,14 +28,13 @@
                     <div class="pre-screen-card">
                         <h2>Test-Datei herunterladen</h2>
                         <p class="pre-hint">
-                            1. Lade zuerst die Test-Datei herunter. Danach wird der Test-Bildschirm hier eingeblendet.
-                        </p>
-                        <p class="pre-hint">
-                            2. Lade die Datei im Editor hoch (siehe Bild).
+                            <b>Schritt 1:</b> Nachdem du die Test-Datei heruntergeladen hast, lädst du zuerst dein
+                            Scratch Projekt hoch und dann die Test-Datei hoch.
                         </p>
                         <img :src="whisker_instruction_1" class="instruction-img" />
                         <p class="pre-hint">
-                            3. Wechsle dann in den Tab „Mein Projekt“ und starte den Test.
+                            <b>Schritt 2:</b> Wechsle den Tab zu "Mein Projekt" und starte die Tests, indem du das rot
+                            markierte Dreick verwendest.
                         </p>
                         <img :src="whisker_instruction_2" class="instruction-img" />
                         <ProjectLinkButton :url="projectUrl" class="pre-download-btn" @downloaded="onDownloaded"
@@ -357,7 +356,10 @@ watch(isOpen, (open) => {
 }
 
 .instruction-img {
-    width: 660px;
+    width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+    margin-bottom: 1.5rem;
+
 }
 
 .pre-screen-card h2 {
@@ -368,6 +370,10 @@ watch(isOpen, (open) => {
     margin: 0 0 1.25rem 0;
     color: #333;
     line-height: 1.5;
+    background-color: #f5f5f1;
+    padding: 10px 16px;
+    text-align: left;
+    border-radius: 16px;
 }
 
 .hint {
