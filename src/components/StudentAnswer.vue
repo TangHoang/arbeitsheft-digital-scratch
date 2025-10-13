@@ -4,7 +4,7 @@
             <textarea :answerId="answerId" v-model="model" placeholder="Trage hier deine Lösung ein."
                 :style="{ height, width }"></textarea>
         </div>
-        <HintWithSolution :hints="hints" :solution="solution" />
+        <HintWithSolution :exerciseId="answerId" :hints="hints" :solution="solution" />
         <div v-if="isVermuten" class="reveal-box">
             <button class="submit-btn" :disabled="!hasAnswer" @click="onRevealClick" aria-disabled="!hasAnswer"
                 :title="hasAnswer ? 'Überprüfen' : 'Zum Überprüfen erstmal eine Vermutung verfassen.'">

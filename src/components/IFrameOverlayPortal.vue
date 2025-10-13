@@ -41,7 +41,7 @@
                             <p class="hinweis">⚠️ <strong>Wichtig:</strong> Stelle die Sprache auf
                                 <strong>Deutsch</strong>, indem du oben links auf den Globus drückst!
                             </p>
-                            <HintWithSolution :hints="s.hints || []" />
+                            <HintWithSolution :hints="s.hints || []" :exerciseId="s.exerciseId" />
                             <div class="image-container" v-if="s.images?.length">
                                 <ScratchImage :imageUrls="s.images" :height="'120px'" />
                             </div>

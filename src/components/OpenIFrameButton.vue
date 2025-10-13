@@ -7,6 +7,7 @@ import { useOverlayIframe } from '@/composables/useOverlayIframe'
 
 const props = defineProps({
     buttonTitle: { type: String, default: 'Editor öffnen' },
+    exerciseId: { type: String, default: "coding" },
     projectUrl: { type: String, default: '' },
     type: { type: String, default: 'editor' },
     images: { type: Array, default: () => [] },
@@ -24,7 +25,8 @@ function open() {
         images: props.images,
         exercises: props.exercises,
         hints: props.hints,
-        showIframe: props.showIframe
+        showIframe: props.showIframe,
+        exerciseId: props.exerciseId
     })
 }
 </script>

@@ -10,6 +10,7 @@ const state = reactive({
     images: null,
     exercises: null,
     hints: null,
+    exerciseId: 'editor',
 })
 
 function openOverlay(opts = {}) {
@@ -26,6 +27,7 @@ function openOverlay(opts = {}) {
     state.exercises = opts.exercises ?? state.exercises
     state.hints = opts.hints ?? state.hints
     state.open = true
+    state.exerciseId = opts.exerciseId
 }
 
 function closeOverlay() { state.open = false }
