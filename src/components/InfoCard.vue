@@ -1,5 +1,5 @@
 <template>
-    <section class="info-card" :class="variant">
+    <section class="info-card" :class="variant" :tabindex="props.aufgabenID ? 0 : undefined" @focus="handleFocus">
         <div class="card-header">
             <h1 v-if="variant === 'orange' && title" class="card-title">{{ title }}</h1>
             <h2 v-else-if="title" class="card-title">{{ title }}</h2>
@@ -15,6 +15,8 @@
 
 <script setup>
 import StandaloneIntroBtn from './StandaloneIntroBtn.vue';
+import { useFocusLog } from '@/composables/useFocusLog'
+
 const props = defineProps({
     title: { type: String, default: '' },
     variant: {
@@ -23,8 +25,16 @@ const props = defineProps({
         validator: v => ['orange', 'white', 'purple'].includes(v)
     },
     showIntro: { type: Boolean, default: false },
-    showTime: { type: String, default: null }
+    showTime: { type: String, default: null },
+    aufgabenID: { type: String, default: null }
 })
+
+const { logFocus } = useFocusLog()
+
+function handleFocus() {
+    console.log("hi")
+    if (props.aufgabenID) logFocus(props.aufgabenID)
+}
 </script>
 
 <style scoped>
