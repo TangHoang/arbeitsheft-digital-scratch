@@ -16,16 +16,17 @@
             </div>
         </div>
 
-        <div v-if="showPreview" class="rating-preview">
-            <div v-for="(val, i) in local" :key="'pv-' + i">
-                Frage {{ i + 1 }}: {{ val }}/{{ max }}
-            </div>
+        <div class="input-box">
+            <textarea :answerId="answerId" v-model="studentAnswer" placeholder="Möchtest du noch etwas bemerken?"
+                :style="{ height, width }"></textarea>
         </div>
+
     </section>
 </template>
 
 <script setup>
 import { computed, ref, watch } from 'vue'
+import StudentAnswer from './StudentAnswer.vue'
 
 const props = defineProps({
     title: { type: String, default: 'Bewerte dieses Kapitel' },
@@ -40,22 +41,45 @@ const props = defineProps({
             'Ich habe die Aufgabenstellungen leicht verstanden.'
         ]
     },
-    showPreview: { type: Boolean, default: false }
 })
 
 const emit = defineEmits(['update:modelValue', 'rate'])
 
 const stars = computed(() => Array.from({ length: props.max }, (_, i) => i + 1))
-
-const local = ref(initLocal(props.modelValue, props.questions))
+const restored = loadRating(props.chapterId)
+const local = ref(
+    initLocal(restored.answers ?? props.modelValue, props.questions)
+)
 const hover = ref(props.questions.map(() => 0))
+const studentAnswer = ref(restored.text || '')
 
-watch(() => props.questions, q => {
-    local.value = initLocal(local.value, q)
-    hover.value = q.map(() => 0)
-})
-watch(() => props.modelValue, v => (local.value = initLocal(v, props.questions)))
+const STORAGE_KEY = 'ratings'
+
+function loadAllRatings() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {} }
+    catch { return {} }
+}
+
+function saveAllRatings(ratings) {
+    console.log("HII")
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ratings, null, 2))
+}
+
+function loadRating(chapterId) {
+    const all = loadAllRatings()
+    return all[chapterId] || { answers: null, text: '' }
+}
+
+function saveRating(chapterId, answers, text) {
+    const all = loadAllRatings()
+    all[chapterId] = { answers, text }
+    saveAllRatings(all)
+}
+
 watch(local, v => emit('update:modelValue', v), { deep: true })
+watch(studentAnswer, v => {
+    saveRating(props.chapterId, local.value, v)
+})
 
 function initLocal(base, questions) {
     const out = [...(base || [])]
@@ -75,6 +99,9 @@ function onRate(i, value) {
     const updated = [...local.value]
     updated[i] = value
     local.value = updated
+
+    saveRating(props.chapterId, local.value, studentAnswer.value)
+
     emit('rate', {
         chapterId: props.chapterId,
         index: i,
@@ -154,5 +181,22 @@ function onRate(i, value) {
     font-size: .9rem;
     color: #555;
     flex-wrap: wrap;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 </style>
