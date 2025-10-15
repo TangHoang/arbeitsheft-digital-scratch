@@ -1,13 +1,14 @@
 <template>
     <section class="rating-card">
-        <h3 class="rating-title">Bewerte dieses Kapitel</h3>
+        <h3 class="rating-title">{{ title }}</h3>
 
-        <div class="rating-row">
-            <div class="rating-label">{{ questionFun }}</div>
-            <div class="star-rating" @mouseleave="hover.fun = 0">
-                <button v-for="star in stars" :key="funStarIds[star - 1]" class="star"
-                    :class="{ active: star <= displayValue('fun') }" type="button" :data-star-id="funStarIds[star - 1]"
-                    :title="`${star} von ${max}`" @mouseenter="hover.fun = star" @click="onRate('fun', star)">
+        <div v-for="(question, i) in questions" :key="i" class="rating-row">
+            <div class="rating-label">{{ question }}</div>
+
+            <div class="star-rating" @mouseleave="hover[i] = 0">
+                <button v-for="star in stars" :key="starId(i, star)" class="star"
+                    :class="{ active: star <= displayValue(i) }" type="button" :title="`${star} von ${max}`"
+                    @mouseenter="hover[i] = star" @click="onRate(i, star)">
                     <svg viewBox="0 0 20 20">
                         <path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8 4.8 17.5l1-5.8-4.2-4.1 5.8-.8L10 1.5z" />
                     </svg>
@@ -15,17 +16,9 @@
             </div>
         </div>
 
-        <div class="rating-row">
-            <div class="rating-label">{{ questionUnderstand }}</div>
-            <div class="star-rating" @mouseleave="hover.understand = 0">
-                <button v-for="star in stars" :key="understandStarIds[star - 1]" class="star"
-                    :class="{ active: star <= displayValue('understand') }" type="button"
-                    :data-star-id="understandStarIds[star - 1]" :title="`${star} von ${max}`"
-                    @mouseenter="hover.understand = star" @click="onRate('understand', star)">
-                    <svg viewBox="0 0 20 20">
-                        <path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8 4.8 17.5l1-5.8-4.2-4.1 5.8-.8L10 1.5z" />
-                    </svg>
-                </button>
+        <div v-if="showPreview" class="rating-preview">
+            <div v-for="(val, i) in local" :key="'pv-' + i">
+                Frage {{ i + 1 }}: {{ val }}/{{ max }}
             </div>
         </div>
     </section>
@@ -35,43 +28,58 @@
 import { computed, ref, watch } from 'vue'
 
 const props = defineProps({
-    modelValue: { type: Object, default: () => ({ fun: 0, understand: 0 }) },
+    title: { type: String, default: 'Bewerte dieses Kapitel' },
+    modelValue: { type: Array, default: () => [] },
     chapterId: { type: String, required: true },
     max: { type: Number, default: 5 },
-    questionFun: { type: String, default: 'Haben dir die Aufgaben Spaß gemacht?' },
-    questionUnderstand: { type: String, default: 'Hast du die Aufgabenstellungen verstanden?' },
-    showPreview: { type: Boolean, default: false },
+    questions: {
+        type: Array,
+        default: () => [
+            'Ich fand die Aufgaben interessant und ansprechend.',
+            'Die Aufgaben waren genau richtig, weder zu leicht noch zu schwer.',
+            'Ich habe die Aufgabenstellungen leicht verstanden.'
+        ]
+    },
+    showPreview: { type: Boolean, default: false }
 })
 
 const emit = defineEmits(['update:modelValue', 'rate'])
 
-const local = ref({ ...props.modelValue })
-watch(() => props.modelValue, v => (local.value = { ...v }))
-watch(local, v => emit('update:modelValue', v), { deep: true })
-
-const hover = ref({ fun: 0, understand: 0 })
-
 const stars = computed(() => Array.from({ length: props.max }, (_, i) => i + 1))
 
-const funStarIds = computed(() =>
-    Array.from({ length: props.max }, (_, i) => `${props.chapterId}-fun-${i + 1}`)
-)
-const understandStarIds = computed(() =>
-    Array.from({ length: props.max }, (_, i) => `${props.chapterId}-understand-${i + 1}`)
-)
+const local = ref(initLocal(props.modelValue, props.questions))
+const hover = ref(props.questions.map(() => 0))
 
-function displayValue(key) {
-    return hover.value[key] ? hover.value[key] : local.value[key] || 0
+watch(() => props.questions, q => {
+    local.value = initLocal(local.value, q)
+    hover.value = q.map(() => 0)
+})
+watch(() => props.modelValue, v => (local.value = initLocal(v, props.questions)))
+watch(local, v => emit('update:modelValue', v), { deep: true })
+
+function initLocal(base, questions) {
+    const out = [...(base || [])]
+    for (let i = 0; i < questions.length; i++) if (out[i] == null) out[i] = 0
+    return out
 }
 
-function onRate(key, value) {
-    local.value = { ...local.value, [key]: value }
-    const starId = key === 'fun' ? funStarIds.value[value - 1] : understandStarIds.value[value - 1]
+function displayValue(i) {
+    return hover.value[i] || local.value[i] || 0
+}
+
+function starId(i, star) {
+    return `${props.chapterId}-q${i + 1}-${star}`
+}
+
+function onRate(i, value) {
+    const updated = [...local.value]
+    updated[i] = value
+    local.value = updated
     emit('rate', {
         chapterId: props.chapterId,
-        question: key,   // 'fun' | 'understand'
-        value,           // 1..max
-        starId,          // z.B. kapitel-04-fun-4
+        index: i,
+        value,
+        starId: starId(i, value)
     })
 }
 </script>
@@ -85,7 +93,7 @@ function onRate(key, value) {
     box-shadow: 0 2px 10px rgba(0, 0, 0, .03);
     display: grid;
     gap: 14px;
-    width: 50%;
+    width: 70%;
     margin-bottom: 2rem;
 }
 
@@ -100,11 +108,12 @@ function onRate(key, value) {
     grid-template-columns: 1fr auto;
     gap: 10px;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .rating-label {
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.8;
 }
 
 .star-rating {
@@ -121,7 +130,6 @@ function onRate(key, value) {
     background: none;
     cursor: pointer;
     color: #c7c7c7;
-    /* grau */
     transition: transform 120ms ease, color 120ms ease;
 }
 
@@ -145,5 +153,6 @@ function onRate(key, value) {
     gap: 16px;
     font-size: .9rem;
     color: #555;
+    flex-wrap: wrap;
 }
 </style>
