@@ -1,11 +1,12 @@
 <template>
     <div class="springen">
 
-        <InfoCard variant="orange" :title="'Kapitel 1: Springen'" :showTime="'🕑 30-35 Minuten'">
+        <InfoCard variant="orange" :title="'Kapitel 1: Springen'" :showTime="'🕑 30-35 Minuten'"
+            aufgabenID="springen/einleitung">
             <p>Nach diesem Kapitel wird dein Vogel springen können!</p>
         </InfoCard>
 
-        <PredictAndRun>
+        <PredictAndRun aufgabenID="springen/aufgabe1">
             <template #default>
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
@@ -17,7 +18,7 @@
             </template>
         </PredictAndRun>
 
-        <Investigate>
+        <Investigate aufgabenID="springen/aufgabe2">
             <template #default>
                 <h3> {{ content.investigate.title }}</h3>
                 <div class="horizontal-container">
@@ -35,7 +36,7 @@
             </template>
         </Investigate>
 
-        <Modify>
+        <Modify aufgabenID="springen/aufgabe3">
             <template #default>
                 <h3> {{ content.modify.title }}</h3>
                 <div class="horizontal-container">

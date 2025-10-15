@@ -1,12 +1,13 @@
 <template>
     <div class="score">
 
-        <InfoCard variant="orange" :title="'Kapitel 4: Punktestand'" :showTime="'🕑 30-35 Minuten'">
+        <InfoCard variant="orange" :title="'Kapitel 4: Punktestand'" :showTime="'🕑 30-35 Minuten'"
+            aufgabenID="score/einleitung">
             <p>Nachdem dein Vogel eine Röhre passiert, soll die Punktzahl erhöht werden. Dies werden wir nun
                 implementieren.</p>
         </InfoCard>
 
-        <PredictAndRun>
+        <PredictAndRun aufgabenID="score/aufgabe1">
             <template #default>
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
@@ -20,7 +21,7 @@
             </template>
         </PredictAndRun>
 
-        <Investigate>
+        <Investigate aufgabenID="score/aufgabe2">
             <template #default>
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
@@ -33,7 +34,7 @@
             </template>
         </Investigate>
 
-        <Modify>
+        <Modify aufgabenID="score/aufgabe3">
             <template #default>
                 <h3> {{ content.modify.title }}</h3>
                 <div class="horizontal-container">
@@ -49,7 +50,7 @@
             </template>
         </Modify>
 
-        <Make>
+        <Make aufgabenID="score/aufgabe4">
             <template #default>
                 <h3> {{ content.make.title }}</h3>
                 <div class="horizontal-container">

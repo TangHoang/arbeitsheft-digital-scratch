@@ -1,6 +1,6 @@
 <template>
     <div class="einleitung">
-        <InfoCard variant="orange" :title="'Willkommen!'">
+        <InfoCard variant="orange" :title="'Willkommen!'" :aufgabenID="'einleitung/willkommen'">
             <p>
                 In diesem Arbeitsheft programmierst du Schritt für Schritt ein eigenes
                 <strong>Flappy-Bird-Spiel</strong> in Scratch. Dabei lernst du Grundideen
@@ -9,7 +9,7 @@
                 arbeitest mit Variablen, Ereignissen, Schleifen, Bedingungen und testest dein Spiel automatisch.
             </p>
         </InfoCard>
-        <InfoCard variant="white" :title="'Demo: Flappy Bird'">
+        <InfoCard variant="white" :title="'Demo: Flappy Bird'" :aufgabenID="'einleitung/flappy-bird'">
             <div class="horizontal-container">
                 <div>
                     <iframe src="https://scratch.mit.edu/projects/17828009/embed" allowtransparency="true" width="485"
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </InfoCard>
-        <InfoCard variant="orange" :title="'Scratch'">
+        <InfoCard variant="orange" :title="'Scratch'" aufgabenID="einleitung/scratch">
             <p>
                 <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache für Anfänger. Du setzt
                 Bausteine
@@ -36,7 +36,7 @@
                 gesehen hast.
             </p>
         </InfoCard>
-        <InfoCard variant="purple" :title="'Worum geht es?'">
+        <InfoCard variant="purple" :title="'Worum geht es?'" aufgabenID="einleitung/inhalt">
             <p> Am Ende dieses Arbeitsheftes hast du ein spielbares <strong>Flappy-Bird</strong> Spiel mit der
                 Programmiersprache
                 <strong>Scratch </strong>programmiert!
@@ -76,7 +76,7 @@
                 </li>
             </ul>
         </InfoCard>
-        <InfoCard variant="white" :title="'Aufgabenstruktur'">
+        <InfoCard variant="white" :title="'Aufgabenstruktur'" aufgabenID="einleitung/aufgabenstruktur">
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
@@ -112,6 +112,14 @@
                 </li>
             </ul>
         </InfoCard>
+
+        <StarRating :title="'Selbsteinschätzung'" :max="5" :questions='[
+            " Ich bin neugierig, wie man mit dem Computer eigene Dinge gestalten oder steuern kann.",
+            "Ich glaube, dass ich lernen kann, wie Programmieren funktioniert, wenn ich es Schritt für Schritt erklärt bekomme.",
+            "Ich mache mir ein bisschen Sorgen, dass Programmieren zu schwierig für mich sein könnte.",
+            "Wenn mir etwas am Anfang nicht gelingt, probiere ich verschiedene Wege, bis es klappt.",
+        ]' />
+
         <InfoCard variant="orange" :title="'Es geht los!'">
             <p> </p>
         </InfoCard>
@@ -123,6 +131,7 @@
 </template>
 <script setup>
 import InfoCard from '../components/InfoCard.vue';
+import StarRating from '../components/StarRating.vue';
 
 </script>
 <style>

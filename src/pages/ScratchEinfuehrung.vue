@@ -1,6 +1,7 @@
 <template>
     <div class="einleitung">
-        <InfoCard variant="orange" :title="'Kapitel 0: Einführung in Scratch'" :showTime="'🕑 40-45 Minuten'">
+        <InfoCard variant="orange" :title="'Kapitel 0: Einführung in Scratch'" :showTime="'🕑 40-45 Minuten'"
+            aufgabeID="tutorial/interface">
             <p>
                 <strong>Scratch</strong> ist eine kostenlose visuelle Programmiersprache für Anfänger. Du setzt
                 Bausteine
@@ -10,7 +11,7 @@
             <ScratchImage :imageUrls="[scratch_gesamt]" :height="'300px'" class="img" :orientation="'horizontal'" />
         </InfoCard>
 
-        <InfoCard variant="white" :title="'1. Bühnenbilder'">
+        <InfoCard variant="white" :title="'1. Bühnenbilder'" aufgabeID="tutorial/buehnenbilder">
             <div class="vertical-container">
                 <p>Bühnenbilder sind wie Hintergrundbilder. So machst du dein Projekt schöner!</p>
                 <ScratchImage :imageUrls="[buehne_img]" :height="'300px'" class="img" />
@@ -22,7 +23,7 @@
 
         </InfoCard>
 
-        <InfoCard variant="white" :title="'2. Figuren'">
+        <InfoCard variant="white" :title="'2. Figuren'" aufgabeID="tutorial/figuren">
             <div class="vertical-container">
                 <p>Figuren führen die Befehlsblöcke aus, die im Programmierbereich stehen.</p>
                 <ScratchImage :imageUrls="[figur_img]" :height="'300px'" class="img" />
@@ -32,14 +33,14 @@
 
         </InfoCard>
 
-        <InfoCard variant="purple" :title="'3. Ereignisse'">
+        <InfoCard variant="purple" :title="'3. Ereignisse'" aufgabeID="tutorial/ereignisse">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Ereignisse</b>.</p>
                 <ScratchImage :imageUrls="[skript_img]" :height="'300px'" class="img" />
             </div>
         </InfoCard>
 
-        <InfoCard variant="purple" :title="'4. Bewegung'">
+        <InfoCard variant="purple" :title="'4. Bewegung'" aufgabeID="tutorial/bewegung">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Bewegung</b>.</p>
 
@@ -52,7 +53,7 @@
             </div>
         </InfoCard>
 
-        <InfoCard variant="purple" :title="'5. Aussehen'">
+        <InfoCard variant="purple" :title="'5. Aussehen'" aufgabeID="tutorial/aussehen">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Aussehen</b>.</p>
                 <ScratchImage :imageUrls="[aussehen_img]" :height="'300px'" class="img" />
@@ -63,7 +64,7 @@
             </div>
         </InfoCard>
 
-        <InfoCard variant="purple" :title="'6. Steuerung'">
+        <InfoCard variant="purple" :title="'6. Steuerung'" aufgabeID="tutorial/steuerung">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
                 <ScratchImage :imageUrls="[steuerung_img]" :height="'300px'" class="img" />
@@ -84,7 +85,7 @@
             </div>
         </InfoCard>
 
-        <InfoCard variant="purple" :title="'7. Koordinatensystem in Scratch'">
+        <InfoCard variant="purple" :title="'7. Koordinatensystem in Scratch'" aufgabeID="tutorial/koordinatensystem">
             <div class="vertical-container">
                 <p>Scratch verwendet ein Koordinatensystem wie aus dem Mathematikunterricht. </p>
                 <p>Möglicherweise siehst du hier zum ersten Mal die Verwendung von Koordinatensystemen außerhalb der
@@ -99,7 +100,7 @@
             <StudentAnswer answerId="einfuehrung/aufgabe_koordinatensystem" />
         </InfoCard>
 
-        <InfoCard variant="white" :title="'8. Variablen'">
+        <InfoCard variant="white" :title="'8. Variablen'" aufgabeID="tutorial/variablen">
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
 

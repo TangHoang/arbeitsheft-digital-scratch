@@ -1,11 +1,12 @@
 <template>
     <div class="roehre">
 
-        <InfoCard variant="orange" :title="'Kapitel 2: Röhre'" :showTime="'🕑 30-35 Minuten'">
+        <InfoCard variant="orange" :title="'Kapitel 2: Röhre'" :showTime="'🕑 30-35 Minuten'"
+            aufgabenID="rohr/einleitung">
             <p>In diesem Kapitel programmieren wir die bewegenden Röhren!</p>
         </InfoCard>
 
-        <PredictAndRun>
+        <PredictAndRun aufgabenID="rohr/aufgabe1">
             <template #default>
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
@@ -17,7 +18,7 @@
             </template>
         </PredictAndRun>
 
-        <Investigate>
+        <Investigate aufgabenID="rohr/aufgabe2">
             <template #default>
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
@@ -29,14 +30,14 @@
             </template>
         </Investigate>
 
-        <Modify>
+        <Modify aufgabenID="rohr/aufgabe3">
             <template #default>
                 <h3> {{ content.modify.title }}</h3>
                 <div class="horizontal-container">
                     <div class="vertical-container exercise-container">
-                        <p class="comment">{{ content.modify.kommentar_vorbereitung }}</p>
-                        <SubtaskList :items="content.modify.vorbereitung" />
                         <p class="comment">{{ content.modify.kommentar_a }}</p>
+
+                        <SubtaskList :items="content.modify.vorbereitung" />
                         <SubtaskList :items="content.modify.aufgabe_a" :start="2" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
                             :exercises="content.modify.aufgabe_a" :exerciseId="'roehre/aufgabe3'"
@@ -158,8 +159,7 @@ const content = {
     },
     modify: {
         title: "Aufgabe 3",
-        kommentar_vorbereitung: "Zuerst eine Vorbereitung:",
-        vorbereitung: ['Öffne deine Datei "FlappyBird_v1.sb3" im Editor und übertrage den Code rechts in Röhre1 und Röhre2.',
+        vorbereitung: ['Übertrage den Code rechts in Röhre1 und Röhre2.',
         ],
         kommentar_a: "In Flappy Bird verändern sich die Höhen der Röhre zufällig. Das wollen wir auch. Nun bist du an der Reihe diesen Code anzupassen. ",
         aufgabe_a: [

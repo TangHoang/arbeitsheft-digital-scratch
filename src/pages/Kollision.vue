@@ -1,12 +1,13 @@
 <template>
     <div class="springen">
 
-        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'" :showTime="'🕑 30-35 Minuten'">
+        <InfoCard variant="orange" :title="'Kapitel 3: Kollision'" :showTime="'🕑 30-35 Minuten'"
+            aufgabenID="kollision/einleitung">
             <p>Jetzt wollen wir die vorherigen zwei Kapitel sinnvoll kombinieren. Wenn dein Vogel ein Rohr berüht, soll
                 das Spiel beendet werden!</p>
         </InfoCard>
 
-        <PredictAndRun>
+        <PredictAndRun aufgabenID="kollision/aufgabe1">
             <h3> Aufgabe 1</h3>
             <SubtaskList :items="content.pr.aufgabe_a" :nostart="true" />
             <div class="horizontal-container">
@@ -22,7 +23,7 @@
 
         </PredictAndRun>
 
-        <Make>
+        <Make aufgabenID="kollision/aufgabe2">
             <h3>Aufgabe 2</h3>
             <SubtaskList :items="content.pr.aufgabe_2" :nostart="true" />
             <SubtaskList :items="content.pr.aufgabe_b" />

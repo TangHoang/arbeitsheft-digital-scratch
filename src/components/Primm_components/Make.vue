@@ -1,6 +1,6 @@
 <template>
     <div class="primm-label">Coden</div>
-    <InfoCard variant="white" :showIntro="true">
+    <InfoCard variant="white" :showIntro="true" :aufgabenID="aufgabenID">
         <div class="exercise-grid">
             <div class="exercise-content">
                 <slot />
@@ -12,6 +12,9 @@
 
 <script setup>
 import InfoCard from '../InfoCard.vue';
+const props = defineProps({
+    aufgabenID: { type: String, default: null }
+})
 </script>
 
 
