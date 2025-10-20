@@ -133,7 +133,7 @@ const content = {
     pr: {
         sectionTitle: "",
         title: "Aufgabe 1",
-        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf. Welchen Sinn hat der neue Sprite 'Crystal' ?."],
+        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf. Der Code rechts ist für eine Figur namens 'Crystal'."],
         aufgabe_b: ["Führe nun Programm unten aus, indem du die grüne Flagge anklickst. Überprüfe deine Vermutungen."],
         demo_link: "https://scratch.mit.edu/projects/1206376368/embed",
         hints: [
