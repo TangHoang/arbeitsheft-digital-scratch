@@ -34,7 +34,7 @@
                 :buttonTitle="'Test'" :type="'test'" />
         </Make>
 
-        <StarRating :max="5" />
+        <StarRating :max="5" chapterId="kollision" />
 
         <InfoCard variant="orange" :title="'Recap'">
             <ul class="info-list">

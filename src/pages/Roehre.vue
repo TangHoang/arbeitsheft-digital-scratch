@@ -55,7 +55,7 @@
             </template>
         </Modify>
 
-        <StarRating :max="5" />
+        <StarRating :max="5" chapterId="roehre" />
 
 
         <InfoCard variant="purple" :title="'Recap'">

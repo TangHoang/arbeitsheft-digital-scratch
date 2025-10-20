@@ -67,7 +67,7 @@
             </template>
         </Make>
 
-        <StarRating :max="5" />
+        <StarRating :max="5" chapterId="score" />
 
 
         <InfoCard variant="orange" :title="'Recap'">

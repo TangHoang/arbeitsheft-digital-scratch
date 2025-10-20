@@ -122,7 +122,7 @@
             </div>
         </InfoCard>
 
-        <StarRating :max="5" />
+        <StarRating :max="5" chapterId="einfuehrung" />
 
         <InfoCard variant="orange" :title="'Geschafft!'">
             <p>Du hast gerade deine ersten Erfahrungen mit Scratch gemacht. Jetzt beginnst du, wie versprochen, dein
