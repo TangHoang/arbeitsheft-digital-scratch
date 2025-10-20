@@ -6,8 +6,8 @@
             <div class="rating-label">{{ question }}</div>
 
             <div class="star-rating" @mouseleave="hover[i] = 0">
-                <button v-for="star in stars" :key="starId(i, star)" class="star"
-                    :class="{ active: star <= displayValue(i) }" type="button" :title="`${star} von ${max}`"
+                <button v-for="(j, star) in stars" :key="starId(i, star)" class="star"
+                    :class="{ active: star <= displayValue(i) }" type="button" :title="likertSkala[j - 1]"
                     @mouseenter="hover[i] = star" @click="onRate(i, star)">
                     <svg viewBox="0 0 20 20">
                         <path d="M10 1.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8L10 14.8 4.8 17.5l1-5.8-4.2-4.1 5.8-.8L10 1.5z" />
@@ -44,6 +44,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'rate'])
+
+const likertSkala = ["stimme gar nicht zu", "stimme nicht zu", "teils, teils", "stimme zu", "stimme voll und ganz zu"]
 
 const stars = computed(() => Array.from({ length: props.max }, (_, i) => i + 1))
 const restored = loadRating(props.chapterId)
