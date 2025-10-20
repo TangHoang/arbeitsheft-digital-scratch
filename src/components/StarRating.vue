@@ -26,7 +26,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import StudentAnswer from './StudentAnswer.vue'
+import { getStudentId } from '../lib/identity'
 
 const props = defineProps({
     title: { type: String, default: 'Bewerte dieses Kapitel' },
@@ -55,7 +55,8 @@ const local = ref(
 const hover = ref(props.questions.map(() => 0))
 const studentAnswer = ref(restored.text || '')
 
-const STORAGE_KEY = 'ratings'
+const studentId = getStudentId();
+const STORAGE_KEY = `app:ratings:${studentId}`
 
 function loadAllRatings() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {} }
@@ -69,6 +70,7 @@ function saveAllRatings(ratings) {
 
 function loadRating(chapterId) {
     const all = loadAllRatings()
+    console.log(all)
     return all[chapterId] || { answers: null, text: '' }
 }
 

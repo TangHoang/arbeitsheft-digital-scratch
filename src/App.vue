@@ -22,12 +22,14 @@ import NextChapterBtn from './components/NextChapterBtn.vue';
 import IframeOverlayPortal from '@/components/IframeOverlayPortal.vue'
 import { useFocusLog } from '@/composables/useFocusLog'
 import { onMounted } from 'vue';
+import { ensureStudentId } from './lib/identity';
 
 const { initStartTime } = useFocusLog()
 
 onMounted(() => {
-	initStartTime()
-})
+	initStartTime();
+	ensureStudentId();
+});
 
 </script>
 

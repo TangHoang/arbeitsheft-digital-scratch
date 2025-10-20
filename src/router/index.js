@@ -9,8 +9,10 @@ import Rueckblick from '../pages/Rueckblick.vue'
 
 import { nextTick } from 'vue'
 
+import { ensureStudentId } from "@/lib/identity.js";
+import { sendStudentDataOnNav } from "@/lib/sender.js";
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         { path: '/', redirect: '/chapter/einleitung' },
@@ -39,5 +41,12 @@ export default createRouter({
             })
         })
     }
-
 })
+ensureStudentId();
+router.afterEach(() => { void sendStudentDataOnNav(); });
+
+window.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") void sendStudentDataOnNav();
+});
+
+export default router

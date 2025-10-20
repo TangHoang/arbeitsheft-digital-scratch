@@ -1,6 +1,7 @@
 import { ref, watch, onMounted, computed } from 'vue'
-
-const KEY = 'ma:answers:v1'
+import { getStudentId } from '../lib/identity'
+const studentId = getStudentId()
+const KEY = `app:answers:${studentId}`
 const answers = ref({})
 let t
 

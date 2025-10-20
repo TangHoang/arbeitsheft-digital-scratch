@@ -63,6 +63,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, useSlots } from 'vue'
+import { getStudentId } from '../lib/identity'
 import { useRoute } from 'vue-router'
 import Image from 'primevue/image'
 
@@ -95,8 +96,8 @@ const emit = defineEmits<{
     (e: 'revealed'): void
 }>()
 
-const route = useRoute()
-const LS_KEY = 'hintUsageV1'
+const studentId = getStudentId();
+const LS_KEY = `app:hintUsage:${studentId}`
 const slots = useSlots()
 
 function loadHintUsage(): Record<string, true> {

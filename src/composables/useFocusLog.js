@@ -1,7 +1,9 @@
 import { ref } from 'vue'
 import { toRaw } from 'vue'
+import { getStudentId } from '../lib/identity'
 
-const STORAGE_KEY = 'focusLog'
+const studentId = getStudentId();
+const STORAGE_KEY = `app:focusLog:${studentId}`
 
 const focusData = ref(loadData())
 
@@ -53,7 +55,6 @@ export function useFocusLog() {
     }
 
     function logFocus(id) {
-        console.log("inside logFocus")
         const last = focusData.value.lastFocus[id]
         const lastMs = last ? parseTimeToMs(last) : 0
         const currentMs = Date.now() - focusData.value.startStamp
@@ -66,7 +67,6 @@ export function useFocusLog() {
         }
 
         const currentTime = timeSinceStart()
-        console.log("Dieser Log wird nie in der Konsole angezeigt. Hallo!")
         if (!focusData.value.logs[id]) focusData.value.logs[id] = []
         focusData.value.logs[id].push(currentTime)
         focusData.value.lastFocus[id] = currentTime
