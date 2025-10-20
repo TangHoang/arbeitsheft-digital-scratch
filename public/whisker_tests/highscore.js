@@ -3,14 +3,12 @@ const HighscoreTest = async function (t) {
     const VAR_HIGHSCORE = 'Highscore';
 
     t.greenFlag();
-    await t.runForSteps(10); // Initialisierung abwarten
+    await t.runForSteps(10);
 
-    // --- Stage & Variablen holen ---
     const stage = t.getStage();
     const getGlobals = () => (stage.getVariables && stage.getVariables()) || [];
     const getG = (name) => getGlobals().find(v => v.name === name);
 
-    // --- Diagnose ---
     const listForLog = getGlobals().map(v => ({ name: v.name, value: v.value }));
     t.log('Globale Variablen: ' + JSON.stringify(listForLog));
 
@@ -20,7 +18,6 @@ const HighscoreTest = async function (t) {
     t.assume.ok(punkteVar, `Globale Variable "${VAR_POINTS}" nicht gefunden.`);
     t.assume.ok(highscoreVar, `Globale Variable "${VAR_HIGHSCORE}" nicht gefunden.`);
 
-    // --- Initialisierung ---
     t.setGlobalVariable(VAR_POINTS, 0);
     t.setGlobalVariable(VAR_HIGHSCORE, 0);
     await t.runForSteps(2);

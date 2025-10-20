@@ -95,7 +95,7 @@ import PopUp from "../components/PopUp.vue"
 import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 
 const KollisionProjectUrl = new URL("@/assets/kollision_assets/Aufgabe_Kollision_PRIMM.sb3", import.meta.url).href;
-const KollisionProjectTestUrl = new URL("@/assets/whisker_tests/kollision.js", import.meta.url).href;
+const KollisionProjectTestUrl = new URL("/whisker_tests/kollision.js", import.meta.url).href;
 
 
 const content = {

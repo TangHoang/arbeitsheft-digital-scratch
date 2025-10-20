@@ -107,7 +107,7 @@ import PopUp from "../components/PopUp.vue"
 import HintWithSolution from "../components/HintWithSolution.vue"
 
 const RohrProjectUrl = new URL("@/assets/roehre_assets/Aufgabe_Röhre_PRIMM.sb3", import.meta.url).href;
-const RohrProjectTestUrl = new URL("@/assets/whisker_tests/röhre.js", import.meta.url).href;
+const RohrProjectTestUrl = new URL("/whisker_tests/röhre.js", import.meta.url).href;
 const showDemo = ref(false)
 
 const content = {

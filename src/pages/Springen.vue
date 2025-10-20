@@ -131,7 +131,7 @@ import HintWithSolution from "../components/HintWithSolution.vue"
 import aufgabe_sprung_json from '@/assets/sprung_assets/aufgabe_sprung.json'
 
 const SprungProjectUrl = new URL("@/assets/sprung_assets/Aufgabe_Sprung_PRIMM.sb3", import.meta.url).href;
-const SprungProjectTestUrl = new URL("@/assets/whisker_tests/sprung.js", import.meta.url).href;
+const SprungProjectTestUrl = new URL("/whisker_tests/sprung.js", import.meta.url).href;
 
 const testResult = ref(null);
 const showDemo = ref(false);

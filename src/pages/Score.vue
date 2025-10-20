@@ -126,7 +126,7 @@ import OpenIFrameButton from "../components/OpenIFrameButton.vue"
 import StarRating from "../components/StarRating.vue"
 
 const ScoreProjectUrl = new URL("@/assets/score_assets/Aufgabe_Counter_PRIMM.sb3", import.meta.url).href;
-const ScoreProjectTestUrl = new URL("@/assets/whisker_tests/highscore.js", import.meta.url).href;
+const ScoreProjectTestUrl = new URL("/whisker_tests/highscore.js", import.meta.url).href;
 
 
 const content = {
