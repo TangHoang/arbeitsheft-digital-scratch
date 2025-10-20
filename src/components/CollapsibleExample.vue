@@ -1,7 +1,7 @@
 <template>
     <div class="example">
         <div class="example-title" @click="open = !open">
-            Beispiel {{ open ? '▲' : '▼' }}
+            Beispiel öffnen {{ open ? '▲' : '▼' }}
         </div>
 
         <transition name="fade">
@@ -19,18 +19,26 @@ const open = ref(false)
 
 <style scoped>
 .example {
-    padding: 10px 0;
-    background: transparent;
-    margin-bottom: 1rem;
-    width: 100%;
+    width: auto;
+    color: white;
+    margin: 2rem 0;
 }
 
 .example-title {
-    font-weight: bold;
+    display: inline-block;
+    background: linear-gradient(135deg, #b638ca, #9b46e5);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 9999px;
     cursor: pointer;
-    user-select: none;
-    margin-bottom: 5px;
-    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    max-width: 180px;
+    margin-bottom: 0.5rem;
+
 }
 
 .example-body {
