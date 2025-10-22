@@ -44,7 +44,7 @@
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor öffnen'"
                             :exercises="content.modify.aufgabe_a" :exerciseId="'springen/aufgabe3'"
-                            :hints="content.modify.hints" :showIframe="false" />
+                            :hints="content.modify.hints" :_openIframeButtonUsedOnce="false" />
                         <PopUp :projectUrl="SprungProjectTestUrl"
                             :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
                             :type="'test'" @test-status="onTestStatus" />
