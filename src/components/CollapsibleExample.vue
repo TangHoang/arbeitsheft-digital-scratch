@@ -19,9 +19,13 @@ const open = ref(false)
 
 <style scoped>
 .example {
-    width: auto;
-    color: white;
+    min-width: 80%;
+    color: #111;
     margin: 2rem 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
 }
 
 .example-title {
@@ -45,6 +49,12 @@ const open = ref(false)
     display: flex;
     flex-flow: column;
     align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
 }
 
 .fade-enter-active,
