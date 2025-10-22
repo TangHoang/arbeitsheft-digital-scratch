@@ -11,7 +11,7 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[sprung_bühne, sprung_predict]" :height="'200px'" />
-                <StudentAnswer answerId="springen/aufgabe1" :height="'200px'" :hints="content.pr.hints"
+                <StudentAnswer answerId="springen/aufgabe1" :height="'250px'" width="90%" :hints="content.pr.hints"
                     :taskType="'vermuten'" @revealScratch="showDemo = true" />
                 <ScratchDemo v-if="showDemo" :scratchUrl="'https://scratch.mit.edu/projects/1216552925/embed'" />
                 <!-- <HintWithSolution :solution="content.pr.solution" class="solution" />-->
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" answerId="springen/aufgabe2" :task="content.pr.aufgabe_a"
+                    <StudentAnswer :height="'300px'" answerId="springen/aufgabe2" :task="content.pr.aufgabe_a"
                         :scratchJson="aufgabe_sprung_json" :hints="content.investigate.hints"
                         :solution="content.investigate.solution" />
                     <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213169461/embed'" />

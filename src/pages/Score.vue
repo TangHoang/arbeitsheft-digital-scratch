@@ -12,7 +12,7 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'180px'" answerId="score/aufgabe1" :hints="content.pr.hints" />
+                    <StudentAnswer :height="'200px'" width="50%" answerId="score/aufgabe1" :hints="content.pr.hints" />
                     <ScratchImage :imageUrls="[score_img, score_bühne]" :height="'200px'" />
                 </div>
                 <SubtaskList :items="content.pr.aufgabe_b" />

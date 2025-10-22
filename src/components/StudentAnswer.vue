@@ -1,8 +1,7 @@
 <template>
-    <div class="answer-wrapper">
+    <div class="answer-wrapper" :style="{ height, width }">
         <div class="input-box">
-            <textarea :answerId="answerId" v-model="model" placeholder="Trage hier deine Lösung ein."
-                :style="{ height, width }"></textarea>
+            <textarea :answerId="answerId" v-model="model" placeholder="Trage hier deine Lösung ein."></textarea>
         </div>
         <HintWithSolution :exerciseId="answerId" :hints="hints" :solution="solution" />
         <div v-if="isVermuten" class="reveal-box">
@@ -57,6 +56,8 @@ function onRevealClick() {
     display: flex;
     flex-direction: column;
     justify-content: left;
+    width: 100%;
+    height: 100%;
 }
 
 textarea {
@@ -68,6 +69,8 @@ textarea {
     margin-bottom: 1rem;
     border-radius: 18px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
 }
 
 
