@@ -84,7 +84,8 @@
                     <StudentAnswer width="100%" height="200px" />
                 </CollapsibleExample>
                 <p> <strong>Aufgabe: </strong> Experimentiere im Editor mit verschiedenen Blöcken aus der Rubrik
-                    <b>Steuerung</b>, indem du das Beispiel erweiterst.
+                    <b>Steuerung</b>. Tausche dazu die Steuerungs-Blöcke mit den anderen Alternativen aus und erweitere
+                    gegebenenfalls den Code
                 </p>
 
                 <OpenIFrameButton :images="[steuerung_img]" />
@@ -103,7 +104,8 @@
                     der Fledermaus.
                 </p>
             </div>
-            <StudentAnswer answerId="einfuehrung/aufgabe_koordinatensystem" />
+            <StudentAnswer answerId="einfuehrung/aufgabe_koordinatensystem"
+                :placeholder="'Beispiel: \n  Dunkelgrün = (-200, 100) \n  Grün = (-100, 100)'" />
         </InfoCard>
 
         <InfoCard variant="white" :title="'8. Variablen'" aufgabeID="tutorial/variablen">
@@ -123,6 +125,11 @@
                 <p><strong>Aufgabe: </strong> Erweitere das Programm, indem du direkt nach
                     <code>Wenn grüne Flagge angeklickt wird</code> die Variable <code>Vergangene Sekunden</code> auf 0
                     setzt.
+                </p>
+                <p><strong>Zusatz: </strong> Erweitere das Programm, indem eine neue Variable
+                    <code>Vergangene Minuten</code> hinzufügst.
+                    Alle 60 Sekunden, soll <code>Vergangene Sekunden</code> auf 0 gesetzt werden und
+                    <code>Vergangene Minuten</code> um 1 erhöht werden.
                 </p>
                 <OpenIFrameButton :images="[variablen_img]" />
             </div>
