@@ -10,7 +10,7 @@
                 </CProgress>
                 <small style="opacity:.7"> {{ progressValue }}%</small>
             </div>
-            <button v-if="nextChapter" class="btn btn-primary" @click="goNext" aria-label="Nächstes Kapitel">
+            <button v-if="nextChapter" class="btn btn-primary push-right" @click="goNext" aria-label="Nächstes Kapitel">
                 Kapitel: {{ nextChapter.title }} ▶
             </button>
 
@@ -182,6 +182,10 @@ const progressValue = computed(() => {
 
 .btn-finish:hover {
     background: #15803d;
+}
+
+.push-right {
+    margin-left: auto;
 }
 
 .fade-enter-active,

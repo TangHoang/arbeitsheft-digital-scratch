@@ -121,7 +121,7 @@
         ]' />
 
         <InfoCard variant="orange" :title="'Es geht los!'">
-            <p> </p>
+            <p> Drücke auf den Button rechts unten, um zum nächsten Kapitel zu gelangen.</p>
         </InfoCard>
 
 
