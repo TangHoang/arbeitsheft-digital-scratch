@@ -1,13 +1,13 @@
 <template>
     <div class="answer-wrapper" :style="{ height, width }">
         <div class="input-box">
-            <textarea :answerId="answerId" v-model="model" placeholder="Trage hier deine Lösung ein."></textarea>
+            <textarea :answerId="answerId" v-model="model" :placeholder="props.placeholder"></textarea>
         </div>
         <HintWithSolution :exerciseId="answerId" :hints="hints" :solution="solution" />
         <div v-if="isVermuten" class="reveal-box">
             <button class="submit-btn" :disabled="!hasAnswer" @click="onRevealClick" aria-disabled="!hasAnswer"
                 :title="hasAnswer ? 'Überprüfen' : 'Zum Überprüfen erstmal eine Vermutung verfassen.'">
-                {{ hasAnswer ? "Überprüfen" : "Zum Überprüfen erstmal eine Vermutung verfassen." }}
+                {{ hasAnswer ? "Überprüfe deine Vermutung" : "Zum Überprüfen erstmal eine Vermutung verfassen." }}
             </button>
         </div>
     </div>
@@ -27,7 +27,8 @@ const props = defineProps({
     width: { type: String, default: "100%" },
     hints: { type: Array },
     solution: { type: String },
-    taskType: { type: String, default: "default" }
+    taskType: { type: String, default: "default" },
+    placeholder: { type: String, default: "Trage hier deine Lösung ein." },
 })
 
 const { useAnswer } = useAnswers()
@@ -87,11 +88,12 @@ textarea {
     align-self: flex-start;
     background-color: #4f46e5;
     color: white;
+    font-weight: 600;
     padding: 0.5rem 1rem;
     border-radius: 12px;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .submit-btn:disabled {
