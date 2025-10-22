@@ -3,7 +3,8 @@
 
         <InfoCard variant="orange" :title="'Kapitel 1: Springen'" :showTime="'🕑 30-35 Minuten'"
             aufgabenID="springen/einleitung">
-            <p>Nach diesem Kapitel wird dein Vogel springen können!</p>
+            <p>Nach diesem Kapitel weißt du, wie du Figuren springen lassen kannst. Der erste Schritt, um FlappyBird zu
+                programmieren!</p>
         </InfoCard>
 
         <PredictAndRun aufgabenID="springen/aufgabe1">
@@ -155,7 +156,7 @@ const content = {
             {
                 id: 'hint-1',
                 title: "Hinweis 1",
-                content: "Schau dir dein Vogel-Skript genau an: Wird dort <code>y</code> in jedem Schritt geändert?"
+                content: "Betrachte den Code aus Aufgabe 1 nochmal genau: Wird dort <code>y</code> in jedem Schritt geändert?"
             },
             {
                 title: "Hinweis 2",
