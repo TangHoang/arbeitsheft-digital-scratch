@@ -11,7 +11,17 @@
             <ScratchImage :imageUrls="[scratch_gesamt]" :height="'300px'" class="img" :orientation="'horizontal'" />
         </InfoCard>
 
-        <InfoCard variant="white" :title="'1. Bühnenbilder'" aufgabeID="tutorial/buehnenbilder">
+        <InfoCard variant="white" :title="'1. Figuren'" aufgabeID="tutorial/figuren">
+            <div class="vertical-container">
+                <p>Figuren führen die Befehlsblöcke aus, die im Programmierbereich stehen.</p>
+                <ScratchImage :imageUrls="[figur_img]" :height="'300px'" class="img" />
+                <p> <strong> Aufgabe: </strong> Suche dir eine Figur aus.</p>
+                <OpenIFrameButton :images="[figur_img]" />
+            </div>
+
+        </InfoCard>
+
+        <InfoCard variant="white" :title="'2. Bühnenbilder'" aufgabeID="tutorial/buehnenbilder">
             <div class="vertical-container">
                 <p>Bühnenbilder sind wie Hintergrundbilder. So machst du dein Projekt schöner!</p>
                 <ScratchImage :imageUrls="[buehne_img]" :height="'300px'" class="img" />
@@ -19,16 +29,6 @@
                 <OpenIFrameButton :images="[buehne_img]"
                     :hints="[{ content: 'Lasse die Figur beim Drücken der Leertaste an eine zufällige Position bewegen.' }]" />
 
-            </div>
-
-        </InfoCard>
-
-        <InfoCard variant="white" :title="'2. Figuren'" aufgabeID="tutorial/figuren">
-            <div class="vertical-container">
-                <p>Figuren führen die Befehlsblöcke aus, die im Programmierbereich stehen.</p>
-                <ScratchImage :imageUrls="[figur_img]" :height="'300px'" class="img" />
-                <p> <strong> Aufgabe: </strong> Suche dir eine Figur aus.</p>
-                <OpenIFrameButton :images="[figur_img]" />
             </div>
 
         </InfoCard>
@@ -45,9 +45,15 @@
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Bewegung</b>.</p>
 
                 <ScratchImage :imageUrls="[bewegung_img]" :height="'300px'" class="img" />
-                <p> <strong>Aufgabe: </strong> Implementiere ein erstes Projekt, indem du das Kombinieren von Ereignis-
-                    und Bewegungsblöcken ausprobierst.
-                    Ziehe dazu die Blöcke in den Programmierbereich.
+                <CollapsibleExample>
+                    <p> Betrachte das folgende Beispiel.</p>
+                    <p> Übertrage es in deinen Editor und probiere es aus.</p>
+                    <ScratchImage :imageUrls="[bewegung_beispiel]" :height="'200px'" />
+                    <OpenIFrameButton :images="[bewegung_beispiel]" />
+                </CollapsibleExample>
+                <p> <strong>Aufgabe: </strong> Erweitere das Projekt aus dem Beispiel, indem du die restlichen
+                    Änderungen der Richtung implementierst.
+                    Ziehe dazu die geeigneten Blöcke in den Programmierbereich.
                 </p>
                 <OpenIFrameButton :images="[skript_img, bewegung_img]" />
             </div>
@@ -68,14 +74,14 @@
             <div class="vertical-container">
                 <p>Im Bild unten findest du einige der wichtigsten Befehlsblöcke aus der Rubrik <b>Steuerung</b>.</p>
                 <ScratchImage :imageUrls="[steuerung_img]" :height="'300px'" class="img" />
-                <CollapsibleExample class="left-align">
+                <CollapsibleExample class="">
                     <p>Betrachte die folgenden zwei Kombinationen aus Event-, Steuerung- und Bewegungsblöcken.</p>
                     <p>Übertrage beide Beispiele und probiere sie aus.</p>
                     <ScratchImage :imageUrls="[steuerung_nowhile, steuerung_while]" :height="'200px'" />
                     <OpenIFrameButton :images="[steuerung_nowhile, steuerung_while]" />
                     <p> <strong>Aufgabe: </strong> Beschreibe den Unterschied beider Implementierungen.
                     </p>
-                    <StudentAnswer class="left-align" />
+                    <StudentAnswer width="100%" height="200px" />
                 </CollapsibleExample>
                 <p> <strong>Aufgabe: </strong> Experimentiere im Editor mit verschiedenen Blöcken aus der Rubrik
                     <b>Steuerung</b>, indem du das Beispiel erweiterst.
@@ -157,6 +163,7 @@ import aussehen_img from '@/assets/einfuehrung_assets/aussehen_img.png'
 import koordinatensystem_img from '@/assets/einfuehrung_assets/koordinatensystem_img.png'
 
 import bewegung_img from '@/assets/einfuehrung_assets/bewegung_img.png'
+import bewegung_beispiel from '@/assets/einfuehrung_assets/bewegung_beispiel.png'
 
 import buehne_img from '@/assets/einfuehrung_assets/buehne_img.png'
 
