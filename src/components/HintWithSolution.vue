@@ -43,7 +43,7 @@
                             <Image :src="solutionImg.src" :alt="solutionImg.alt || 'Lösungsbild'"
                                 :preview="solutionImg.preview !== false" />
                             <small v-if="solutionImg.caption" class="block text-sm opacity-70">{{ solutionImg.caption
-                                }}</small>
+                            }}</small>
                         </div>
                         <div v-if="$slots.solution">
                             <slot name="solution" />
@@ -166,8 +166,9 @@ function toggle(i: number) {
 function onSolutionChip() {
     if (!hasSolution.value) return
     if (requireHints.value && !allRead.value) return
-    if (solutionRevealedOnce.value) {
-        activeKey.value = 'solution'
+
+    if (activeKey.value === 'solution') {
+        activeKey.value = null
         return
     }
     const confirmed = window.confirm(props.confirmMessage ?? 'Willst du die Lösung wirklich sehen?')
@@ -176,6 +177,8 @@ function onSolutionChip() {
         solutionRevealedOnce.value = true
         emit('revealed')
     }
+    activeKey.value = 'solution'
+
 }
 </script>
 
@@ -207,6 +210,7 @@ function onSolutionChip() {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-right: 10px;
 }
 
 .hint-chip:hover {
@@ -249,6 +253,8 @@ function onSolutionChip() {
     padding: 0.9rem 1rem;
     margin-top: 0.5rem;
     background: #fff;
+    z-index: 10000;
+
 }
 
 .hint-image {
