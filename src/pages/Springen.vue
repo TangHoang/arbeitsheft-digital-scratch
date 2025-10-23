@@ -12,7 +12,7 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[sprung_bühne, sprung_predict]" :height="'200px'" />
-                <StudentAnswer answerId="springen/aufgabe1" :height="'250px'" width="90%" :hints="content.pr.hints"
+                <StudentAnswer answerId="springen/aufgabe1" :height="'auto'" width="90%" :hints="content.pr.hints"
                     :taskType="'vermuten'" @revealScratch="showDemo = true" />
                 <ScratchDemo v-if="showDemo" :scratchUrl="'https://scratch.mit.edu/projects/1216552925/embed'" />
                 <!-- <HintWithSolution :solution="content.pr.solution" class="solution" />-->
@@ -46,18 +46,7 @@
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor öffnen'"
                             :exercises="content.modify.aufgabe_a" :exerciseId="'springen/aufgabe3'"
                             :hints="content.modify.hints" :requireDownload="true" />
-                        <PopUp :projectUrl="SprungProjectTestUrl"
-                            :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
-                            :type="'test'" @test-status="onTestStatus" />
 
-                        <p v-if="testResult?.allPassed">
-                            ✅ Alle Tests bestanden ({{ testResult.passedCount }} / {{ testResult.passedCount +
-                                testResult.failedCount }})
-                        </p>
-                        <p v-else-if="testResult?.allPassed == false">
-                            ❌ ({{ testResult.failedCount }}/ {{ testResult.passedCount +
-                                testResult.failedCount }}) Tests fehlgeschlagen
-                        </p>
                         <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Dein Projektzustand bleibt erhalten! Du kannst
                             einfach zum nächsten Kapitel gehen, ohne Angst zu haben, dass dein Fortschritt verschwindet
                             :-).
@@ -69,6 +58,87 @@
 
             </template>
         </Modify>
+
+        <InfoCard variant="orange" title="Automatisches Testen">
+            <div class="horizontal-container">
+                <div>
+                    <p class="p-padding">
+                        Damit du einen realistischen Einblick in die Welt der Programmierer bekommst, musst du noch
+                        deine
+                        implementierten Funktionalitäten <b>testen</b>.
+                    </p>
+                    <p class="p-padding">
+                        In echten Projekten wird kein Programm einfach „auf gut Glück“ ausgeführt. Programmierer
+                        schreiben <b>Tests</b>, um sicherzustellen, dass ihr Code genau das tut, was er soll.
+                    </p>
+                    <p class="p-padding">
+                        Du schlüpfst jetzt also in die Rolle eines <b>Code-Prüfers</b>: Das schreiben der Tests, wurde
+                        für dich schon erledigt. Du musst sie nur ausführen.
+                    </p>
+                    <p class="p-padding">
+                        Wir verwenden dafür ein Tool namens <b>Whisker</b>.
+                    </p>
+
+
+                </div>
+                <div>
+                    <ScratchImage :imageUrls="[test_beispiel]" height="300px" />
+                </div>
+            </div>
+            <hr>
+            <h4><b>Einführung in Whisker</b></h4>
+            <div class="whisker-tutorial-grid">
+                <div class="row-border">
+                    <h5> <u>Schritt 1:</u></h5>
+                    <p>Lade dein Projekt in Scratch auf deinen PC herunter.</p>
+                </div>
+                <div class="row-border">
+                    <ScratchImage :imageUrls="[download_project]" height="100px" />
+                </div>
+                <div class="row-border">
+                    <h5><u>Schritt 2:</u></h5>
+                    <p>Lade die Test-Datei auf deinen PC herunter.</p>
+                </div>
+                <div class="row-border">
+                    <ScratchImage :imageUrls="[download_test]" height="100px" />
+                </div>
+
+                <div class="row-border">
+                    <h5><u>Schritt 3:</u></h5>
+                    <p>Lade die Test-Datei und das Scratch Projekt in Whisker hoch.</p>
+                </div>
+                <div class="row-border">
+                    <ScratchImage :imageUrls="[whisker_instruction_1]" height="100px" class="row-border" />
+                </div>
+
+                <div class="row-border">
+                    <h5><u>Schritt 4:</u></h5>
+                    <p>Wechsle den Tab zu <b>Mein Projekt</b> und führe den Test durch.</p>
+                </div>
+                <div class="row-border">
+                    <ScratchImage :imageUrls="[whisker_instruction_2]" height="100px" class="row-border" />
+                </div>
+
+
+            </div>
+            <div class="margin-top-2 padding-left-2">
+                <p><b>Aufgabe:</b> Teste deine Implementierung von Aufgabe 3</p>
+                <PopUp :projectUrl="SprungProjectTestUrl"
+                    :iframeUrl="'https://tanghoang.github.io/whisker-edit/?lng=de'" :buttonTitle="'Testen'"
+                    :type="'test'" @test-status="onTestStatus" />
+
+                <p v-if="testResult?.allPassed">
+                    ✅ Alle Tests bestanden ({{ testResult.passedCount }} / {{ testResult.passedCount +
+                        testResult.failedCount }})
+                </p>
+                <p v-else-if="testResult?.allPassed == false">
+                    ❌ ({{ testResult.failedCount }}/ {{ testResult.passedCount +
+                        testResult.failedCount }}) Tests fehlgeschlagen
+                </p>
+            </div>
+
+        </InfoCard>
+
 
         <StarRating :max="5" chapterId="springen" />
 
@@ -117,6 +187,13 @@ import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"
 import sprung_predict from '@/assets/sprung_assets/sprung_predict.png'
 import sprungHint from '@/assets/sprung_assets/sprung_hint.png'
 
+import test_beispiel from '@/assets/sprung_assets/test_beispiel.png'
+import download_project from '@/assets/sprung_assets/download_project.png'
+import download_test from '@/assets/sprung_assets/download_test.png'
+import whisker_instruction_1 from '@/assets/whisker_instruction_1.png'
+import whisker_instruction_2 from '@/assets/whisker_instruction_2.png'
+
+
 import PredictAndRun from "../components/Primm_components/PredictAndRun.vue"
 import Investigate from "../components/Primm_components/Investigate.vue"
 import Modify from "../components/Primm_components/Modify.vue"
@@ -151,29 +228,30 @@ const content = {
         title: "Aufgabe 2",
         kommentar_aufgabe_a: "Die Figur springt nicht, wie in der Flappy-Bird Demo am Anfang des Arbeitsheftes. Es fehlt die 'Gravitation'!",
         aufgabe_a: ["Vergleiche die Demo in Aufgabe 1 und Aufgabe 2. Was fällt dir auf?"],
-        aufgabe_b: ["Beschreibe, woran das liegen könnte.",],
+        aufgabe_b: ["Beschreibe, warum der Code aus Aufgabe 1 nicht ausreicht, um das Verhalten in Demo 2 zu programmieren.",],
         hints: [
             {
                 id: 'hint-1',
                 title: "Hinweis 1",
-                content: "Betrachte den Code aus Aufgabe 1 nochmal genau: Wird dort <code>y</code> in jedem Schritt geändert?"
+                content: "Betrachte den <code> falls-dann-Block </code> aus Aufgabe 1 nochmal genau. Handelt es sich hier um die physikalische Geschwindigkeit oder Beschleunigung?"
             },
-            {
-                title: "Hinweis 2",
-                content: "Gravitation sorgt für eine <strong>Fallbeschleunigung</strong>. Die Fallgeschwindigkeit muss sich also stetig erhöhen. Wie müsste man also <code>y</code> in jedem Schritt ändern?"
-            }
         ],
-        solution: `
-    <p><b>Erklärung:</b> Unser Vogel fällt gleichmäßig, weil sein <code>y</code>-Wert in jedem Schritt um denselben Wert geändert wird (z. B. -5).</p>
-    <p>Damit bleibt die Geschwindigkeit konstant: Es gibt keine Beschleunigung.</p>
-    <p><b>Gravitation</b> würde bedeuten: Die Geschwindigkeit nimmt Schritt für Schritt zu, also der Vogel fällt immer schneller.</p>`
+        solution:
+            `
+            <p> 
+                <b> Demo 1: </b> Unsere Figur fällt gleichmäßig, weil sein <code>y-Wert </code> in jedem Schritt um denselben Wert geändert wird (z. B. -5). Damit bleibt die Geschwindigkeit konstant: Es gibt keine Beschleunigung.
+            </p>
+            <p>
+                <b> Demo 2: </b> Die Geschwindigkeit nimmt Schritt für Schritt zu, also der Vogel fällt immer schneller. Das ist näher daran, wie Gravitation funktioniert.
+            </p>
+        `
 
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ['Erstelle eine Variable „Vertikale Änderung“.',
-            'Implementiere: Bei Leertaste soll die Variable auf 15 gesetzt werden, ansonsten um -2 verändert werden.',
-            'Ändere nach dem falls-dann-Block (am Ende der Schleife) die Höhe der Katze um die Variable "Vertikale Änderung".',
+        aufgabe_a: ['Erstelle eine Variable <code>Vertikale Änderung</code>.',
+            'Implementiere: Bei Leertaste soll die <code>Vertikale Änderung</code> auf 15 <b>gesetzt</b> werden, ansonsten um -2 <b>verändert</b> werden.',
+            'Ändere nach dem <code>falls-dann-Block</code> (am Ende der Schleife) die Höhe der Katze um die Variable <code>Vertikale Änderung</code>.',
             "Implementiere: Immer wenn die Figur springt, soll das Kostüm geändert werden.",
             "Zusatz: Füge Soundeffekte hinzu."
         ],
@@ -212,6 +290,15 @@ function onTestStatus(result) {
     width: 90%;
 }
 
+.whisker-tutorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
 .horizontal-container {
     display: flex;
     flex-flow: row;
@@ -244,5 +331,30 @@ h3 {
 
 .solution {
     padding: 1rem 1rem;
+}
+
+.p-padding {
+    padding-right: 10px;
+}
+
+.row-border {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 120px;
+    border-bottom: 1px solid #ccc;
+    padding: 2rem 2rem;
+}
+
+.row-border:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.margin-top-2 {
+    margin-top: 2rem;
+}
+
+.padding-left-2 {
+    padding-left: 2rem;
 }
 </style>
