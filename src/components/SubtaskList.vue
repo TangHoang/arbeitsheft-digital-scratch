@@ -1,6 +1,6 @@
 <template>
     <ol :type="type" :start="start" :class="{ 'no-start': nostart }">
-        <li v-for="(t, i) in items" :key="i">{{ t }}</li>
+        <li v-for="(t, i) in items" :key="i" v-html="t"></li>
     </ol>
 </template>
 
