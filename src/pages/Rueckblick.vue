@@ -8,7 +8,9 @@
         </InfoCard>
 
         <Make aufgabenID="rueckblick/zusatz">
-            <p>Falls du besonders schnell bist, ist hier noch eine Zusatzaufgabe.</p>
+            <p>Falls du besonders schnell bist, ist hier noch eine Zusatzaufgabe. Diese Aufgabe ist besonders schwer und
+                geht über den Inhalt dieses Arbeitsheftes hinaus. Du darfst gerne im Internet für Lösungsansätze
+                recherchieren.</p>
             <h3>Aufgabe 1</h3>
             <ol>
                 <li>Implementiere einen Home-Screen.</li>
@@ -89,7 +91,6 @@ import StarRating from '../components/StarRating.vue';
 
 <style scoped>
 .rueckblick {
-    height: 100vh;
     display: flex;
     flex-flow: column;
     align-items: center;

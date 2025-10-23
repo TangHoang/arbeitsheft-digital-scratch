@@ -11,8 +11,8 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <ScratchImage :imageUrls="[rohr_bühne, rohr_img]" :height="'200px'" />
-                <StudentAnswer height="300px" answerId="roehre/aufgabe1" :hints="content.pr.hints"
-                    :taskType="'vermuten'" @revealScratch="showDemo = true" />
+                <StudentAnswer height="auto" answerId="roehre/aufgabe1" :hints="content.pr.hints" :taskType="'vermuten'"
+                    @revealScratch="showDemo = true" />
                 <ScratchDemo v-if="showDemo" :scratchUrl="'https://scratch.mit.edu/projects/1216517561/embed'" />
                 <HintWithSolution class="solution" />
             </template>
@@ -23,7 +23,7 @@
                 <h3> {{ content.investigate.title }}</h3>
                 <SubtaskList :items="content.investigate.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'300px'" answerId="roehre/aufgabe2" :solution="content.investigate.solution"
+                    <StudentAnswer :height="'auto'" answerId="roehre/aufgabe2" :solution="content.investigate.solution"
                         :hints="content.investigate.hints" />
                     <ScratchImage :imageUrls="[rohr_img]" :height="'200px'" />
                 </div>
@@ -121,7 +121,7 @@ const content = {
         hints: [
             {
                 title: "Hinweis 1",
-                content: "Schau dir den Block <code> wiederhole fortlaufend </code> genau an. Welche Variable wird fortlaufend verändert?"
+                content: "Schau dir den Block <code> wiederhole fortlaufend </code> genau an. Welcher Block ist für eine fortlaufende Änderung zuständig?"
             },
             {
                 title: "Hinweis 2",
@@ -134,19 +134,22 @@ const content = {
     },
     investigate: {
         title: "Aufgabe 2",
-        aufgabe_a: ["Erkläre die Funktion des Codes.",
-            "Welcher Block ist für die Bewegung nach links zuständig?",
-            "Welche Bedingung muss erfüllt werden, damit die Röhre wieder auf der rechten Seite auftaucht?",
+        aufgabe_a: ["Erkläre die wichtigsten Blöcke des Codes.",
+
         ],
         aufgabe_b: [
             'Öffne deine Datei "FlappyBird_v1.sb3" im Editor und übertrage den Code.'
         ],
-        hints: [{
-
-            title: "Hinweis 1",
-            content: "Betrachte <code> falls x-Position < -260 </code>. Zu welcher Position springt die Figur, wenn die Bedingung eintritt?"
-
-        }],
+        hints: [
+            {
+                title: "Hinweis 1",
+                content: "Welcher Block ist für die Bewegung nach links zuständig?",
+            },
+            {
+                title: "Hinweis 2",
+                content: "Betrachte <code> falls x-Position < -260 </code>. Zu welcher Position springt die Figur, wenn die Bedingung eintritt?"
+            },
+        ],
         solution: `
   <p><b>Lösung:</b></p>
   <ol>

@@ -40,9 +40,15 @@
             <ul class="info-list">
                 <li class="info-row">
                     <span class="info-text">
-                        <strong>Skript beenden: </strong> Du hast gesehen, wie man ein Skript mit Hilfe von 'Stoppe
-                        alles'
-                        beendet.
+                        <strong>Kollision: </strong> Du hast selbst die Kollision mit der Decke und dem Boden
+                        implementiert.
+                    </span>
+                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
+                        loading="lazy" />
+                </li>
+                <li class="info-row">
+                    <span class="info-text">
+                        <strong>Skript beenden: </strong> Du hast ein Skript abhängig vom Spielverlauf beendet.
                     </span>
                     <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
                         loading="lazy" />
@@ -50,21 +56,12 @@
                 <li class="info-row">
 
                     <span class="info-text">
-                        <strong>Logik: </strong> Wir haben den 'oder' - Operator verwendet, um zwei Fälle
-                        gleichzeitig
-                        abzudecken.
+                        <strong>Glückwunsch: </strong> Du hast nun eine minimale spielbare Version von FlappyBird!
                     </span>
                     <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
                         loading="lazy" />
                 </li>
-                <li class="info-row">
-                    <span class="info-text">
-                        <strong>Kollision: </strong> Du hast selbst die Kollision mit der Decke und dem Boden
-                        implementiert.
-                    </span>
-                    <img class="info-icon" src="@/assets/einleitung_assets/green_checkmark.webp" alt="Bild"
-                        loading="lazy" />
-                </li>
+
             </ul>
         </InfoCard>
 

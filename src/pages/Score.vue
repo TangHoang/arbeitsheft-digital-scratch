@@ -12,10 +12,10 @@
                 <h3> {{ content.pr.title }}</h3>
                 <SubtaskList :items="content.pr.aufgabe_a" />
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" width="50%" answerId="score/aufgabe1" :hints="content.pr.hints" />
+                    <StudentAnswer :height="'auto'" width="50%" answerId="score/aufgabe1" :hints="content.pr.hints" />
                     <ScratchImage :imageUrls="[score_img, score_bühne]" :height="'200px'" />
                 </div>
-                <SubtaskList :items="content.pr.aufgabe_b" />
+                <SubtaskList :start="2" :items="content.pr.aufgabe_b" />
                 <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213460873/embed/'" />
                 <HintWithSolution :solution="content.pr.solution" class="solution" />
             </template>
@@ -27,7 +27,7 @@
                 <SubtaskList :items="content.investigate.aufgabe_a" />
 
                 <div class="horizontal-container">
-                    <StudentAnswer :height="'200px'" answerId="score/aufgabe2" :hints="content.investigate.hints" />
+                    <StudentAnswer :height="'auto'" answerId="score/aufgabe2" :hints="content.investigate.hints" />
                     <ScratchImage :imageUrls="[score_img]" :height="'200px'" />
                 </div>
 
@@ -41,7 +41,8 @@
                     <div>
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
-                            :exercises="content.modify.aufgabe_a" :exerciseId="'score/aufgabe3'" />
+                            :exercises="content.modify.aufgabe_a" :exerciseId="'score/aufgabe3'"
+                            :hints="content.modify.hints" />
 
                     </div>
                     <ScratchImage :imageUrls="[score_img]" :height="'200px'" />
@@ -133,7 +134,7 @@ const content = {
     pr: {
         sectionTitle: "",
         title: "Aufgabe 1",
-        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf. Der Code rechts ist für eine Figur namens 'Crystal'."],
+        aufgabe_a: ["Stelle eine Vermutung über die Funktionalität des Codes auf. <b> Achtung: </b> Der Code rechts ist für eine Figur namens <code> Crystal</code>."],
         aufgabe_b: ["Führe nun Programm unten aus, indem du die grüne Flagge anklickst. Überprüfe deine Vermutungen."],
         demo_link: "https://scratch.mit.edu/projects/1206376368/embed",
         hints: [
@@ -164,6 +165,14 @@ const content = {
             "Entferne den 'warte'-Block, probiere es aus und passe ggf. deine Antwort in Aufgabe 2 an.",
             "Es fehlt noch Röhre2! Kopiere nun den gegebenen Code, um die zweite Röhre miteinzubeziehen.",
             "Verändere! Die Figur Crystal, die bei Berührung mit der Röhre den Counter erhöht, sollst du so unsichtbar wie möglich machen."
+        ],
+        hints: [
+            {
+                content: 'c) Hierfür musst du innerhalb von Crystal den Code einfach kopieren und Röhre1 zu Röhre2 ändern.'
+            },
+            {
+                content: 'd) Um die Figur <code> Crystal </code> so unsichtbar wie möglich zu machen, kannst du z.B. ihre Größe anpassen.'
+            }
         ]
     },
     make: {
