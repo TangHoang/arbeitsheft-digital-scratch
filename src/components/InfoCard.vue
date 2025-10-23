@@ -51,7 +51,7 @@ function handleFocus() {
     border-radius: 24px;
     max-width: 1200px;
     width: 90%;
-
+    height: auto;
     text-align: left;
     color: #3b2d0a;
 

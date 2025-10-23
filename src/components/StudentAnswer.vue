@@ -51,6 +51,7 @@ function onRevealClick() {
     flex-direction: column;
     padding-right: 3rem;
     min-width: 60%;
+    margin-top: 1rem;
 }
 
 .input-box {
@@ -58,11 +59,9 @@ function onRevealClick() {
     flex-direction: column;
     justify-content: left;
     width: 100%;
-    height: 100%;
 }
 
 textarea {
-    min-height: 120px;
     resize: vertical;
     padding: 0.5rem;
     font-family: inherit;
@@ -71,7 +70,7 @@ textarea {
     border-radius: 18px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
-    height: 100%;
+    min-height: 200px;
 }
 
 
