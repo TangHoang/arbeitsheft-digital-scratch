@@ -43,7 +43,7 @@
                             </p>
                             <HintWithSolution :hints="s.hints || []" :exerciseId="s.exerciseId" />
                             <div class="image-container" v-if="s.images?.length">
-                                <ScratchImage :imageUrls="s.images" :height="'120px'" />
+                                <ScratchImage :imageUrls="s.images" :height="'120px'" class="scratch-image" />
                             </div>
                         </div>
                     </div>
@@ -131,6 +131,18 @@ const { state: s, closeOverlay, markDownloaded } = useOverlayIframe()
     cursor: pointer;
 }
 
+.pre-download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
 .content-row {
     display: flex;
     flex: 1;
@@ -189,5 +201,9 @@ const { state: s, closeOverlay, markDownloaded } = useOverlayIframe()
     display: flex;
     flex-flow: column;
     margin-top: 1rem;
+}
+
+.scratch-image {
+    margin-bottom: 1rem;
 }
 </style>
