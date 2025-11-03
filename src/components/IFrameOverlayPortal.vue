@@ -36,11 +36,8 @@
                     </div>
 
                     <div class="content-row">
-                        <iframe ref="frameRef" :src="s.iframeSrc" class="iframe" allowfullscreen @load="onIframeLoad" />
+                        <iframe ref="frameRef" :src="s.iframeSrc" class="iframe" allowfullscreen :key="s.reloadKey" />
                         <div class="hint-container">
-                            <p class="hinweis">⚠️ <strong>Wichtig:</strong> Stelle die Sprache auf
-                                <strong>Deutsch</strong>, indem du oben links auf den Globus drückst!
-                            </p>
                             <HintWithSolution :hints="s.hints || []" :exerciseId="s.exerciseId" />
                             <div class="image-container" v-if="s.images?.length">
                                 <ScratchImage :imageUrls="s.images" :height="'120px'" class="scratch-image" />
