@@ -23,12 +23,15 @@ import IframeOverlayPortal from '@/components/IframeOverlayPortal.vue'
 import { useFocusLog } from '@/composables/useFocusLog'
 import { onMounted } from 'vue';
 import { ensureStudentId } from './lib/identity';
+import { startAutoSend } from '@/lib/sender.js'
 
 const { initStartTime } = useFocusLog()
 
 onMounted(() => {
 	initStartTime();
 	ensureStudentId();
+	startAutoSend(60000);
+
 });
 
 </script>

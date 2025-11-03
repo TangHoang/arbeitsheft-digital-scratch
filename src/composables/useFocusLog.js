@@ -1,15 +1,21 @@
 import { ref } from 'vue'
 import { toRaw } from 'vue'
 import { getStudentId } from '../lib/identity'
+import { markDataDirty } from '../lib/sender';
 
-const studentId = getStudentId();
+const studentId = getStudentId()
 const STORAGE_KEY = `app:focusLog:${studentId}`
 
 const focusData = ref(loadData())
 
 function loadData() {
     try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || createEmptyData()
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || createEmptyData()
+        if (!data.startStamp || typeof data.startStamp !== 'number') {
+            data.startStamp = Date.now()
+        }
+        if ('lastFocus' in data) delete data.lastFocus
+        return data
     } catch {
         return createEmptyData()
     }
@@ -19,8 +25,7 @@ function createEmptyData() {
     return {
         startTime: getCurrentClockTime(),
         startStamp: Date.now(),
-        logs: {},
-        lastFocus: {}
+        logs: {}               // { [id]: ["m:ss", "m:ss", ...] }
     }
 }
 
@@ -31,13 +36,13 @@ function getCurrentClockTime() {
 
 function saveData() {
     const raw = toRaw(focusData.value)
-    console.log(raw)
     const data = {
         startTime: raw.startTime,
-        logs: raw.logs,
-        lastFocus: raw.lastFocus
+        startStamp: raw.startStamp,
+        logs: raw.logs
     }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data, null, 2))
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    markDataDirty()
 }
 
 export function useFocusLog() {
@@ -55,24 +60,24 @@ export function useFocusLog() {
     }
 
     function logFocus(id) {
-        const last = focusData.value.lastFocus[id]
-        const lastMs = last ? parseTimeToMs(last) : 0
-        const currentMs = Date.now() - focusData.value.startStamp
-        const diffMs = currentMs - lastMs
-
-        // Cooldown aka Debounce
-        if (last && diffMs < 5 * 60 * 1000) {
-            console.log('Log abgebrochen. Cooldown!')
-            return
-        }
+        const list = focusData.value.logs[id] || []
+        const last = list.length ? list[list.length - 1] : null
 
         const currentTime = timeSinceStart()
+
+        if (last) {
+            const lastMs = parseTimeToMs(last)
+            const currentMs = parseTimeToMs(currentTime)
+            const diffMs = currentMs - lastMs
+            if (diffMs < 5 * 60 * 1000) {
+                return
+            }
+        }
+
         if (!focusData.value.logs[id]) focusData.value.logs[id] = []
         focusData.value.logs[id].push(currentTime)
-        focusData.value.lastFocus[id] = currentTime
 
         saveData()
-        console.log(`🕑 Fokus auf ${id} bei ${currentTime}`)
     }
 
     function parseTimeToMs(str) {
