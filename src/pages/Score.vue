@@ -42,7 +42,7 @@
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'"
                             :exercises="content.modify.aufgabe_a" :exerciseId="'score/aufgabe3'"
-                            :hints="content.modify.hints" />
+                            :hints="content.modify.hints" :images="[score_img]" />
 
                     </div>
                     <ScratchImage :imageUrls="[score_img]" :height="'200px'" />
@@ -148,7 +148,7 @@ const content = {
     },
     investigate: {
         title: "Aufgabe 2",
-        aufgabe_a: ["Erkläre die Funktionalität des Codes.", "Was ist wohl der Sinn des 'Warte'-Blocks ...? "],
+        aufgabe_a: ["Erkläre die Funktionalität des Codes in eigenen Worten."],
         hints: [
             {
                 content: 'Die Figur "Crystal" berührt das Rohr nicht nur in einer Instanz. Sie berührt das Rohr über einen gewissen <b> Zeitraum </b>.',
@@ -161,10 +161,10 @@ const content = {
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ["Übertrage zuerst den Programmcode im Bild in die Figur Crystal.",
-            "Entferne den 'warte'-Block, probiere es aus und passe ggf. deine Antwort in Aufgabe 2 an.",
-            "Es fehlt noch Röhre2! Kopiere nun den gegebenen Code, um die zweite Röhre miteinzubeziehen.",
-            "Verändere! Die Figur Crystal, die bei Berührung mit der Röhre den Counter erhöht, sollst du so unsichtbar wie möglich machen."
+        aufgabe_a: ["Übertrage zuerst den Programmcode im Bild in die <b>Figur Crystal</b>.",
+            "Entferne den <code>warte-Block</code>, probiere es aus und passe ggf. deine Antwort in <b>Aufgabe 2</b> an.",
+            "Es fehlt noch das Zahlen der Punkte für <code>Röhre2</code>. Kopiere den gegebenen Code, um die zweite Röhre miteinzubeziehen.",
+            "Verändere: Die Figur <b>Crystal</b>, die bei Berührung mit der Röhre die Variable <code>Punkte</code> erhöht, sollst du so unsichtbar wie möglich machen."
         ],
         hints: [
             {

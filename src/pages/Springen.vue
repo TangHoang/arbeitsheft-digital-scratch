@@ -34,6 +34,8 @@
                         :solution="content.investigate.solution" />
                     <ScratchDemo :scratchUrl="'https://scratch.mit.edu/projects/1213169461/embed'" />
                 </div>
+                <p>Das Verhalten aus Demo 2 ist genau das, was wir brauchen, um Flappy-Bird zu erstellen. In der
+                    nächsten Aufgabe werden wir dies zusammen programmieren.</p>
             </template>
         </Investigate>
 
@@ -45,14 +47,14 @@
                         <SubtaskList :items="content.modify.aufgabe_a" />
                         <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor öffnen'"
                             :exercises="content.modify.aufgabe_a" :exerciseId="'springen/aufgabe3'"
-                            :hints="content.modify.hints" :requireDownload="true" />
+                            :hints="content.modify.hints" :requireDownload="true" :images="[sprung_modify]" />
 
                         <p class="hinweis">⚠️ <Strong>Wichtig:</Strong> Dein Projektzustand bleibt erhalten! Du kannst
                             einfach zum nächsten Kapitel gehen, ohne Angst zu haben, dass dein Fortschritt verschwindet
                             :-).
                         </p>
                     </div>
-                    <ScratchImage :imageUrls="[sprung_predict]" :height="'200px'" />
+                    <ScratchImage :imageUrls="[sprung_modify]" :height="'200px'" />
 
                 </div>
 
@@ -186,6 +188,7 @@ import StarRating from "../components/StarRating.vue"
 import sprung_bühne from "@/assets/sprung_assets/sprung_bühne.png"
 import sprung_predict from '@/assets/sprung_assets/sprung_predict.png'
 import sprungHint from '@/assets/sprung_assets/sprung_hint.png'
+import sprung_modify from '@/assets/sprung_assets/sprung_modify.png'
 
 import test_beispiel from '@/assets/sprung_assets/test_beispiel.png'
 import download_project from '@/assets/sprung_assets/download_project.png'
@@ -249,26 +252,36 @@ const content = {
     },
     modify: {
         title: "Aufgabe 3",
-        aufgabe_a: ['Erstelle eine Variable <code>Vertikale Änderung</code>.',
-            'Implementiere: Bei Leertaste soll die <code>Vertikale Änderung</code> auf 15 <b>gesetzt</b> werden, ansonsten um -2 <b>verändert</b> werden.',
+        aufgabe_a: [
+            'Erstelle eine Variable <code>Vertikale Änderung</code>.',
+
+            'Implementiere: Bei Leertaste soll die Variable <code>Vertikale Änderung</code> auf 15 <b>gesetzt</b> werden, ansonsten soll die Variable um -2 <b>verändert</b> werden.',
+
             'Ändere nach dem <code>falls-dann-Block</code> (am Ende der Schleife) die Höhe der Katze um die Variable <code>Vertikale Änderung</code>.',
+
             "Implementiere: Immer wenn die Figur springt, soll das Kostüm geändert werden.",
+
             "Zusatz: Füge Soundeffekte hinzu."
         ],
         hints: [
             {
+                title: "b) Hinweis",
                 content: "b) Verwende die Blöcke <code>setze Variable </code> und <code> ändere Variable </code> im Abschnitt Variablen."
             },
+
             {
+                title: "c) Hinweis",
                 content: "c) Verwende den Block <code> ändere y um ... </code> im Abschnitt Bewegung."
             },
             {
+                title: "d) Hinweis",
                 content: "d) Verwende den Block <code> wechsle Kostüm ... </code> im Abschnitt Aussehen."
             },
             {
+                title: "Lösung?",
                 content: "Letzter Hinweis: Platziere den Block <code> ändere y um 'Vertikale Änderung' </code> an die richtige Stelle.</code>",
                 img: { src: sprungHint }
-            }
+            },
         ]
     },
     make: {

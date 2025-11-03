@@ -3,8 +3,11 @@
 
         <InfoCard variant="orange" :title="'Kapitel 3: Kollision'" :showTime="'🕑 30-35 Minuten'"
             aufgabenID="kollision/einleitung">
-            <p>Jetzt wollen wir die vorherigen zwei Kapitel sinnvoll kombinieren. Wenn dein Vogel ein Rohr berüht, soll
-                das Spiel beendet werden!</p>
+            <p>Nach dem letzten Kapitel bewegen sich nun unsere Röhren kontinuierlich nach links und ändern zufällig
+                ihre Höhen.</p>
+            <p>Jetzt wollen wir die vorherigen zwei Kapitel sinnvoll kombinieren. Wenn dein Vogel ein <b>Rohr</b>, den
+                <b>Boden</b> oder die <b>Decke</b> berührt, soll das <b>Spiel beendet</b> werden!
+            </p>
         </InfoCard>
 
         <PredictAndRun aufgabenID="kollision/aufgabe1">
@@ -101,10 +104,13 @@ const content = {
         title: "Aufgabe 1",
         aufgabe_a: ["Starte das Projekt und probiere es aus.",
         ],
-        aufgabe_2: ['Implementiere folgende Aspekte: '],
-        aufgabe_b: ['Wenn die Figur Röhre1 oder Röhre2 berührt, soll alles gestoppt werden.',
-            'Wenn die Figur den Boden oder die Decke berührt, soll alles gestoppt werden.',
-            'Zusatz: Implementiere Soundeffekte für Kollisionen.'],
+        aufgabe_2: ['Wechsle zuerst <b>unten rechts</b> im Editor zur Figur Katze, um folgende Dinge zu programmieren:'],
+        aufgabe_b: [
+            'Wenn die Figur <code>Röhre1</code>  berührt, soll alles gestoppt werden.',
+            'Wenn die Figur den <b>Boden</b> oder die <b>Decke</b> berührt, soll alles gestoppt werden.',
+            'Programmiere den Code aus a) für <code>Röhre2</code> mit seperaten Blöcken nochmal.',
+            'Zusatz: Implementiere Soundeffekte für Kollisionen.'
+        ],
         hints: ["a)+b) Wähle deinen Vogel aus und suche im Abschnitt fühlen nach den geeigneten Blöcken.", "a)+b) Suche im Abschnitt Steuerung nach einem geeigneten Block, um das Skript zu stoppen."],
         aufgabe_c: ["c) Waren deine Vermutungen richtig? :-)"],
         demo_link: "https://scratch.mit.edu/projects/1206376368/embed",
@@ -118,9 +124,15 @@ const content = {
         aufgabe_a: ["a) Übertrage zuerst den Programmcode im Bild in dein Projekt.", "b) Verändere den gegebenen Programmcode! Wenn das Rohr berührt wird, soll dein Bird auf den Boden fallen!"],
         hints: [
             {
-                content: 'Du findest einen geeigneten Block im Abschnitt <b>Fühlen</>.'
+                title: "Hinweis 1",
+                content: 'Verwende das Standardgerüst aus Kapitel Steuerung in Scratch-Einführung'
             },
             {
+                title: "a) Hinweis",
+                content: 'Du findest einen geeigneten Block im Abschnitt <b>Fühlen</>. Block:<code> wird ... berührt? </code>.'
+            },
+            {
+                title: "b) Hinweis",
                 content: 'Suche im Abschnitt <b>Steuerung</b> nach einem geeigneten Block, um das Skript zu stoppen.'
             }
         ]

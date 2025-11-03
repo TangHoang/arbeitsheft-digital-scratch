@@ -62,7 +62,8 @@
                     Änderungen der Richtung implementierst.
                     Ziehe dazu die geeigneten Blöcke in den Programmierbereich.
                 </p>
-                <OpenIFrameButton :images="[bewegung_beispiel, skript_img, bewegung_img]" />
+                <OpenIFrameButton :images="[bewegung_beispiel, skript_img, bewegung_img]" :reload="true"
+                    :exercises="['Erweitere das Projekt aus dem Beispiel, indem du die restlichen Änderungen der Richtung implementierst. Ziehe dazu die geeigneten Blöcke in den Programmierbereich.']" />
             </div>
         </InfoCard>
 
@@ -99,11 +100,14 @@
                     <p>Aber im <code>sonst-</code>Abschnitt fehlt noch ein Block!</p>
                 </CollapsibleExample>
                 <p> <strong>Aufgabe: </strong></p>
-                <p>1. Übertrage den Code in deinen Editor.</p>
+                <p>1. Übertrage den Code in deinen Editor. <br> Du kannst deinen bisherigen Code löschen, indem du oben
+                    links auf <code>Datei</code> => <code>Setze Projekt zurück</code> drückst.
+                </p>
                 <p>2. Vervollständige den <code>sonst-</code> Abschnitt mit dem Block <code>gehe -2er Schritt</code>.
                 </p>
 
-                <OpenIFrameButton :images="[steuerung_while_extended]" />
+                <OpenIFrameButton :images="[steuerung_while_extended]" :reload="true"
+                    :exercises="['Übertrage den Code in deinen Editor.', 'Vervollständige den <code>sonst-</code> Abschnitt mit dem Block <code>gehe -2er Schritt</code>.']" />
             </div>
         </InfoCard>
 
@@ -160,7 +164,11 @@
                     Alle 60 Sekunden, soll <code>Vergangene Sekunden</code> auf 0 gesetzt werden und
                     <code>Vergangene Minuten</code> um 1 erhöht werden.
                 </p>
-                <OpenIFrameButton :images="[variable_img, variablen_img]" />
+                <OpenIFrameButton :images="[variable_img, variablen_img]" :reload="true" :exercises="[
+                    'Erstelle eine Variable mit dem Namen <code>Vergangene Sekunden</code> und übertrage den Code indeinen Editor.',
+                    'Erweitere das Programm, indem du direkt nach <code>Wenn grüne Flagge angeklickt wird</code> die Variable <code>Vergangene Sekunden</code> auf 0 setzt.',
+                    '(Zusatz): Erweitere das Programm, indem eine neue Variable <code>Vergangene Minuten</code> hinzufügst. Alle 60 Sekunden, soll <code>Vergangene Sekunden</code> auf 0 gesetzt werden und <code>Vergangene Minuten</code> um 1 erhöht werden.'
+                ]" />
             </div>
         </InfoCard>
 
@@ -180,6 +188,7 @@ import InfoCard from '../components/InfoCard.vue';
 
 import ScratchImage from '../components/ScratchImage.vue';
 import OpenIFrameButton from '../components/OpenIFrameButton.vue';
+import PopUp from '../components/PopUp.vue';
 import StudentAnswer from '../components/StudentAnswer.vue';
 import CollapsibleExample from '../components/CollapsibleExample.vue';
 import StarRating from '../components/StarRating.vue';
