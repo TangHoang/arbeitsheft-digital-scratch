@@ -15,6 +15,7 @@ const props = defineProps({
     hints: { type: Array, default: () => [] },
     showIframe: { type: Boolean, default: true },
     requireDownload: { type: Boolean, default: false },
+    reload: { type: Boolean, default: false }
 })
 
 const { openOverlay } = useOverlayIframe()

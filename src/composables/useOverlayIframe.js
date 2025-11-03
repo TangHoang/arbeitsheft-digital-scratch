@@ -13,6 +13,7 @@ const state = reactive({
     exerciseId: 'editor',
     requireDownload: false,
     downloaded: false,
+    reloadKey: 0,
 })
 
 function openOverlay(opts = {}) {
@@ -28,6 +29,10 @@ function openOverlay(opts = {}) {
     state.images = opts.images ?? state.images
     state.exercises = opts.exercises ?? state.exercises
     state.hints = opts.hints ?? state.hints
+
+    if (opts.reload) {
+        state.reloadKey++
+    }
 
     state.open = true
     state.hasOpened = true
