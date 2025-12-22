@@ -6,12 +6,19 @@
                 war das hoffentlich lehrreich und interessant!</p>
 
         </InfoCard>
+        <Make aufgabenID="rueckblick/kreativ">
+            <h3>Aufgabe 1</h3>
+            Lasse deine Kreativität freien Lauf und verändere z.B. Figuren, Hintergrundbilder und Hindernisse nach
+            deinem Belieben.
+            <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'" />
+
+        </Make>
 
         <Make aufgabenID="rueckblick/zusatz">
             <p>Falls du besonders schnell bist, ist hier noch eine Zusatzaufgabe. Diese Aufgabe ist besonders schwer und
                 geht über den Inhalt dieses Arbeitsheftes hinaus. Du darfst gerne im Internet für Lösungsansätze
                 recherchieren.</p>
-            <h3>Aufgabe 1</h3>
+            <h3>Aufgabe 2</h3>
             <ol>
                 <li>Implementiere einen Home-Screen.</li>
                 <li>Implementiere einen Lose-Screen.</li>
