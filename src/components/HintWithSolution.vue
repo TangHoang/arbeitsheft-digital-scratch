@@ -176,8 +176,9 @@ function onSolutionChip() {
         activeKey.value = 'solution'
         solutionRevealedOnce.value = true
         emit('revealed')
+    } else {
+        activeKey.value = null
     }
-    activeKey.value = 'solution'
 
 }
 </script>
