@@ -8,8 +8,12 @@
         </InfoCard>
         <Make aufgabenID="rueckblick/kreativ">
             <h3>Aufgabe 1</h3>
-            Lasse deine Kreativität freien Lauf und verändere z.B. Figuren, Hintergrundbilder und Hindernisse nach
-            deinem Belieben.
+
+            <p>Lasse deine Kreativität freien Lauf!</p>
+            <p>Verändere z.B. Figuren, Hintergrundbilder und Hindernisse nach
+                deinem Belieben.</p>
+
+
             <OpenIFrameButton :projectUrl="SprungProjectUrl" :type="'editor'" :buttonTitle="'Editor Öffnen'" />
 
         </Make>
