@@ -2,7 +2,7 @@
 
 ## Lokale Ausführung des digitalen Arbeitshefts
 
-Dieses Repository enthält den Quellcode für das im Rahmen der Masterarbeit entwickelte digitale Arbeitsheft. Falls die Bereitstellung über GitHub Pages nicht verfügbar sein sollte, kann die Anwendung mit den folgenden Schritten lokal installiert und ausgeführt werden.
+Dieses Repository enthält den Quellcode für das im Rahmen der Masterarbeit entwickelte digitale Arbeitsheft. Falls die Bereitstellung über GitHub Pages (https://tanghoang.github.io/arbeitsheft-digital-scratch/) nicht verfügbar sein sollte, kann die Anwendung mit den folgenden Schritten lokal installiert und ausgeführt werden.
 
 ## Voraussetzungen
 
