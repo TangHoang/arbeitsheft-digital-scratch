@@ -19,7 +19,7 @@ Für die Ausführung wird eine installierte Node.js-Umgebung (Version 16.0 oder 
 3. Abhängigkeiten installieren:
    npm install
 
-## Ausführung im Entwicklungsmodus
+## Ausführung
 
 Um die Anwendung lokal zu starten, führen Sie den folgenden Befehl aus:
 
